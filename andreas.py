@@ -53,7 +53,7 @@ canvas.pack()
 
 ws.mainloop()
 
-#%% tourner le kata
+#%% faire rentrer le kata
 Grid=[[0 for _ in range(13)] for _ in range(5)]
 def RotateKataClockwise(Kata):          #tourner la pièce dans le sens horaire, fonctionne
     newKata=[]
@@ -73,11 +73,11 @@ def FlipKata(Kata):                     #retourner la pièce
         newKata.append(kataL)
     return newKata
 
-def FitKataInGrid(Kata,G,flip):              #fonction qui cherche à faire rentrer un kata dans une grille donnée
+def FitKataInGrid(Kata,G,flip):              #fonction qui cherche à faire rentrer un kata dans une grille donnée (elle marche promis)
     newG=copy.deepcopy(G)
+    newKata=copy.deepcopy(Kata)
     for _ in range(4):
         u,v=0,0
-        newKata=copy.deepcopy(Kata)
         while u+len(newKata)<=len(newG):
             while v+len(newKata[0])<=len(newG[0]):
                 newG=copy.deepcopy(G)
@@ -98,3 +98,8 @@ def FitKataInGrid(Kata,G,flip):              #fonction qui cherche à faire rent
     if flip:    
         return FitKataInGrid(FlipKata(Kata), G, False)
     return G
+
+#%% résoudre le katamino
+KataL=[GrandEclair,GrandL,GrandT]
+def TestCombination(KataList, G):
+    
