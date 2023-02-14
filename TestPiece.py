@@ -80,5 +80,4 @@ def applique(Plateau,Liste):
         ajout(Plateau,Piece,Liste[i][3],Liste[i][4])
     return Plateau
 
-
-
+#patate
