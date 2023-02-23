@@ -54,7 +54,7 @@ canvas.pack()
 ws.mainloop()
 
 #%% faire rentrer le kata
-Grid=[[0 for _ in range(13)] for _ in range(5)]
+Grid=[[0 for _ in range(3)] for _ in range(5)]
 def RotateKataClockwise(Kata):          #tourner la pièce dans le sens horaire, fonctionne
     newKata=[]
     for i in range(len(Kata[0])):
@@ -86,7 +86,6 @@ def FitKataInGrid(Kata,G,flip):              #fonction qui cherche à faire rent
                     for j in range(len(Kata[0])):
                         if newG[i+u][j+v]==0 or newKata[i][j]==0:               #ajoute le morceau de Kata dans le cas où la case est vide
                             newG[i+u][j+v]+=newKata[i][j]
-                            print(newG)
                         else:
                            fitting=False
                 if fitting:
@@ -100,6 +99,36 @@ def FitKataInGrid(Kata,G,flip):              #fonction qui cherche à faire rent
     return G
 
 #%% résoudre le katamino
-KataL=[GrandEclair,GrandL,GrandT]
-def TestCombination(KataList, G):
-    
+KataL=[NormalC,NormalP,GrandT]
+def PermutationsListe(L): #tester les permutations d'une liste qconque
+    if len(L)==2:
+        return [L, [L[1], L[0]]]
+    else:
+        combL=[]
+        for i in range(len(L)):
+            l=PermutationsListe(L[:i]+L[i+1:])
+            for j in range(len(l)):
+                combL.append(l[j]+[L[i]])
+        return combL
+            
+def SolveKatamino(L, G):    #ça marche pas exactement comme prévu
+    "teste les permutations d'une liste donnée de kataminos dans une grille"
+    for Permutation in PermutationsListe(L):
+        fitting=True
+        newG=copy.deepcopy(G)
+        for Kata in Permutation:
+            newG=FitKataInGrid(Kata, newG, True)
+        i,j=0,0
+        print(newG)
+        while i<len(newG):
+            j=0
+            while j<len(newG[0]):
+                if newG[i][j]==0:
+                    print("papleurst")
+                    fitting = False
+                j+=1
+            i+=1
+        print(i,j)
+        if fitting:
+            return newG
+    return "aucune solution trouvée"
