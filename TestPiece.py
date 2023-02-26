@@ -57,6 +57,7 @@ Plateau=[np.zeros(Large) for _ in range (Long)]
 #AJOUT D'UNE PIECE AU PLATEAU
 
 def ajout(Plateau,Piece,n=0,m=0):
+
     for i in range (len(Piece)): #lignes
         for j in range (len(Piece[0])): #colonnes
             if Piece[i][j]!=0:
@@ -81,3 +82,64 @@ def applique(Plateau,Liste):
     return Plateau
 
 #patate
+
+def bourrin(Liste,Plateau=[np.zeros(Large) for _ in range (Long)]): #,n,m,t,s):
+    
+    L=Liste[:]
+    if len(L)==0:
+        return Plateau
+    
+    i,j,t,s=0,0,0,0
+
+    while s<2:
+        i,j,t=0,0,0
+        nP=ajout(Plateau,L[0],i,j)
+        if type(nP)!=int:
+            return bourrin(L,nP)
+        
+        while t<4:
+            i,j=0,0
+            nP=ajout(Plateau,L[0],i,j)
+            if type(nP)!=int:
+                return bourrin(L,nP)
+            
+            while j<len(Plateau[0]):
+                i=0
+                nP=ajout(Plateau,L[0],i,j)
+                if type(nP)!=int:
+                    return bourrin(L,nP)
+                
+                while i<len(Plateau):
+                    nP=ajout(Plateau,L[0],i,j)
+                    if type(nP)!=int:
+                        return bourrin(L,nP)
+                    i+=1
+
+                j+=1
+
+            tourne90(L[0])
+            t+=1
+
+        retourne(L[0])
+        s+=1
+
+    return 'T-T'
+
+    
+
+#    retourne tourne90 colonne ligne
+
+
+print(bourrin(Liste))
+
+
+
+
+
+
+
+
+
+
+
+
