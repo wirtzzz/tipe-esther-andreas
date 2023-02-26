@@ -1,33 +1,37 @@
 from tkinter import *
 import copy
-#à partir d'ici c'est la merde
 #%% lesdits kataminos
+class Katamino:
+    """peut etre pas si utile que ça mais pourquoi pas"""
+    def __init__(self, shape, number):
+        self.s=shape
+        self.n=number
+GrandL=Katamino([[1,1],[1,0],[1,0],[1,0]],1)
+GrandT=Katamino([[2,0],[2,2],[2,0],[2,0]],2)
+GrandEclair=Katamino([[3,0],[3,0],[3,3],[0,3]],3)
 
-GrandL=[[1,1],[1,0],[1,0],[1,0]]
-GrandT=[[2,0],[2,2],[2,0],[2,0]]
-GrandEclair=[[3,0],[3,0],[3,3],[0,3]]
+GrandV=Katamino([[4,4,4],[4,0,0],[4,0,0]],4)
 
-GrandV=[[4,4,4],[4,0,0],[4,0,0]]
+NormalP=Katamino([[5,5],[5,5],[5,0]],5)
+NormalC=Katamino([[6,6],[6,0],[6,6]],6)
 
-NormalP=[[5,5],[5,5],[5,0]]
-NormalC=[[6,6],[6,0],[6,6]]
+BizarrdZ=Katamino([[7,0,0],[7,7,7],[0,0,7]],7)
 
-BizarrdZ=[[7,0,0],[7,7,7],[0,0,7]]
+IBarre4=Katamino([[8],[8],[8],[8]],8)
 
-IBarre4=[[8],[8],[8],[8]]
+PetitL=Katamino([[9,9],[9,0],[9,0]],9)
+PetitT=Katamino([[10,0],[10,10],[10,0]],10)
+PetitEclair=Katamino([[11,0],[11,11],[0,11]],11)
 
-PetitL=[[9,9],[9,0],[9,0]]
-PetitT=[[10,0],[10,10],[10,0]]
-PetitEclair=[[11,0],[11,11],[0,11]]
+Carre=Katamino([[12,12],[12,12]],12)
 
-Carre=[[12,12],[12,12]]
+IBarre3=Katamino([[13],[13],[13]],13)
+PetitV=Katamino([[14,14],[14,0]],14)
 
-IBarre3=[[13],[13],[13]]
-PetitV=[[14,14],[14,0]]
+IBarre2=Katamino([[15],[15]],15)
 
-IBarre2=[[15],[15]]
+Point=Katamino([[16]], 16)
 
-Point=[[16]]
 
 #%% maths et dessin
 def DrawGrid(Grid):             #afficher la grille complétée
@@ -48,9 +52,7 @@ canvas = Canvas(
     width=1000,
     bg="#fff"
     )
- 
 canvas.pack()
-
 ws.mainloop()
 
 #%% faire rentrer le kata
@@ -73,9 +75,12 @@ def FlipKata(Kata):                     #retourner la pièce
         newKata.append(kataL)
     return newKata
 
-def FitKataInGrid(Kata,G,flip):              #fonction qui cherche à faire rentrer un kata dans une grille donnée (elle marche promis)
+def FitKataInGrid(Kata,G,flip=True,init_rotation=0):
+              #fonction qui cherche à faire rentrer un kata dans une grille donnée 
     newG=copy.deepcopy(G)
     newKata=copy.deepcopy(Kata)
+    for _ in range(init_rotation):
+        newKata=RotateKataClockwise(newKata)
     for _ in range(4):
         u,v=0,0
         while u+len(newKata)<=len(newG):
@@ -98,6 +103,7 @@ def FitKataInGrid(Kata,G,flip):              #fonction qui cherche à faire rent
         return FitKataInGrid(FlipKata(Kata), G, False)
     return G
 
+#def MoveKata(KataN,)
 #%% résoudre le katamino
 KataL=[NormalC,NormalP,GrandT]
 def PermutationsListe(L): #tester les permutations d'une liste qconque
@@ -116,19 +122,24 @@ def SolveKatamino(L, G):    #ça marche pas exactement comme prévu
     for Permutation in PermutationsListe(L):
         fitting=True
         newG=copy.deepcopy(G)
-        for Kata in Permutation:
-            newG=FitKataInGrid(Kata, newG, True)
-        i,j=0,0
-        print(newG)
-        while i<len(newG):
-            j=0
-            while j<len(newG[0]):
-                if newG[i][j]==0:
-                    print("papleurst")
-                    fitting = False
-                j+=1
-            i+=1
-        print(i,j)
-        if fitting:
-            return newG
+        for k in range(4):
+            newG=FitKataInGrid(Permutation[0].s, newG, k)
+            for i in range(1,len(Permutation)):
+                newG=FitKataInGrid(Permutation[i].s, newG)
+            i,j=0,0
+            print(newG)
+            while i<len(newG):
+                j=0
+                while j<len(newG[0]):
+                    if newG[i][j]==0:
+                        fitting = False
+                    j+=1
+                i+=1
+            if fitting:
+                return newG
+    y=PermutationsListe(L)
+    lastPerm=y[len(y)-1]
+    lastKata=lastPerm[len(lastPerm)-1]
     return "aucune solution trouvée"
+
+
