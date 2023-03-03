@@ -3,9 +3,14 @@ import copy
 #%% lesdits kataminos
 class Katamino:
     """peut etre pas si utile que ça mais pourquoi pas"""
-    def __init__(self, shape, number):
+    def __init__(self, shape, number, x_coord=0, y_coord=0, rotation=0, symetrie=0):
         self.s=shape
         self.n=number
+        self.x=x_coord
+        self.y=y_coord
+        self.r=rotation
+        self.ss=simetrie
+
 GrandL=Katamino([[1,1],[1,0],[1,0],[1,0]],1)
 GrandT=Katamino([[2,0],[2,2],[2,0],[2,0]],2)
 GrandEclair=Katamino([[3,0],[3,0],[3,3],[0,3]],3)
@@ -58,21 +63,23 @@ ws.mainloop()
 #%% faire rentrer le kata
 Grid=[[0 for _ in range(3)] for _ in range(5)]
 def RotateKataClockwise(Kata):          #tourner la pièce dans le sens horaire, fonctionne
-    newKata=[]
-    for i in range(len(Kata[0])):
+    newKata=copy.deepcopy(Kata)
+    newKata.s=[]
+    for i in range(len(Kata.s[0])):
         kataL=[]
-        for j in range(len(Kata)):
-            kataL.append(Kata[len(Kata)-j-1][i])
-        newKata.append(kataL)
+        for j in range(len(Kata.s)):
+            kataL.append(Kata[len(Kata.s)-j-1][i])
+        newKata.s.append(kataL)
     return newKata
 
 def FlipKata(Kata):                     #retourner la pièce
-    newKata=[]
-    for i in range(len(Kata)):
+    newKata=copy.deepcopy(Kata)
+    newKata.s=[]
+    for i in range(len(Kata.s)):
         kataL=[]
-        for j in range(len(Kata[0])):
+        for j in range(len(Kata.s[0])):
             kataL.append(Kata[i][len(Kata[0])-j-1])
-        newKata.append(kataL)
+        newKata.s.append(kataL)
     return newKata
 
 def FitKataInGrid(Kata,G,flip=True,init_rotation=0):
@@ -83,63 +90,67 @@ def FitKataInGrid(Kata,G,flip=True,init_rotation=0):
         newKata=RotateKataClockwise(newKata)
     for _ in range(4):
         u,v=0,0
-        while u+len(newKata)<=len(newG):
-            while v+len(newKata[0])<=len(newG[0]):
+        while u+len(newKata.s)<=len(newG):
+            while v+len(newKata.s[0])<=len(newG[0]):
                 newG=copy.deepcopy(G)
                 fitting=True
                 for i in range(len(newKata)):
-                    for j in range(len(Kata[0])):
-                        if newG[i+u][j+v]==0 or newKata[i][j]==0:               #ajoute le morceau de Kata dans le cas où la case est vide
-                            newG[i+u][j+v]+=newKata[i][j]
+                    for j in range(len(nawKata.s[0])):
+                        if newG[i+u][j+v]==0 or newKata.s[i][j]==0:               #ajoute le morceau de Kata dans le cas où la case est vide
+                            newG[i+u][j+v]+=newKata.s[i][j]
                         else:
                            fitting=False
                 if fitting:
+                    Kata.x,Kata.y=u,v
                     return newG
                 v+=1
             u+=1
             v=0
         newKata=RotateKataClockwise(newKata)
     if flip:    
-        return FitKataInGrid(FlipKata(Kata), G, False)
+        return FitKataInGrid(FlipKata(newKata), G, False)
     return G
 
+def RemoveKata(Grid,n):
+    for i in range(len(Grid)):
+        for j in range (len(Grid[0])):
+            if Grid[i][j]==n:
+                Grid[i][j]=0
 #def MoveKata(KataN,)
 #%% résoudre le katamino
-KataL=[NormalC,NormalP,GrandT]
-def PermutationsListe(L): #tester les permutations d'une liste qconque
-    if len(L)==2:
-        return [L, [L[1], L[0]]]
-    else:
-        combL=[]
-        for i in range(len(L)):
-            l=PermutationsListe(L[:i]+L[i+1:])
-            for j in range(len(l)):
-                combL.append(l[j]+[L[i]])
-        return combL
-            
-def SolveKatamino(L, G):    #ça marche pas exactement comme prévu
+#KataL=[copy.deepcopy(NormalC),copy.deepcopy(NormalP),copy.deepcopy(GrandT)]
+#def PermutationsListe(L): #tester les permutations d'une liste qconque, peut être pas utile
+#    if len(L)==2:
+#        return [L, [L[1], L[0]]]
+#    else:
+#        combL=[]
+#        for i in range(len(L)):
+#            l=PermutationsListe(L[:i]+L[i+1:])
+#            for j in range(len(l)):
+#                combL.append(l[j]+[L[i]])
+#        return combL
+
+def SolveKatamino(L, G):
     "teste les permutations d'une liste donnée de kataminos dans une grille"
-    for Permutation in PermutationsListe(L):
-        fitting=True
-        newG=copy.deepcopy(G)
-        for k in range(4):
-            newG=FitKataInGrid(Permutation[0].s, newG, k)
-            for i in range(1,len(Permutation)):
-                newG=FitKataInGrid(Permutation[i].s, newG)
-            i,j=0,0
-            print(newG)
-            while i<len(newG):
-                j=0
-                while j<len(newG[0]):
-                    if newG[i][j]==0:
-                        fitting = False
-                    j+=1
-                i+=1
-            if fitting:
-                return newG
-    y=PermutationsListe(L)
-    lastPerm=y[len(y)-1]
-    lastKata=lastPerm[len(lastPerm)-1]
-    return "aucune solution trouvée"
+    fitting=True
+    newG=copy.deepcopy(G)
+    for k in range(4):
+        newG=FitKataInGrid(L[0].s, newG, k)
+        for i in range(1,len(L)):
+            newG=FitKataInGrid(L[i].s, newG)
+        i,j=0,0
+        while i<len(newG):
+            j=0
+            while j<len(newG[0]):
+                if newG[i][j]==0:
+                    fitting = False
+                j+=1
+            i+=1
+        if fitting:
+            return newG
+        while L[0].x<=len(newG)-len(L[0].s):
+            while L[0].y<=len(newG)-len(L[0].y)
+        
+    return newG
 
 
