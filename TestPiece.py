@@ -130,7 +130,7 @@ def bourrin(Liste,Plateau=[np.zeros(Large) for _ in range (Long)]): #,n,m,t,s):
 #    retourne tourne90 colonne ligne
 
 
-print(bourrin(Liste))
+print(applique(Plateau,Liste))
 
 
 

@@ -52,10 +52,12 @@ Point=[[16]]
 
 #ROTATION D'UNE PIECE DE 90°
 def tourne90(Piece):
+    # print("Pièce avant rotation 90°", Piece)
     NPiece=[ [0 for i in range (len(Piece))] for _ in range (len(Piece[0]))]
     for i in range (len(Piece)): #Longueur
         for j in range (len(Piece[0])): #Largueur
             NPiece[j][i]=Piece[len(Piece)-1-i][j]
+    # print("Pièce avant rotation 90°", Piece)
     return NPiece
 
 
@@ -72,42 +74,35 @@ def retourne(Piece):
 
 #AJOUT D'UNE PIECE AU PLATEAU
 
-##def ajout2(Piece,Plateau=[np.zeros(Large) for _ in range (Long)],n=0,m=0):
-##    for i in range (len(Piece)): #lignes
-##        for j in range (len(Piece[0])): #colonnes
-##            if Piece[i][j]!=0:
-##                print('i',i,'j',j,'n',n,'m',m)
-##                if Plateau[i+n][j+m]==0:
-##                    Plateau[i+n][j+m]=Piece[i][j]  #ne pas faire un nouveau plateau
-##                else:
-##                    return "c'est non"
-##    return Plateau
-
-def ajout(Piece,Plateau=[np.zeros(Large) for _ in range (Long)],n=0,m=0):
+def ajout(Piece,Plateau=[[0 for _ in range(Large)] for _ in range (Long)],n=0,m=0):
     Nplateau=np.copy(Plateau)
     for i in range (len(Piece)): #colonnes
         for j in range (len(Piece[0])): #lignes
             if Piece[i][j]!=0:
+                print('nplateau',Nplateau)
                 if Nplateau[i+n][j+m]==0:
                     Nplateau[i+n][j+m]=Piece[i][j]  #faire un nouveau plateau
                 else:
-                    return "c'est non"
+                    return "Erreur"
     return Nplateau
 
 
 #LEGROS
 Liste=[[GrandL,0,0,0,3],[IBarre4,0,0,1,4],[IBarre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,1,0,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
 
-
-def applique(Liste,Plateau=[np.zeros(Large) for _ in range (Long)]):
+#A LHEURE ACTUELLE (3mars) C4EST APPLIQUE QUI POSE PROBLEME
+def applique(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]):
     for i in range (len(Liste)):
         Piece=Liste[i][0]
         if Liste[i][2]==1 :
             Piece=retourne(Piece)
         for _ in range (Liste[i][1]):
             Piece=tourne90(Piece)
-        ajout(Piece,Plateau,Liste[i][3],Liste[i][4])
+        Plateau=ajout(Piece,Plateau,Liste[i][4],Liste[i][3])
     return Plateau
+
+#print(applique(Liste))
+
 
 #ESSAI PROGRAMME BOURRIN 2
 
@@ -116,66 +111,108 @@ LPieces=[GrandT,GrandL,PetitL,GrandV,Carre,IBarre2]
 
 
 
-def bourrin(Liste,Plateau=[np.zeros(Large) for _ in range (Long)]): #,n,m,t,s):
-
-    L=Liste[:]
+def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,n,m,t,s):
+    print('\nListe des pièces \n:',Liste)
+    L=Liste[:] #liste des pieces qui restent
     Listedesdetails=[]
     if len(L)==0:
         return Plateau
-    a,b,c,d=0,0,0,0
+    ss,tt,ii,jj=0,0,0,0
+    increment = 0
+    while len(L)!=0 and increment<10000:
+        increment += 1
+        rate=True
+        s=ss
+        while s<2 and rate:
+            t=tt
 
-    while len(L)!=0:
-
-        truc=True
-        i,j,t,s=a,b,c,d
-        while s<2 and truc:
-
-            i,j,t=b,c,d
-
-            while t<4 and truc:
-
-                i,j=c,d
-
-                while j<len(Plateau[0])-len(L[0][0])+1 and truc:#ligne
-                    i=d
-                    while i<len(Plateau)-len(L[0])+1 and truc: #colonne
+            while t<4 and rate:
+                j=jj
+                while j<=len(Plateau[0])-len(L[0][0]) and rate:#ligne
+                    i=ii #ce qui est bizarre c'est que dans LP3bis 6 ne retourne pas en haut à gauche donc pb avec j
+                    while i<=len(Plateau)-len(L[0]) and rate: #colonne
+                        print('ldd av ap',Listedesdetails,'j',j)
                         nP=ajout(L[0],Plateau,i,j)
-
+                        
                         if type(nP)!=str:
+                            
                             Plateau=nP
-                            truc=False
+                            rate=False
                             Listedesdetails.append([L[0],t,s,j,i])  #[piece,tourne,symetrie,ligne, colonne]
+                        print(Listedesdetails,j)
                         i+=1
-                        d=0
+                    ii=0
 
                     j+=1
-                    c=0
+                jj=0
 
-                tourne90(L[0])
+                L[0] = tourne90(L[0])
                 t+=1
-                b=0
-            retourne(L[0])
+            tt=0
+            L[0] = retourne(L[0])
             s+=1
-        a=0
-        if truc: #si la piece n'est pas posée
-            print(Listedesdetails,Listedesdetails[-1][2])
-            id=-1 #le dernier élément de la liste (comme true est vraie, il s'agit de l'élément d'avant
-            ##print(id)
-            a,b,c,d=Listedesdetails[id][2],Listedesdetails[id][1],Listedesdetails[id][3],Listedesdetails[id][4]+1
-            Listedesdetails=Listedesdetails[:-1]
-            L=Liste[len(Liste)-len(L)-1:] #jenleve le dernier element
-            print('1',Plateau)
+        ss=0
+        if rate: #si la piece n'est pas posée
+            
+            id=-1 #le dernier élément de la liste (comme rate est vraie, il s'agit de l'élément d'avant
+            
+            # print('Affichage de la liste des details (avant et après) \n',Listedesdetails) 
+            #[piece,tourne,symetrie,ligne, colonne]
+            if len(Listedesdetails)==0:
+                return Plateau
+            print('jj1',jj,'ldd1',Listedesdetails)
+            ss,tt,jj,ii=Listedesdetails[id][2],Listedesdetails[id][1],Listedesdetails[id][3],Listedesdetails[id][4]
+            print('jj2',jj,'ldd',Listedesdetails)
+            #Si on sort du plateau, on passe à la position suivante
+            if ii>len(Plateau)-len(Listedesdetails[id][0]):#ptet un pb là
+                ii=0
+                if jj>len(Plateau[0])-len(Listedesdetails[id][0][0]): #ptet un pb ici
+                    jj=0
+                    if tt>3:
+                        tt=0
+                        if ss>0:
+                            print("Bizarre2")
+                        else:
+                            ss+=1
+                    else:
+                        tt+=1
+                else:
+                    jj+=1
+            else: 
+                ii+=1
+                
+            #SS ET II SONT BIZARREs DANS LISTEDESDETAILS!!!!!
+            
+            print('jj3',jj,'ldd3',Listedesdetails)
+            
+
+            Listedesdetails=Listedesdetails[:-1]#jenleve le dernier element
+            # print('\n', Listedesdetails)
+            
+            # print('\nAffichage de L si rate (avant et après ajout) \n',L)
+            L=Liste[len(Liste)-len(L)-1:]
+            # print('\n',L)
+            for _ in range (tt):
+                L[0]=tourne90(L[0])
+            if ss==1:
+                L[0]=retourne(L[0])
+            print('L[0]',L[0])
+
+            # print('Affichage du plateau (avant et après) \n',Plateau)
             Plateau=applique(Listedesdetails) #le Plateau sans les 2 derniers éléments
-            print('2',Plateau)
+            # print('\n',Plateau)
         else:
+            #print('\nAffichage de L si réussi (avant et après suppression) \n',L)
             L=L[1:]
-            print(L)
-    return Plateau,Listedesdetails
+            #print('\n',L)
+        print('\nAffichage du plateau', increment, ' \n',Plateau)
+    return Plateau
 
 
 LP2=[NormalP,retourne(GrandEclair),[[6, 0, 6], [6, 6, 6]]] #bon, là ça fonctionne mais jai triché
-LP3=[NormalP,GrandEclair,NormalC]
-
-
-print(bourrin(LP3))
+LP3=[NormalC,GrandEclair,NormalP]
+LP3bis=[NormalP,GrandEclair,NormalC]
+LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
+LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]#4,5 fonctionne mais pas 5,4 ##ICI 9 A 3 DANS SYMETRIE ET 10 A 2 !!!!!!!!!
+print("Katamino bon :\n", bourrin(LP5))
 
