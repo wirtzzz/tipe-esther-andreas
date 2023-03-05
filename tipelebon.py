@@ -88,15 +88,15 @@ def ajout(Piece,Plateau=[[0 for _ in range(Large)] for _ in range (Long)],n=0,m=
 
 
 #LEGROS
-Liste=[[GrandL,0,0,0,3],[IBarre4,0,0,1,4],[IBarre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,1,0,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
+Liste=[[GrandL,0,0,0,3],[IBarre4,0,0,1,4],[IBarre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,0,1,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
 
 #A LHEURE ACTUELLE (3mars) C4EST APPLIQUE QUI POSE PROBLEME
 def applique(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]):
     for i in range (len(Liste)):
         Piece=Liste[i][0]
-        if Liste[i][2]==1 :
+        if Liste[i][1]==1 :
             Piece=retourne(Piece)
-        for _ in range (Liste[i][1]):
+        for _ in range (Liste[i][2]):
             Piece=tourne90(Piece)
         Plateau=ajout(Piece,Plateau,Liste[i][4],Liste[i][3])
     return Plateau
@@ -119,7 +119,7 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
         return Plateau
     ss,tt,ii,jj=0,0,0,0
     increment = 0
-    while len(L)!=0 and increment<10000:
+    while len(L)!=0 and increment<200000:
         increment += 1
         rate=True
         s=ss
@@ -131,15 +131,15 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
                 while j<=len(Plateau[0])-len(L[0][0]) and rate:#ligne
                     i=ii #ce qui est bizarre c'est que dans LP3bis 6 ne retourne pas en haut à gauche donc pb avec j
                     while i<=len(Plateau)-len(L[0]) and rate: #colonne
-                        print('ldd av ap',Listedesdetails,'j',j)
+                        #print('ldd av ap',Listedesdetails,'j',j)
                         nP=ajout(L[0],Plateau,i,j)
                         
                         if type(nP)!=str:
                             
                             Plateau=nP
                             rate=False
-                            Listedesdetails.append([L[0],t,s,j,i])  #[piece,tourne,symetrie,ligne, colonne]
-                        print(Listedesdetails,j)
+                            Listedesdetails.append([L[0],s,t,j,i])  #[piece,tourne,symetrie,ligne, colonne]
+
                         i+=1
                     ii=0
 
@@ -160,18 +160,26 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
             #[piece,tourne,symetrie,ligne, colonne]
             if len(Listedesdetails)==0:
                 return Plateau
-            print('jj1',jj,'ldd1',Listedesdetails)
-            ss,tt,jj,ii=Listedesdetails[id][2],Listedesdetails[id][1],Listedesdetails[id][3],Listedesdetails[id][4]
-            print('jj2',jj,'ldd',Listedesdetails)
+            
+            ss,tt,jj,ii=Listedesdetails[id][1],Listedesdetails[id][2],Listedesdetails[id][3],Listedesdetails[id][4]
+
             #Si on sort du plateau, on passe à la position suivante
-            if ii>len(Plateau)-len(Listedesdetails[id][0]):#ptet un pb là
+            Piecor=Listedesdetails[id][0] #piece orientée
+            for _ in range (tt):
+                Piecor=tourne90(Piecor)
+            if ss>0:
+                Piecor=retourne(Piecor)
+            if ss>1:
+                return 'attention'
+            
+            if ii>len(Plateau)-len(Piecor):#ptet un pb là
                 ii=0
-                if jj>len(Plateau[0])-len(Listedesdetails[id][0][0]): #ptet un pb ici
+                if jj>len(Plateau[0])-len(Piecor[0]): #ptet un pb ici
                     jj=0
-                    if tt>3:
+                    if tt+1>3:
                         tt=0
                         if ss>0:
-                            print("Bizarre2")
+                            return "Bizarre2"
                         else:
                             ss+=1
                     else:
@@ -180,12 +188,13 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
                     jj+=1
             else: 
                 ii+=1
+            
+            if ss>1:
+                return 'attention2'
                 
             #SS ET II SONT BIZARREs DANS LISTEDESDETAILS!!!!!
-            
-            print('jj3',jj,'ldd3',Listedesdetails)
-            
-
+            #print('ldd',Listedesdetails)
+            print('ss1',ss,'tt',tt,'\nLdd\n',Listedesdetails)
             Listedesdetails=Listedesdetails[:-1]#jenleve le dernier element
             # print('\n', Listedesdetails)
             
@@ -196,8 +205,11 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
                 L[0]=tourne90(L[0])
             if ss==1:
                 L[0]=retourne(L[0])
-            print('L[0]',L[0])
+            #print('L[0]',L[0])
+            print('ss2',ss,'tt',tt,'\nLdd\n',Listedesdetails)
 
+            #print('jj3',jj,'ldd3',Listedesdetails)
+            
             # print('Affichage du plateau (avant et après) \n',Plateau)
             Plateau=applique(Listedesdetails) #le Plateau sans les 2 derniers éléments
             # print('\n',Plateau)
@@ -214,5 +226,6 @@ LP3=[NormalC,GrandEclair,NormalP]
 LP3bis=[NormalP,GrandEclair,NormalC]
 LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
 LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]#4,5 fonctionne mais pas 5,4 ##ICI 9 A 3 DANS SYMETRIE ET 10 A 2 !!!!!!!!!
+
 print("Katamino bon :\n", bourrin(LP5))
 
