@@ -89,15 +89,15 @@ def ajout(Piece,Plateau=[[0 for _ in range(Large)] for _ in range (Long)],n=0,m=
 
 
 #LEGROS
-Liste=[[GrandL,0,0,0,3],[IBarre4,0,0,1,4],[IBarre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,1,0,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
+Liste=[[GrandL,0,0,0,3],[IBarre4,0,0,1,4],[IBarre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,0,1,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
 
 #A LHEURE ACTUELLE (3mars) C4EST APPLIQUE QUI POSE PROBLEME
 def applique(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]):
     for i in range (len(Liste)):
         Piece=Liste[i][0]
-        if Liste[i][2]==1 :
+        if Liste[i][1]==1 :
             Piece=retourne(Piece)
-        for _ in range (Liste[i][1]):
+        for _ in range (Liste[i][2]):
             Piece=tourne90(Piece)
         Plateau=ajout(Piece,Plateau,Liste[i][4],Liste[i][3])
     return Plateau
@@ -120,7 +120,7 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
         return Plateau
     s,t,i,j=0,0,0,0
     increment = 0
-    while len(L)!=0 and increment<10000:
+    while len(L)!=0 and increment<20000:
         increment += 1
         rate=True
         while s<2 and rate:
@@ -128,7 +128,6 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
             while t<4 and rate:
                 while j<=len(Plateau[0])-len(L[0][0]) and rate:
                     while i<=len(Plateau)-len(L[0]) and rate: #colonne
-                        print('ldd av ap',Listedesdetails,'j',j)
                         nP=ajout(L[0],Plateau,i,j)
                         
                         if type(nP)!=str:
@@ -200,6 +199,7 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
             L=L[1:]
             #print('\n',L)
         print('\nAffichage du plateau', increment, ' \n',Plateau)
+
     return Plateau
 
 
