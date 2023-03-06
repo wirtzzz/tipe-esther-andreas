@@ -52,12 +52,10 @@ Point=[[16]]
 
 #ROTATION D'UNE PIECE DE 90°
 def tourne90(Piece):
-    # print("Pièce avant rotation 90°", Piece)
     NPiece=[ [0 for i in range (len(Piece))] for _ in range (len(Piece[0]))]
     for i in range (len(Piece)): #Longueur
         for j in range (len(Piece[0])): #Largueur
             NPiece[j][i]=Piece[len(Piece)-1-i][j]
-    # print("Pièce avant rotation 90°", Piece)
     return NPiece
 
 
@@ -81,7 +79,7 @@ def ajout(Piece,Plateau=[[0 for _ in range(Large)] for _ in range (Long)],n=0,m=
             if Piece[i][j]!=0:
                 print('nplateau',Nplateau)
                 print('piece', Piece)
-                if i+n<Long and j+m < Large and Nplateau[i+n][j+m]==0: #(andreas) petite modification pour vérifier que la pièce rentre bien
+                if  Nplateau[i+n][j+m]==0: #(andreas) petite modification pour vérifier que la pièce rentre bien
                     Nplateau[i+n][j+m]=Piece[i][j]  #faire un nouveau plateau
                 else:
                     return "Erreur"
@@ -95,10 +93,6 @@ Liste=[[GrandL,0,0,0,3],[IBarre4,0,0,1,4],[IBarre3,0,0,0,0],[Carre,0,0,0,1],[Pet
 def applique(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]):
     for i in range (len(Liste)):
         Piece=Liste[i][0]
-        if Liste[i][1]==1 :
-            Piece=retourne(Piece)
-        for _ in range (Liste[i][2]):
-            Piece=tourne90(Piece)
         Plateau=ajout(Piece,Plateau,Liste[i][4],Liste[i][3])
     return Plateau
 
@@ -113,7 +107,6 @@ LPieces=[GrandT,GrandL,PetitL,GrandV,Carre,IBarre2]
 
 
 def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,n,m,t,s):
-    print('\nListe des pièces \n:',Liste)
     L=Liste[:] #liste des pieces qui restent
     Listedesdetails=[]
     if len(L)==0:
@@ -153,10 +146,10 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
             #[piece,tourne,symetrie,ligne, colonne]
             if len(Listedesdetails)==0:
                 return Plateau
-            print('jj1',j,'ldd1',Listedesdetails)
             s,t,j,i=Listedesdetails[-1][2],Listedesdetails[-1][1],Listedesdetails[-1][3],Listedesdetails[-1][4]
-            print('jj2',j,'ldd',Listedesdetails)
-            #Si on sort du plateau, on passe à la position suivante
+            L=Liste[len(Liste)-len(L)-1:]
+            L[0]=Listedesdetails[-1][0]
+            
             if i>len(Plateau)-len(Listedesdetails[-1][0]):#ptet un pb là
                 i=0
                 if j>len(Plateau[0])-len(Listedesdetails[-1][0][0]): #ptet un pb ici
@@ -173,31 +166,15 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
                     j+=1
             else: 
                 i+=1
-                
-            #SS ET II SONT BIZARREs DANS LISTEDESDETAILS!!!!!
             
             print('jj3',j,'ldd3',Listedesdetails)
             
 
-            Listedesdetails=Listedesdetails[:-1]#jenleve le dernier element
-            # print('\n', Listedesdetails)
+            Listedesdetails=Listedesdetails[:-1]
             
-            # print('\nAffichage de L si rate (avant et après ajout) \n',L)
-            L=Liste[len(Liste)-len(L)-1:]
-            # print('\n',L)
-            for _ in range (t):
-                L[0]=tourne90(L[0])
-            if s==1:
-                L[0]=retourne(L[0])
-            print('L[0]',L[0])
-
-            # print('Affichage du plateau (avant et après) \n',Plateau)
-            Plateau=applique(Listedesdetails) #le Plateau sans les 2 derniers éléments
-            # print('\n',Plateau)
+            Plateau=applique(Listedesdetails)
         else:
-            #print('\nAffichage de L si réussi (avant et après suppression) \n',L)
             L=L[1:]
-            #print('\n',L)
         print('\nAffichage du plateau', increment, ' \n',Plateau)
 
     return Plateau
@@ -207,6 +184,6 @@ LP2=[NormalP,retourne(GrandEclair),[[6, 0, 6], [6, 6, 6]]] #bon, là ça fonctio
 LP3=[NormalC,GrandEclair,NormalP]
 LP3bis=[NormalP,GrandEclair,NormalC]
 LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
-LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]#4,5 fonctionne mais pas 5,4 ##ICI 9 A 3 DANS SYMETRIE ET 10 A 2 !!!!!!!!!
-print("Katamino bon :\n", bourrin(LP5))
-
+LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]
+LP7=[NormalP,BizarrdZ,GrandV,GrandL]
+print("Katamino bon :\n", bourrin(LP7))
