@@ -1,70 +1,67 @@
-#-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
-#
-# Author:      esther
-#
-# Created:     24/02/2023
-# Copyright:   (c) esthe 2023
-# Licence:     <your licence>
-#-------------------------------------------------------------------------------
+from copy import *
+
+#%% kataminos
 
 
-import numpy as np
-
-
-
-#XOR ?
-
-Long=int(input("Long"))
-Large=int(input("large"))
+Long=int(input("Long: "))
+Large=int(input("large: "))
 #Plateau=[[ False for i in range (Large)] for _ in range (Long)]
-Plateau=[np.zeros(Large) for _ in range (Long)]
 
 #LISTE DES PIECES
 # True/False ou 1 / 0 ?
-GrandL=[[1,1],[1,0],[1,0],[1,0]]
-GrandT=[[2,0],[2,2],[2,0],[2,0]]
-GrandEclair=[[3,0],[3,0],[3,3],[0,3]]
+class Katamino:
+    """peut etre pas si utile que ça mais pourquoi pas"""
+    def __init__(self, shape, p, x_coord=0, y_coord=0):
+        self.s=shape
+        self.x=x_coord
+        self.y=y_coord
+        self.priority=p
 
-GrandV=[[4,4,4],[4,0,0],[4,0,0]]
 
-NormalP=[[5,5],[5,5],[5,0]]
-NormalC=[[6,6],[6,0],[6,6]]
+GrandL=Katamino([[True,True],[True,False],[True,False],[True,False]],4)
+GrandT=Katamino([[True,False],[True,False],[True,False],[True,False]],5)
+GrandEclair=Katamino([[True,False],[True,False],[True,True],[False,True]],3)
 
-BizarrdZ=[[7,0,0],[7,7,7],[0,0,7]]
+GrandV=Katamino([[True,True,True],[True,False,False],[True,False,False]],2)
 
-IBarre4=[[8],[8],[8],[8]]
+NormalP=Katamino([[True,True],[True,True],[True,False]],6)
+NormalC=Katamino([[True,True],[True,False],[True,True]],7)
 
-PetitL=[[9,9],[9,0],[9,0]]
-PetitT=[[10,0],[10,10],[10,0]]
-PetitEclair=[[11,0],[11,11],[0,11]]
+BizarrdZ=Katamino([[True,False,False],[True,True,True],[False,False,True]],1)
 
-Carre=[[12,12],[12,12]]
+IBarre4=Katamino([[True],[True],[True],[True]],8)
 
-IBarre3=[[13],[13],[13]]
-PetitV=[[14,14],[14,0]]
+PetitL=Katamino([[True,True],[True,False],[True,False]],9)
+PetitT=Katamino([[True,False],[True,True],[True,False]],10)
+PetitEclair=Katamino([[True,False],[True,True],[False,True]],12)
 
-IBarre2=[[15],[15]]
+Carre=Katamino([[True,True],[True,True]],11)
 
-Point=[[16]]
+IBarre3=Katamino([[True],[True],[True]],13)
+PetitV=Katamino([[True,True],[True,False]],14)
+
+IBarre2=Katamino([[True],[True]],15)
+
+Point=Katamino([[True]], 16)
 
 
 #ROTATION D'UNE PIECE DE 90°
 def tourne90(Piece):
-    NPiece=[ [0 for i in range (len(Piece))] for _ in range (len(Piece[0]))]
-    for i in range (len(Piece)): #Longueur
-        for j in range (len(Piece[0])): #Largueur
-            NPiece[j][i]=Piece[len(Piece)-1-i][j]
+    p=Piece.s
+    NPiece=[ [0 for i in range (len(p))] for _ in range (len(p[0]))]
+    for i in range (len(p)): #Longueur
+        for j in range (len(p[0])): #Largueur
+            NPiece[j][i]=p[len(p)-1-i][j]
     return NPiece
 
 
 #SYMETRIE par l'ordonnée
 def retourne(Piece):
-    NPiece=[ [0 for i in range (len(Piece[0]))] for _ in range (len(Piece))]
-    for i in range (len(Piece)):
-        for j in range (len(Piece[0])):
-            NPiece[i][j]=Piece[i][len(Piece[0])-j-1]
+    p=Piece.s
+    NPiece=[ [0 for i in range (len(p[0]))] for _ in range (len(p))]
+    for i in range (len(p)):
+        for j in range (len(p[0])):
+            NPiece[i][j]=p[i][len(p[0])-j-1]
     return NPiece
 
 
@@ -73,26 +70,26 @@ def retourne(Piece):
 #AJOUT D'UNE PIECE AU PLATEAU
 
 def ajout(Piece,Plateau=[[0 for _ in range(Large)] for _ in range (Long)],n=0,m=0):
-    Nplateau=np.copy(Plateau)
-    for i in range (len(Piece)): #colonnes
-        for j in range (len(Piece[0])): #lignes
-            if Piece[i][j]!=0:
+    Nplateau=Plateau[:]
+    for i in range (len(Piece.s)): #colonnes
+        for j in range (len(Piece.s[0])): #lignes
+            if Piece.s[i][j]!=0:
                 print('nplateau',Nplateau)
                 if  Nplateau[i+n][j+m]==0: #(andreas) petite modification pour vérifier que la pièce rentre bien
-                    Nplateau[i+n][j+m]=Piece[i][j]  #faire un nouveau plateau
+                    Nplateau[i+n][j+m]=Piece.s[i][j]  #faire un nouveau plateau
                 else:
                     return "Erreur"
     return Nplateau
 
 
 #LEGROS
-Liste=[[GrandL,0,0,0,3],[IBarre4,0,0,1,4],[IBarre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,0,1,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
+Liste=[[GrandL,0,0],[IBarre4,0,0],[IBarre3,0,0],[Carre,0,0],[PetitEclair,0,1],[GrandT,1,1]] #[piece,tourne,symetrie,ligne, colonne]
 
 #A LHEURE ACTUELLE (3mars) C4EST APPLIQUE QUI POSE PROBLEME
 def applique(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]):
     for i in range (len(Liste)):
         Piece=Liste[i][0]
-        Plateau=ajout(Piece,Plateau,Liste[i][4],Liste[i][3])
+        Plateau=ajout(Piece,Plateau,Liste[i][0].y,Liste[i][0].x)
     return Plateau
 
 #print(applique(Liste))
@@ -118,14 +115,14 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
         while s<2 and rate:
 
             while t<4 and rate:
-                while j<=len(Plateau[0])-len(L[0][0]) and rate:
-                    while i<=len(Plateau)-len(L[0]) and rate: #colonne
+                while j<=len(Plateau[0])-len(L[0].s[0]) and rate:
+                    while i<=len(Plateau)-len(L[0].s) and rate: #colonne
                         nP=ajout(L[0],Plateau,i,j)
                         
                         if type(nP)!=str:
                             Plateau=nP
                             rate=False
-                            Listedesdetails.append([L[0],t,s,j,i])  #[piece,tourne,symetrie,ligne, colonne]
+                            Listedesdetails.append([L[0],t,s])  #[piece,tourne,symetrie,ligne, colonne]
                         print(Listedesdetails,j)
                         i+=1
                     i=0
@@ -136,7 +133,7 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
                 L[0] = tourne90(L[0])
                 t+=1
             t=0
-            L[0] = retourne(L[0])
+            L[0][0].s = retourne(L[0][0])
             s+=1
         s=0
         if rate: #si la piece n'est pas posée
@@ -145,13 +142,13 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
             #[piece,tourne,symetrie,ligne, colonne]
             if len(Listedesdetails)==0:
                 return Plateau
-            s,t,j,i=Listedesdetails[-1][2],Listedesdetails[-1][1],Listedesdetails[-1][3],Listedesdetails[-1][4]
+            s,t,j,i=Listedesdetails[-1][2],Listedesdetails[-1][1],Listedesdetails[-1].x,Listedesdetails[-1].y
             L=Liste[len(Liste)-len(L)-1:]
             L[0]=Listedesdetails[-1][0]
             
-            if i>len(Plateau)-len(Listedesdetails[-1][0]):#ptet un pb là
+            if i>len(Plateau)-len(Listedesdetails[-1][0].s):#ptet un pb là
                 i=0
-                if j>len(Plateau[0])-len(Listedesdetails[-1][0][0]): #ptet un pb ici
+                if j>len(Plateau[0])-len(Listedesdetails[-1][0].s[0]): #ptet un pb ici
                     j=0
                     if t>3:
                         t=0
