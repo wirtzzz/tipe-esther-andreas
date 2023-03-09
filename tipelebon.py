@@ -12,220 +12,153 @@
 
 import numpy as np
 
+LONG=int(input("Longueur du plateau : "))
+LARGE=int(input("Largeur du plateau : "))
 
-
-#XOR ?
-
-Long=int(input("Long"))
-Large=int(input("large"))
-#Plateau=[[ False for i in range (Large)] for _ in range (Long)]
-Plateau=[np.zeros(Large) for _ in range (Long)]
+Plateau=[[0 for _ in range (LARGE)] for _ in range (LONG)]
 
 #LISTE DES PIECES
-# True/False ou 1 / 0 ?
 GrandL=[[1,1],[1,0],[1,0],[1,0]]
 GrandT=[[2,0],[2,2],[2,0],[2,0]]
 GrandEclair=[[3,0],[3,0],[3,3],[0,3]]
-
 GrandV=[[4,4,4],[4,0,0],[4,0,0]]
 
 NormalP=[[5,5],[5,5],[5,0]]
 NormalC=[[6,6],[6,0],[6,6]]
+NormalZ=[[7,0,0],[7,7,7],[0,0,7]]
 
-BizarrdZ=[[7,0,0],[7,7,7],[0,0,7]]
-
-IBarre4=[[8],[8],[8],[8]]
-
-PetitL=[[9,9],[9,0],[9,0]]
-PetitT=[[10,0],[10,10],[10,0]]
+PetitL=[[8,8],[8,0],[8,0]]
+PetitT=[[9,0],[9,9],[9,0]]
+PetitV=[[10,10],[10,0]]
 PetitEclair=[[11,0],[11,11],[0,11]]
 
-Carre=[[12,12],[12,12]]
+Barre4=[[12],[12],[12],[12]]
+Barre3=[[13],[13],[13]]
+Barre2=[[14],[14]]
 
-IBarre3=[[13],[13],[13]]
-PetitV=[[14,14],[14,0]]
-
-IBarre2=[[15],[15]]
-
+Carre=[[15,15],[15,15]]
 Point=[[16]]
 
-
 #ROTATION D'UNE PIECE DE 90°
-def tourne90(Piece):
-    # print("Pièce avant rotation 90°", Piece)
-    NPiece=[ [0 for i in range (len(Piece))] for _ in range (len(Piece[0]))]
-    for i in range (len(Piece)): #Longueur
-        for j in range (len(Piece[0])): #Largueur
-            NPiece[j][i]=Piece[len(Piece)-1-i][j]
-    # print("Pièce avant rotation 90°", Piece)
-    return NPiece
-
+def tourne90(Piece): 
+    "tourne une pièce de 90° dans le sens horaire"
+    "Piece est une matrice"
+    NPiece=[ [0 for _ in range (len(Piece))] for _ in range (len(Piece[0]))] #on crée une matrice vide
+    for i in range (len(Piece)): #lignes
+        for j in range (len(Piece[0])): #colonnes
+            NPiece[j][i]=Piece[len(Piece)-1-i][j] #on fait la transposée et la symétrie par rapport à l'axe des ordonnées
+    Piece=NPiece
+    return Piece
 
 #SYMETRIE par l'ordonnée
 def retourne(Piece):
+    "effectue la symétrie une pièce par l'ordonnée en place"
+    "Piece est une matrice"
     NPiece=[ [0 for i in range (len(Piece[0]))] for _ in range (len(Piece))]
     for i in range (len(Piece)):
         for j in range (len(Piece[0])):
             NPiece[i][j]=Piece[i][len(Piece[0])-j-1]
     return NPiece
 
-
-
-
 #AJOUT D'UNE PIECE AU PLATEAU
-
-def ajout(Piece,Plateau=[[0 for _ in range(Large)] for _ in range (Long)],n=0,m=0):
-    Nplateau=np.copy(Plateau)
-    for i in range (len(Piece)): #colonnes
-        for j in range (len(Piece[0])): #lignes
-            if Piece[i][j]!=0:
-                print('nplateau',Nplateau)
-                if Nplateau[i+n][j+m]==0:
-                    Nplateau[i+n][j+m]=Piece[i][j]  #faire un nouveau plateau
+def ajout(Piece, Plateau=[[0 for _ in range(LARGE)] for _ in range (LONG)], l=0, c=0): 
+    "ajoute une pièce à un plateau"
+    "Piece et Plateau sont des matrices, Plateau est par défaut une matrice nulle, l et c int par défaut 0"
+    # (l,c) correspond aux coordonnées de la case (0,0) de la piece dans le plateau
+    Nplateau=np.copy(Plateau) #on fait un nouveau plateau 
+    for i in range (len(Piece)): #lignes
+        for j in range (len(Piece[0])): #colonnes
+            if Piece[i][j]!=0: 
+                if Nplateau[i+l][j+c]==0: #si la case du plateau est vide
+                    Nplateau[i+l][j+c]=Piece[i][j] #on pose la case de piece
                 else:
-                    return "Erreur"
-    return Nplateau
+                    return False #sinon la pièce ne peut pas être posée
+    return Nplateau #on retourne le nouveau plateau
 
-
-#LEGROS
-Liste=[[GrandL,0,0,0,3],[IBarre4,0,0,1,4],[IBarre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,0,1,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
-
-#A LHEURE ACTUELLE (3mars) C4EST APPLIQUE QUI POSE PROBLEME
-def applique(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]):
+#APPLIQUE UNE LISTE DE PIECES A UN PLATEAU
+def applique(Liste, Plateau=[[0 for _ in range(LARGE)] for _ in range (LONG)]):
+    "applique la liste de pièces à un plateau par défaut une matrice nulle"
+    "Liste contient une liste de [piece,tourne,symetrie,ligne,colonne]"
     for i in range (len(Liste)):
-        Piece=Liste[i][0]
-        if Liste[i][1]==1 :
-            Piece=retourne(Piece)
-        for _ in range (Liste[i][2]):
-            Piece=tourne90(Piece)
-        Plateau=ajout(Piece,Plateau,Liste[i][4],Liste[i][3])
+        Plateau = ajout(Liste[i][0], Plateau, Liste[i][3], Liste[i][4]) 
     return Plateau
-
-#print(applique(Liste))
-
-
-#ESSAI PROGRAMME BOURRIN 2
-
-LPieces=[GrandT,GrandL,PetitL,GrandV,Carre,IBarre2]
-#pas oublier de def long et large
-
-
-
-def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,n,m,t,s):
-    print('\nListe des pièces \n:',Liste)
-    L=Liste[:] #liste des pieces qui restent
-    Listedesdetails=[]
-    if len(L)==0:
-        return Plateau
-    ss,tt,ii,jj=0,0,0,0
-    increment = 0
-    while len(L)!=0 and increment<200000:
-        increment += 1
-        rate=True
-        s=ss
-        while s<2 and rate:
-            t=tt
-
-            while t<4 and rate:
-                j=jj
-                while j<=len(Plateau[0])-len(L[0][0]) and rate:#ligne
-                    i=ii #ce qui est bizarre c'est que dans LP3bis 6 ne retourne pas en haut à gauche donc pb avec j
-                    while i<=len(Plateau)-len(L[0]) and rate: #colonne
-                        #print('ldd av ap',Listedesdetails,'j',j)
-                        nP=ajout(L[0],Plateau,i,j)
-                        
-                        if type(nP)!=str:
-                            
-                            Plateau=nP
-                            rate=False
-                            Listedesdetails.append([L[0],s,t,j,i])  #[piece,tourne,symetrie,ligne, colonne]
-
-                        i+=1
-                    ii=0
-
-                    j+=1
-                jj=0
-
-                L[0] = tourne90(L[0])
-                t+=1
-            tt=0
-            L[0] = retourne(L[0])
-            s+=1
-        ss=0
-        if rate: #si la piece n'est pas posée
-            
-            id=-1 #le dernier élément de la liste (comme rate est vraie, il s'agit de l'élément d'avant
-            
-            # print('Affichage de la liste des details (avant et après) \n',Listedesdetails) 
-            #[piece,tourne,symetrie,ligne, colonne]
-            if len(Listedesdetails)==0:
-                return Plateau
-            
-            ss,tt,jj,ii=Listedesdetails[id][1],Listedesdetails[id][2],Listedesdetails[id][3],Listedesdetails[id][4]
-
-            #Si on sort du plateau, on passe à la position suivante
-            Piecor=Listedesdetails[id][0] #piece orientée
-            for _ in range (tt):
-                Piecor=tourne90(Piecor)
-            if ss>0:
-                Piecor=retourne(Piecor)
-            if ss>1:
-                return 'attention'
-            
-            if ii>len(Plateau)-len(Piecor):#ptet un pb là
-                ii=0
-                if jj>len(Plateau[0])-len(Piecor[0]): #ptet un pb ici
-                    jj=0
-                    if tt+1>3:
-                        tt=0
-                        if ss>0:
-                            return "Bizarre2"
-                        else:
-                            ss+=1
-                    else:
-                        tt+=1
-                else:
-                    jj+=1
-            else: 
-                ii+=1
-            
-            if ss>1:
-                return 'attention2'
-                
-            #SS ET II SONT BIZARREs DANS LISTEDESDETAILS!!!!!
-            #print('ldd',Listedesdetails)
-            print('ss1',ss,'tt',tt,'\nLdd\n',Listedesdetails)
-            Listedesdetails=Listedesdetails[:-1]#jenleve le dernier element
-            # print('\n', Listedesdetails)
-            
-            # print('\nAffichage de L si rate (avant et après ajout) \n',L)
-            L=Liste[len(Liste)-len(L)-1:]
-            # print('\n',L)
-            for _ in range (tt):
+    
+    
+#print(applique(Liste=[[GrandL,0,0,0,3],[Barre4,0,0,1,4],[Barre3,0,0,0,0],[Carre,0,0,0,1],[tourne90(PetitEclair),0,1,2,0],[tourne90(retourne(GrandT)),1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
+def force_brute(Liste, Plateau=[[0 for _ in range(LARGE)] for _ in range (LONG)]):
+    "résoud un Katamino avec les pièces données dans la liste"
+    "teste toutes les possibilitées avant d'en trouver une qui fonctionne"
+    L=np.copy(Liste) #liste des pieces de départ
+    Lparams=[] #contient [piece,tourne,symetrie,ligne,colonne]
+    s,t,i,j=0,0,0,0 #compteurs de symetrie, tourne, ligne et colonne
+    k = 0 #compteur de tours
+    while len(L)!=0 and k<15000:
+        k += 1
+        posee=False #au départ la piece n'est pas posée
+        
+        #on teste toutes les possibilités de positionnement de la piece
+        while s<2 and not posee: #symetrie
+            while t<4 and not posee: #tourne
+                while i<=len(Plateau)-len(L[0]) and not posee: #ligne
+                    while j<=len(Plateau[0])-len(L[0][0]) and not posee: #colonne
+                        nP = ajout(L[0],Plateau,i,j)
+                        if type(nP)!=bool :
+                            Plateau = nP
+                            posee=True
+                            Lparams.append([L[0],s,t,i,j])  #[piece,tourne,symetrie,ligne, colonne]
+                        j+=1
+                    j=0
+                    i+=1
+                i=0
                 L[0]=tourne90(L[0])
-            if ss==1:
-                L[0]=retourne(L[0])
-            #print('L[0]',L[0])
-            print('ss2',ss,'tt',tt,'\nLdd\n',Listedesdetails)
-
-            #print('jj3',jj,'ldd3',Listedesdetails)
+                t+=1
+            t=0
+            L[0]=retourne(L[0])
+            s+=1
+        s=0
+        if not posee: #si la piece n'est pas posée
+            if len(Lparams)==0:
+                return Plateau, "échec"
             
-            # print('Affichage du plateau (avant et après) \n',Plateau)
-            Plateau=applique(Listedesdetails) #le Plateau sans les 2 derniers éléments
-            # print('\n',Plateau)
+            L=Liste[len(Liste)-len(L)-1:] #on ajoute la pièce d'avant aux pieces non posées
+            L[0], s, t, i, j =Lparams[-1][0], Lparams[-1][1], Lparams[-1][2], Lparams[-1][3], Lparams[-1][4] #pour reprendre la on on s'était arreté avec la pièce davant
+            Lparams=Lparams[:-1] #on retire la pièce d'avant des pieces posées
+            
+            if i>len(Plateau)-len(L[0]): 
+                i=0
+                if j>len(Plateau[0])-len(L[0][0]): 
+                    j=0
+                    if t>3:
+                        t=0
+                        if s>0:
+                            #Toutes les positions ont été testées ...
+                            ()
+                        else:
+                            s+=1
+                            L[0]=retourne(L[0])
+                    else:
+                        t+=1
+                        L[0]=tourne90(L[0])
+                else:
+                    j+=1
+            else: 
+                i+=1
+
+            Plateau=applique(Lparams) #on reprend le plateau sans la pièce d'avant
+            
         else:
-            #print('\nAffichage de L si réussi (avant et après suppression) \n',L)
-            L=L[1:]
-            #print('\n',L)
-        print('\nAffichage du plateau', increment, ' \n',Plateau)
+            L=L[1:] # liste des pieces restantes
+
+        print('\nAffichage du plateau', k,' \n',Plateau)
     return Plateau
 
-
-LP2=[NormalP,retourne(GrandEclair),[[6, 0, 6], [6, 6, 6]]] #bon, là ça fonctionne mais jai triché
+#TESTS
 LP3=[NormalC,GrandEclair,NormalP]
 LP3bis=[NormalP,GrandEclair,NormalC]
-LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
-LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]#4,5 fonctionne mais pas 5,4 ##ICI 9 A 3 DANS SYMETRIE ET 10 A 2 !!!!!!!!!
+LP4=[GrandL,PetitT,GrandT,Carre,NormalZ,PetitEclair,Barre3]
+LP5=[NormalP,Barre3,PetitL,PetitT,Barre4]#4,5 fonctionne mais pas 5,4 
+LP6=[GrandT,GrandL,PetitL,GrandV,Carre,Barre2]
 
-print("Katamino bon :\n", bourrin(LP5))
+#Liste=[[GrandL,0,0,0,3],[Barre4,0,0,1,4],[Barre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,0,1,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
 
+print("Katamino en force brute :\n", force_brute(LP5))
