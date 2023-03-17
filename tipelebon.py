@@ -78,7 +78,6 @@ def ajout(Piece,Plateau=[[0 for _ in range(Large)] for _ in range (Long)],n=0,m=
         for j in range (len(Piece[0])): #lignes
             if Piece[i][j]!=0:
                 print('nplateau',Nplateau)
-                print('piece', Piece)
                 if  Nplateau[i+n][j+m]==0: #(andreas) petite modification pour vérifier que la pièce rentre bien
                     Nplateau[i+n][j+m]=Piece[i][j]  #faire un nouveau plateau
                 else:
@@ -113,7 +112,7 @@ def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,
         return Plateau
     s,t,i,j=0,0,0,0
     increment = 0
-    while len(L)!=0 and increment<20000:
+    while len(L)!=0 and increment<150000:
         increment += 1
         rate=True
         while s<2 and rate:
@@ -185,5 +184,5 @@ LP3=[NormalC,GrandEclair,NormalP]
 LP3bis=[NormalP,GrandEclair,NormalC]
 LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
 LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]
-LP7=[NormalP,BizarrdZ,GrandV,GrandL]
+LP7=[BizarrdZ,IBarre2,PetitL,PetitV,Carre,Carre,PetitV,NormalP,PetitEclair,PetitV]
 print("Katamino bon :\n", bourrin(LP7))
