@@ -1,36 +1,24 @@
 
-#-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
-#
-# Author:      esther
-#
-# Created:     24/02/2023
-# Copyright:   (c) esthe 2023
-# Licence:     <your licence>
-#-------------------------------------------------------------------------------
-
-
 import numpy as np
 import matplotlib.pyplot as plt
+from os import chdir
+
+chdir('C:/Users/esthe/Desktop/TIPE')
+
+Liste15=open('combi/L15.txt','r')
+
+Listes=Liste15.readlines()
+
+Liste15.close()
+
 compl=0
 
-LONG=6 #int(input("Longueur du plateau : "))
+LONG=3 #int(input("Longueur du plateau : "))
 LARGE=5 #int(input("Largeur du plateau : "))
 
 Plateau=[[0 for _ in range (LARGE)] for _ in range (LONG)]
 
-#def PermutationsListe(L): #tester les permutations d'une liste qconque, peut être pas utile
-#    if len(L)==2:
-#        return [L, [L[1], L[0]]]
-#    else:
-#        combL=[]
-#        for i in range(len(L)):
-#            l=PermutationsListe(L[:i]+L[i+1:])
-#            for j in range(len(l)):
-#                combL.append(l[j]+[L[i]])
-#        return combL
- 
+
 def tri_insertion (L):
     n=len(L)
     for i in range (1,n):
@@ -38,14 +26,14 @@ def tri_insertion (L):
         x=L[i]
         
         while 0<j and x<L[j-1]:
-            L[j]=L=[j-1]
+            L[j]=L[j-1]
             j=j-1
         L[j]=x
         
 def lenvers(L):
     n=len(L)
     for i in range (n//2):
-        L[i],L[n-i]=L[n-i],L[i]
+        L[i],L[n-i-1]=L[n-i-1],L[i]
 
 #LISTE DES PIECES
 GrandL=[[1,1],[1,0],[1,0],[1,0]]
@@ -55,19 +43,81 @@ GrandV=[[4,4,4],[4,0,0],[4,0,0]]
 
 NormalP=[[5,5],[5,5],[5,0]]
 NormalC=[[6,6],[6,0],[6,6]]
-NormalZ=[[7,0,0],[7,7,7],[0,0,7]]
+BizarrdZ=[[7,0,0],[7,7,7],[0,0,7]]
+#NormalZ=[[7,0,0],[7,7,7],[0,0,7]]
 
 PetitL=[[8,8],[8,0],[8,0]]
 PetitT=[[9,0],[9,9],[9,0]]
 PetitV=[[10,10],[10,0]]
 PetitEclair=[[11,0],[11,11],[0,11]]
 
-Barre4=[[12],[12],[12],[12]]
-Barre3=[[13],[13],[13]]
-Barre2=[[14],[14]]
+#Barre4=[[12],[12],[12],[12]]
+#Barre3=[[13],[13],[13]]
+#Barre2=[[14],[14]]
+IBarre4=[[12],[12],[12],[12]]
+IBarre3=[[13],[13],[13]]
+IBarre2=[[14],[14]]
 
 Carre=[[15,15],[15,15]]
 Point=[[16]]
+
+
+#pas de jugements plz
+for i in range(len(Listes)):
+    Listes[i]=Listes[i][1:len(Listes[i])-2].split(',')
+    
+def f(L):
+    for i in range (len(L)):
+        for j in range (len(L[i])):
+            if L[i][j][0]=='G':
+                if L[i][j][-1]=='L':
+                    L[i][j]=GrandL
+                if L[i][j][-1]=='T':
+                    L[i][j]=GrandT
+                if L[i][j][-1]=='r':
+                    L[i][j]=GrandEclair
+                if L[i][j][-1]=='V':
+                    L[i][j]=GrandV
+                
+            elif L[i][j][0]=='N':
+                if L[i][j][-1]=='P':
+                    L[i][j]=NormalP
+                if L[i][j][-1]=='C':
+                    L[i][j]=NormalC
+                
+            elif L[i][j][0]=='P':
+                if L[i][j][-1]=='L':
+                    L[i][j]=PetitL
+                if L[i][j][-1]=='T':
+                    L[i][j]=PetitT
+                if L[i][j][-1]=='V':
+                    L[i][j]=PetitV
+                if L[i][j][-1]=='r':
+                    L[i][j]=PetitEclair
+                if L[i][j][-1]=='t':
+                    L[i][j]=Point
+                
+            elif L[i][j][0]=='I':
+                
+                if L[i][j][-1]=='2':
+                    L[i][j]=IBarre2
+                if L[i][j][-1]=='3':
+                    L[i][j]=IBarre3
+                if L[i][j][-1]=='4':
+                    L[i][j]=IBarre4
+                    
+            elif L[i][j][0]=='C':
+                L[i][j]=Carre  
+                
+            else:
+                L[i][j]=BizarrdZ            
+
+
+
+f(Listes)
+
+
+
 
 #ROTATION D'UNE PIECE DE 90°
 def tourne90(Piece): 
@@ -202,11 +252,11 @@ def force_brute(Liste, Plateau=[[0 for _ in range(LARGE)] for _ in range (LONG)]
 #TESTS
 LP3=[NormalC,GrandEclair,NormalP]
 LP3bis=[NormalP,GrandEclair,NormalC]
-LP4=[GrandL,PetitT,GrandT,Carre,NormalZ,PetitEclair,Barre3]
-LP5=[NormalP,Barre3,PetitL,PetitT,Barre4]#4,5 fonctionne mais pas 5,4 
-LP6=[GrandT,GrandL,PetitL,GrandV,Carre,Barre2]
+LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
+LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]#4,5 fonctionne mais pas 5,4 
+LP6=[GrandT,GrandL,PetitL,GrandV,Carre,IBarre2]
 #Liste=[[GrandL,0,0,0,3],[Barre4,0,0,1,4],[Barre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,0,1,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
-LP7=[NormalP,GrandL,NormalZ,GrandEclair,Barre4,Point]
+LP7=[NormalP,GrandL,BizarrdZ,GrandEclair,IBarre4,Point]
 #print("Katamino en force brute :\n", force_brute(LP5))
 
 #LL=PermutationsListe(LP4)
@@ -220,21 +270,22 @@ LP7=[NormalP,GrandL,NormalZ,GrandEclair,Barre4,Point]
 #    Lpiece1.append(LL[i][0][0][0])
 #    print (LL[i][0],'\n',compl,'\n',i,'/',5040)
 
-#import le doc là!!!!!!!!!!!
+
 truc=["liste des listes qui font 5*k"]
 Cs2=[]
 Cs1=[]
-
-for i in range (len(truc)):
+#•622, 608,506,43,60qqchose
+#◘ajouter l'autre plateau
+for i in range (624,len(Listes)):
     compl=0
-    tri_insertion(truc[i])
-    force_brute(truc[i])
+    tri_insertion(Listes[i])
+    force_brute(Listes[i])
     compl1=compl
     
     compl=0
-    lenvers(truc[i])
-    force_brute(truc[i])
-    Lpiece1.append(LL[i][0])
+    lenvers(Listes[i])
+    force_brute(Listes[i])
+    #Lpiece1.append(LL[i][0])
     compl2=compl
     
     Cs2.append(compl2)
