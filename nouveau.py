@@ -1,6 +1,6 @@
 from copy import *
 
-#%% kataminos
+# kataminos
 
 
 Long=int(input("Long: "))
@@ -71,7 +71,7 @@ def retourne(Piece):
 #AJOUT D'UNE PIECE AU PLATEAU
 
 def ajout(Piece,Plateau=[[False for _ in range(Large)] for _ in range (Long)],n=0,m=0):
-    Nplateau=Plateau[:]
+    Nplateau=deepcopy(Plateau)
     for i in range (len(Piece.s)): #colonnes
         for j in range (len(Piece.s[0])): #lignes
             if Piece.s[i][j]:
@@ -82,7 +82,7 @@ def ajout(Piece,Plateau=[[False for _ in range(Large)] for _ in range (Long)],n=
     return Nplateau
 
 def ajout_final(Piece,Plateau=[[False for _ in range(Large)] for _ in range (Long)],n=0,m=0):
-    Nplateau=Plateau[:]
+    Nplateau=deepcopy(Plateau)
     for i in range (len(Piece.s)): #colonnes
         for j in range (len(Piece.s[0])): #lignes
             if i+n < len(Plateau) and j+m < len(Plateau[0]) and Piece.s[i][j]!=0:
@@ -125,8 +125,6 @@ def bourrin(Liste,Plateau=[[False for _ in range(Large)] for _ in range (Long)])
         rate=True
         print(increment)
         s,t,i,j=0,0,0,0
-        if L[0].s==[[True,True],[True,False]]:
-            print("ここだよ")
         while s<2 and rate:
 
             while t<L[0].max_r and rate:
@@ -134,13 +132,12 @@ def bourrin(Liste,Plateau=[[False for _ in range(Large)] for _ in range (Long)])
                     while i<=len(Plateau)-len(L[0].s) and rate: #colonne
                         nP=ajout(L[0],Plateau,i,j)
                         
+                        print(i ,j )
                         print(L[0].s,nP)
                         if type(nP)!=str:
                             Plateau=nP
                             rate=False
-                            if L[0].s==[[True,True],[True,False]]:
-                                print(Plateau)
-                                input()
+                            
                             Listedesdetails.append([L[0],t,s])  #[piece,tourne,symetrie,ligne, colonne]
                             L[0].x,L[0].y=i,j
                             break
@@ -203,4 +200,4 @@ LP3bis=[NormalP,GrandEclair,NormalC]
 LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
 LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]
 LP7=[BizarrdZ,PetitL,PetitV,Carre,Carre,PetitV,NormalP,PetitEclair,PetitV]
-print("Katamino bon :\n", bourrin(LP7))
+print("Katamino bon :\n", bourrin(LP5))
