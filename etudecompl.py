@@ -13,10 +13,12 @@ Liste15.close()
 
 compl=0
 
-LONG=3 #int(input("Longueur du plateau : "))
-LARGE=5 #int(input("Largeur du plateau : "))
+LONG=3 
+LARGE=5 
 
-Plateau=[[0 for _ in range (LARGE)] for _ in range (LONG)]
+
+PB=[[0 for _ in range(LARGE)]for _ in range (LONG)]
+
 
 
 def tri_insertion (L):
@@ -36,88 +38,59 @@ def lenvers(L):
         L[i],L[n-i-1]=L[n-i-1],L[i]
 
 #LISTE DES PIECES
-GrandL=[[1,1],[1,0],[1,0],[1,0]]
-GrandT=[[2,0],[2,2],[2,0],[2,0]]
+# GrandL=[[1,1],[1,0],[1,0],[1,0]]
+# GrandT=[[2,0],[2,2],[2,0],[2,0]]
+# GrandEclair=[[3,0],[3,0],[3,3],[0,3]]
+# GrandV=[[4,4,4],[4,0,0],[4,0,0]]
+
+# NormalP=[[5,5],[5,5],[5,0]]
+# NormalC=[[6,6],[6,0],[6,6]]
+# BizarrdZ=[[7,0,0],[7,7,7],[0,0,7]]
+# #NormalZ=[[7,0,0],[7,7,7],[0,0,7]]
+
+# PetitL=[[8,8],[8,0],[8,0]]
+# PetitT=[[9,0],[9,9],[9,0]]
+# PetitV=[[10,10],[10,0]]
+# PetitEclair=[[11,0],[11,11],[0,11]]
+
+# #Barre4=[[12],[12],[12],[12]]
+# #Barre3=[[13],[13],[13]]
+# #Barre2=[[14],[14]]
+# IBarre4=[[12],[12],[12],[12]]
+# IBarre3=[[13],[13],[13]]
+# IBarre2=[[14],[14]]
+
+# Carre=[[15,15],[15,15]]
+# Point=[[16]]
+##Test
+BizarrdZ=[[1,0,0],[1,1,1],[0,0,1]]
+GrandV=[[2,2,2],[2,0,0],[2,0,0]]
 GrandEclair=[[3,0],[3,0],[3,3],[0,3]]
-GrandV=[[4,4,4],[4,0,0],[4,0,0]]
+GrandL=[[4,4],[4,0],[4,0],[4,0]]
+GrandT=[[5,0],[5,5],[5,0],[5,0]]
 
-NormalP=[[5,5],[5,5],[5,0]]
 NormalC=[[6,6],[6,0],[6,6]]
-BizarrdZ=[[7,0,0],[7,7,7],[0,0,7]]
-#NormalZ=[[7,0,0],[7,7,7],[0,0,7]]
+NormalP=[[7,7],[7,7],[7,0]]
+IBarre4=[[8],[8],[8],[8]]
 
-PetitL=[[8,8],[8,0],[8,0]]
-PetitT=[[9,0],[9,9],[9,0]]
-PetitV=[[10,10],[10,0]]
+PetitL=[[9,9],[9,0],[9,0]]
+PetitT=[[10,0],[10,10],[10,0]]
 PetitEclair=[[11,0],[11,11],[0,11]]
+Carre=[[12,12],[12,12]]
 
-#Barre4=[[12],[12],[12],[12]]
-#Barre3=[[13],[13],[13]]
-#Barre2=[[14],[14]]
-IBarre4=[[12],[12],[12],[12]]
-IBarre3=[[13],[13],[13]]
-IBarre2=[[14],[14]]
+PetitV=[[13,13],[13,0]]
+IBarre3=[[14],[14],[14]]
+IBarre2=[[15],[15]]
 
-Carre=[[15,15],[15,15]]
 Point=[[16]]
 
 
-#pas de jugements plz
-for i in range(len(Listes)):
-    Listes[i]=Listes[i][1:len(Listes[i])-2].split(',')
-    
-def f(L):
-    for i in range (len(L)):
-        for j in range (len(L[i])):
-            if L[i][j][0]=='G':
-                if L[i][j][-1]=='L':
-                    L[i][j]=GrandL
-                if L[i][j][-1]=='T':
-                    L[i][j]=GrandT
-                if L[i][j][-1]=='r':
-                    L[i][j]=GrandEclair
-                if L[i][j][-1]=='V':
-                    L[i][j]=GrandV
-                
-            elif L[i][j][0]=='N':
-                if L[i][j][-1]=='P':
-                    L[i][j]=NormalP
-                if L[i][j][-1]=='C':
-                    L[i][j]=NormalC
-                
-            elif L[i][j][0]=='P':
-                if L[i][j][-1]=='L':
-                    L[i][j]=PetitL
-                if L[i][j][-1]=='T':
-                    L[i][j]=PetitT
-                if L[i][j][-1]=='V':
-                    L[i][j]=PetitV
-                if L[i][j][-1]=='r':
-                    L[i][j]=PetitEclair
-                if L[i][j][-1]=='t':
-                    L[i][j]=Point
-                
-            elif L[i][j][0]=='I':
-                
-                if L[i][j][-1]=='2':
-                    L[i][j]=IBarre2
-                if L[i][j][-1]=='3':
-                    L[i][j]=IBarre3
-                if L[i][j][-1]=='4':
-                    L[i][j]=IBarre4
-                    
-            elif L[i][j][0]=='C':
-                L[i][j]=Carre  
-                
-            else:
-                L[i][j]=BizarrdZ            
+for i in range (len(Listes)):
+    Listes[i]=eval(Listes[i].strip())
 
 
 
-f(Listes)
-
-
-
+#%%
 
 #ROTATION D'UNE PIECE DE 90°
 def tourne90(Piece): 
@@ -145,7 +118,7 @@ def retourne(Piece):
     return NPiece
 
 #AJOUT D'UNE PIECE AU PLATEAU
-def ajout(Piece, Plateau=[[0 for _ in range(LARGE)] for _ in range (LONG)], l=0, c=0): 
+def ajout(Piece, Plateau=PB, l=0, c=0): 
     "ajoute une pièce à un plateau"
     "Piece et Plateau sont des matrices, Plateau est par défaut une matrice nulle, l et c int par défaut 0"
     global compl
@@ -163,7 +136,7 @@ def ajout(Piece, Plateau=[[0 for _ in range(LARGE)] for _ in range (LONG)], l=0,
     return Nplateau #on retourne le nouveau plateau
 
 #APPLIQUE UNE LISTE DE PIECES A UN PLATEAU
-def applique(Liste, Plateau=[[0 for _ in range(LARGE)] for _ in range (LONG)]):
+def applique(Liste, Plateau=PB):
     "applique la liste de pièces à un plateau par défaut une matrice nulle"
     "Liste contient une liste de [piece,tourne,symetrie,ligne,colonne]"
     global compl
@@ -173,7 +146,7 @@ def applique(Liste, Plateau=[[0 for _ in range(LARGE)] for _ in range (LONG)]):
     
     
 #print(applique(Liste=[[GrandL,0,0,0,3],[Barre4,0,0,1,4],[Barre3,0,0,0,0],[Carre,0,0,0,1],[tourne90(PetitEclair),0,1,2,0],[tourne90(retourne(GrandT)),1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
-def force_brute(Liste, Plateau=[[0 for _ in range(LARGE)] for _ in range (LONG)]):
+def force_brute(Liste, Plateau=PB):
     "résoud un Katamino avec les pièces données dans la liste"
     "teste toutes les possibilitées avant d'en trouver une qui fonctionne"
     global compl
@@ -255,7 +228,6 @@ LP3bis=[NormalP,GrandEclair,NormalC]
 LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
 LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]#4,5 fonctionne mais pas 5,4 
 LP6=[GrandT,GrandL,PetitL,GrandV,Carre,IBarre2]
-#Liste=[[GrandL,0,0,0,3],[Barre4,0,0,1,4],[Barre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,0,1,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
 LP7=[NormalP,GrandL,BizarrdZ,GrandEclair,IBarre4,Point]
 #print("Katamino en force brute :\n", force_brute(LP5))
 
@@ -274,9 +246,11 @@ LP7=[NormalP,GrandL,BizarrdZ,GrandEclair,IBarre4,Point]
 truc=["liste des listes qui font 5*k"]
 Cs2=[]
 Cs1=[]
-#•622, 608,506,43,60qqchose
+#Pour L15 :
+
+#•622, 608,506,240,43,60qqchose
 #◘ajouter l'autre plateau
-for i in range (624,len(Listes)):
+for i in range (42):
     compl=0
     tri_insertion(Listes[i])
     force_brute(Listes[i])
@@ -285,13 +259,83 @@ for i in range (624,len(Listes)):
     compl=0
     lenvers(Listes[i])
     force_brute(Listes[i])
-    #Lpiece1.append(LL[i][0])
     compl2=compl
-    
+
     Cs2.append(compl2)
     Cs1.append(compl1)
     print ('coucou\n',compl,'\n',i,'/','beaucoup')
+
+for i in range (45,60):
+    compl=0
+    tri_insertion(Listes[i])
+    force_brute(Listes[i])
+    compl1=compl
     
+    compl=0
+    lenvers(Listes[i])
+    force_brute(Listes[i])
+    compl2=compl
+
+    Cs2.append(compl2)
+    Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+for i in range (70,240):
+    compl=0
+    tri_insertion(Listes[i])
+    force_brute(Listes[i])
+    compl1=compl
+    
+    compl=0
+    lenvers(Listes[i])
+    force_brute(Listes[i])
+    compl2=compl
+
+    Cs2.append(compl2)
+    Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+for i in range (242,505):
+    compl=0
+    tri_insertion(Listes[i])
+    force_brute(Listes[i])
+    compl1=compl
+    
+    compl=0
+    lenvers(Listes[i])
+    force_brute(Listes[i])
+    compl2=compl
+
+    Cs2.append(compl2)
+    Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+for i in range (507,607):
+    compl=0
+    tri_insertion(Listes[i])
+    force_brute(Listes[i])
+    compl1=compl
+    
+    compl=0
+    lenvers(Listes[i])
+    force_brute(Listes[i])
+    compl2=compl
+
+    Cs2.append(compl2)
+    Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+for i in range (609,622):
+    compl=0
+    tri_insertion(Listes[i])
+    force_brute(Listes[i])
+    compl1=compl
+    
+    compl=0
+    lenvers(Listes[i])
+    force_brute(Listes[i])
+    compl2=compl
+
+    Cs2.append(compl2)
+    Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+
     
 plt.plot(Cs1,Cs2,'*')
 plt.show

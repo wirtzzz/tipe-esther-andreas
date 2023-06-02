@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
+# Name:        pentatest
 # Purpose:
 #
 # Author:      esther
@@ -12,32 +12,27 @@
 
 import numpy as np
 
-LONG=int(input("Longueur du plateau : "))
-LARGE=int(input("Largeur du plateau : "))
+LONG=8#int(input("Longueur du plateau : "))
+LARGE=8#int(input("Largeur du plateau : "))
 
-PB=[[0 for _ in range (LARGE)] for _ in range (LONG)]
+#PB=[[0 for _ in range (LARGE)] for _ in range (LONG)]
+PB=[[0 for _ in range(8)]for i in range (8)]
+#PB[2][2]=PB[2][5]=PB[5][2]=PB[5][5]=-1000
+
 
 #LISTE DES PIECES
-GrandL=[[1,1],[1,0],[1,0],[1,0]]
-GrandT=[[2,0],[2,2],[2,0],[2,0]]
-GrandEclair=[[3,0],[3,0],[3,3],[0,3]]
-GrandV=[[4,4,4],[4,0,0],[4,0,0]]
-
-NormalP=[[5,5],[5,5],[5,0]]
-NormalC=[[6,6],[6,0],[6,6]]
-NormalZ=[[7,0,0],[7,7,7],[0,0,7]]
-
-PetitL=[[8,8],[8,0],[8,0]]
-PetitT=[[9,0],[9,9],[9,0]]
-PetitV=[[10,10],[10,0]]
-PetitEclair=[[11,0],[11,11],[0,11]]
-
-Barre4=[[12],[12],[12],[12]]
-Barre3=[[13],[13],[13]]
-Barre2=[[14],[14]]
-
-Carre=[[15,15],[15,15]]
-Point=[[16]]
+T=[[1,1,1],[0,1,0],[0,1,0]]
+U=[[2,2],[2,0],[2,2]]
+V=[[3,3,3],[3,0,0],[3,0,0]]
+W=[[4,0,0],[4,4,0],[0,4,4]]
+X=[[0,5,0],[5,5,5],[0,5,0]]
+Y=[[6,6,6,6],[0,6,0,0]]
+Z=[[7,7,0],[0,7,0],[0,7,7]]
+F=[[8,0,0],[8,8,8],[0,8,0]]
+I=[[9,9,9,9,9]]
+L=[[10,10,10,10],[10,0,0,0]]
+P=[[11,11],[11,11],[11,0]]
+N=[[12,12,0,0,0],[0,0,12,12,12]]
 
 #ROTATION D'UNE PIECE DE 90°
 def tourne90(Piece): 
@@ -91,7 +86,7 @@ def force_brute(Liste, Plateau=PB):
     Lparams=[] #contient [piece,tourne,symetrie,ligne,colonne]
     s,t,i,j=0,0,0,0 #compteurs de symetrie, tourne, ligne et colonne
     k = 0 #compteur de tours
-    while len(L)!=0 and k<15000:
+    while len(L)!=0 and k<30000000:
         k += 1
         posee=False #au départ la piece n'est pas posée
         
@@ -152,12 +147,6 @@ def force_brute(Liste, Plateau=PB):
     return Plateau
 
 #TESTS
-LP3=[NormalC,GrandEclair,NormalP]
-LP3bis=[NormalP,GrandEclair,NormalC]
-LP4=[GrandL,PetitT,GrandT,Carre,NormalZ,PetitEclair,Barre3]
-LP5=[NormalP,Barre3,PetitL,PetitT,Barre4]#4,5 fonctionne mais pas 5,4 
-LP6=[GrandT,GrandL,PetitL,GrandV,Carre,Barre2]
 
-#Liste=[[GrandL,0,0,0,3],[Barre4,0,0,1,4],[Barre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,0,1,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
-
-print("Katamino en force brute :\n", force_brute(LP5))
+print("Katamino en force brute :\n", force_brute([T,U,V,W,X,Y,Z,F,I,L,P,N]))
+#print("Katamino en force brute :\n", force_brute([T,U,V,I,N]))
