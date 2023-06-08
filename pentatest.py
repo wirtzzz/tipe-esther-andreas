@@ -1,25 +1,15 @@
-#-------------------------------------------------------------------------------
-# Name:        pentatest
-# Purpose:
-#
-# Author:      esther
-#
-# Created:     24/02/2023
-# Copyright:   (c) esthe 2023
-# Licence:     <your licence>
-#-------------------------------------------------------------------------------
-
-
 import numpy as np
+
+##PLATEAU 
 
 LONG=8#int(input("Longueur du plateau : "))
 LARGE=8#int(input("Largeur du plateau : "))
 
-#PB=[[0 for _ in range (LARGE)] for _ in range (LONG)]
-PB=[[0 for _ in range(8)]for i in range (8)]
+PB=[[0 for _ in range (LARGE)] for _ in range (LONG)]
+
 #PB[2][2]=PB[2][5]=PB[5][2]=PB[5][5]=-1000
 
-
+#%%
 #LISTE DES PIECES
 T=[[1,1,1],[0,1,0],[0,1,0]]
 U=[[2,2],[2,0],[2,2]]
@@ -145,6 +135,8 @@ def force_brute(Liste, Plateau=PB):
 
         print('\nAffichage du plateau', k,' \n',Plateau)
     return Plateau
+
+#%%
 
 #TESTS
 

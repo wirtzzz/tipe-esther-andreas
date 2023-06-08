@@ -5,21 +5,14 @@ from os import chdir
 
 chdir('C:/Users/esthe/Desktop/TIPE')
 
-Liste15=open('combi/L15.txt','r')
 
-Listes=Liste15.readlines()
-
-Liste15.close()
-
-compl=0
-
-LONG=3 
-LARGE=5 
-
+#Plateau
+LONG=5
+LARGE=3
 
 PB=[[0 for _ in range(LARGE)]for _ in range (LONG)]
-
-
+#
+compl=0
 
 def tri_insertion (L):
     n=len(L)
@@ -38,31 +31,7 @@ def lenvers(L):
         L[i],L[n-i-1]=L[n-i-1],L[i]
 
 #LISTE DES PIECES
-# GrandL=[[1,1],[1,0],[1,0],[1,0]]
-# GrandT=[[2,0],[2,2],[2,0],[2,0]]
-# GrandEclair=[[3,0],[3,0],[3,3],[0,3]]
-# GrandV=[[4,4,4],[4,0,0],[4,0,0]]
 
-# NormalP=[[5,5],[5,5],[5,0]]
-# NormalC=[[6,6],[6,0],[6,6]]
-# BizarrdZ=[[7,0,0],[7,7,7],[0,0,7]]
-# #NormalZ=[[7,0,0],[7,7,7],[0,0,7]]
-
-# PetitL=[[8,8],[8,0],[8,0]]
-# PetitT=[[9,0],[9,9],[9,0]]
-# PetitV=[[10,10],[10,0]]
-# PetitEclair=[[11,0],[11,11],[0,11]]
-
-# #Barre4=[[12],[12],[12],[12]]
-# #Barre3=[[13],[13],[13]]
-# #Barre2=[[14],[14]]
-# IBarre4=[[12],[12],[12],[12]]
-# IBarre3=[[13],[13],[13]]
-# IBarre2=[[14],[14]]
-
-# Carre=[[15,15],[15,15]]
-# Point=[[16]]
-##Test
 BizarrdZ=[[1,0,0],[1,1,1],[0,0,1]]
 GrandV=[[2,2,2],[2,0,0],[2,0,0]]
 GrandEclair=[[3,0],[3,0],[3,3],[0,3]]
@@ -83,11 +52,6 @@ IBarre3=[[14],[14],[14]]
 IBarre2=[[15],[15]]
 
 Point=[[16]]
-
-
-for i in range (len(Listes)):
-    Listes[i]=eval(Listes[i].strip())
-
 
 
 #%%
@@ -154,7 +118,7 @@ def force_brute(Liste, Plateau=PB):
     Lparams=[] #contient [piece,tourne,symetrie,ligne,colonne]
     s,t,i,j=0,0,0,0 #compteurs de symetrie, tourne, ligne et colonne
     k = 0 #compteur de tours
-    while len(L)!=0 and k<15000:
+    while len(L)!=0 and k<100000:
         k += 1
         posee=False #au départ la piece n'est pas posée
         
@@ -184,7 +148,7 @@ def force_brute(Liste, Plateau=PB):
         s=0
         if not posee: #si la piece n'est pas posée
             if len(Lparams)==0:
-                return Plateau, "échec"
+                return "impossible"
             
             L=Liste[len(Liste)-len(L)-1:] #on ajoute la pièce d'avant aux pieces non posées
             compl+=2
@@ -220,20 +184,27 @@ def force_brute(Liste, Plateau=PB):
             L=L[1:] # liste des pieces restantes
 
         #print('\nAffichage du plateau', k,' \n',Plateau)
+    if k>=100000:
+        return 'out_of_boucle'
     return Plateau
 
 #TESTS
-LP3=[NormalC,GrandEclair,NormalP]
-LP3bis=[NormalP,GrandEclair,NormalC]
-LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
+
 LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]#4,5 fonctionne mais pas 5,4 
-LP6=[GrandT,GrandL,PetitL,GrandV,Carre,IBarre2]
-LP7=[NormalP,GrandL,BizarrdZ,GrandEclair,IBarre4,Point]
+
 #print("Katamino en force brute :\n", force_brute(LP5))
 
-#LL=PermutationsListe(LP4)
 
-#Lpiece1=[]
+#%%
+
+Liste15=open('combi/L15.txt','r')
+
+Listes=Liste15.readlines()
+
+Liste15.close()
+
+for i in range (len(Listes)):
+    Listes[i]=eval(Listes[i].strip())
 
 #for i in range (len(LL)):
 #    compl=0
@@ -242,100 +213,360 @@ LP7=[NormalP,GrandL,BizarrdZ,GrandEclair,IBarre4,Point]
 #    Lpiece1.append(LL[i][0][0][0])
 #    print (LL[i][0],'\n',compl,'\n',i,'/',5040)
 
-
+#######LA LISTE 23 A OBSERVER PARCE QUE WTF 
 truc=["liste des listes qui font 5*k"]
 Cs2=[]
 Cs1=[]
-#Pour L15 :
+Cimp2=[]
+Cimp1=[]
+Coob1=[]
+Coob2=[]
 
+#Pour L15 :
+#plateau
+LONG=5
+LARGE=3
+PB=[[0 for _ in range(LARGE)]for _ in range (LONG)]
 #•622, 608,506,240,43,60qqchose
 #◘ajouter l'autre plateau
 for i in range (42):
     compl=0
     tri_insertion(Listes[i])
-    force_brute(Listes[i])
+    P1=force_brute(Listes[i])
     compl1=compl
-    
+
     compl=0
     lenvers(Listes[i])
-    force_brute(Listes[i])
+    P2=force_brute(Listes[i])
     compl2=compl
 
-    Cs2.append(compl2)
-    Cs1.append(compl1)
-    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+    if type(P1)==str or type(P2)==str:
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','623')
 
 for i in range (45,60):
     compl=0
     tri_insertion(Listes[i])
-    force_brute(Listes[i])
+    P1=force_brute(Listes[i])
     compl1=compl
-    
+
     compl=0
     lenvers(Listes[i])
-    force_brute(Listes[i])
+    P2=force_brute(Listes[i])
     compl2=compl
 
-    Cs2.append(compl2)
-    Cs1.append(compl1)
-    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+    if type(P1)==str or type(P2)==str:
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','623')
 for i in range (70,240):
     compl=0
     tri_insertion(Listes[i])
-    force_brute(Listes[i])
+    P1=force_brute(Listes[i])
     compl1=compl
-    
+
     compl=0
     lenvers(Listes[i])
-    force_brute(Listes[i])
+    P2=force_brute(Listes[i])
     compl2=compl
 
-    Cs2.append(compl2)
-    Cs1.append(compl1)
-    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+    if type(P1)==str or type(P2)==str:
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','623')
 for i in range (242,505):
     compl=0
     tri_insertion(Listes[i])
-    force_brute(Listes[i])
+    P1=force_brute(Listes[i])
     compl1=compl
-    
+
     compl=0
     lenvers(Listes[i])
-    force_brute(Listes[i])
+    P2=force_brute(Listes[i])
     compl2=compl
 
-    Cs2.append(compl2)
-    Cs1.append(compl1)
-    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+    if type(P1)==str or type(P2)==str:
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','623')
 for i in range (507,607):
     compl=0
     tri_insertion(Listes[i])
-    force_brute(Listes[i])
+    P1=force_brute(Listes[i])
     compl1=compl
-    
+
     compl=0
     lenvers(Listes[i])
-    force_brute(Listes[i])
+    P2=force_brute(Listes[i])
     compl2=compl
 
-    Cs2.append(compl2)
-    Cs1.append(compl1)
-    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+    if type(P1)==str or type(P2)==str:
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','623')
 for i in range (609,622):
     compl=0
     tri_insertion(Listes[i])
-    force_brute(Listes[i])
+    P1=force_brute(Listes[i])
     compl1=compl
-    
+
     compl=0
     lenvers(Listes[i])
-    force_brute(Listes[i])
+    P2=force_brute(Listes[i])
     compl2=compl
 
-    Cs2.append(compl2)
-    Cs1.append(compl1)
-    print ('coucou\n',compl,'\n',i,'/','beaucoup')
+    if type(P1)==str or type(P2)==str:
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','623')
+    print ('coucou\n',compl,'\n',i,'/','623')
 
     
+plt.plot(Cs1,Cs2,'g*')
+plt.plot(Cimp1,Cimp2,'r*')
+plt.plot(Coob1,Coob2,'b*')
+plt.xlabel('complexité des listes rangées dans l ordre croissant')
+plt.ylabel('complexité des listes rangées dans l ordre décroissant')
+plt.show()
+#%% Listes 20 :
+
+Liste20=open('combi/L20.txt','r')
+
+Listes=Liste20.readlines()
+
+Liste20.close()
+
+for i in range (len(Listes)):
+    Listes[i]=eval(Listes[i].strip())
+
+#plateau
+LONG=5
+LARGE=4
+PB=[[0 for _ in range(LARGE)]for _ in range (LONG)] 
+#for i in range (len(LL)):
+#    compl=0
+#    force_brute(LL[i])
+#    Cs.append([compl])
+#    Lpiece1.append(LL[i][0][0][0])
+#    print (LL[i][0],'\n',compl,'\n',i,'/',5040)
+
+Cs2=[]
+Cs1=[]
+Cr1=[]
+Cr2=[]
+# #pb aux listes: 44,241,...
+for i in range (44):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        Cr1.append(compl1)
+        Cr2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1930')
+
+for i in range (45,240):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        Cr1.append(compl1)
+        Cr2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1930')
+for i in range (242,505):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        Cr1.append(compl1)
+        Cr2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1930')
+
+for i in range (507,608):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        Cr1.append(compl1)
+        Cr2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1930')
+for i in range (609,621):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        Cr1.append(compl1)
+        Cr2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1930')
+for i in range (624,747):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        Cr1.append(compl1)
+        Cr2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1930')
+for i in range (749,1064):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        Cr1.append(compl1)
+        Cr2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1930')
+for i in range (1066,1469):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        Cr1.append(compl1)
+        Cr2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1930')
+for i in range (1471,1931):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        Cr1.append(compl1)
+        Cr2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1930')
+
+# la place dans les listes CS1 etCS2 sont en gros la place dans LISTES
+
 plt.plot(Cs1,Cs2,'*')
-plt.show
+plt.plot(Cr1,Cr2,'*')
+plt.xlabel('complexité des listes rangées dans l ordre croissant')
+plt.ylabel('complexité des listes rangées dans l ordre décroissant')
+plt.show()
