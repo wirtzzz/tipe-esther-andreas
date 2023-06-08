@@ -111,7 +111,7 @@ LPieces=[GrandT,GrandL,PetitL,GrandV,Carre,IBarre2]
 
 
 
-def bourrin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,n,m,t,s):
+def force_brute(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]): #,n,m,t,s):
     print('\nListe des pièces \n:',Liste)
     L=Liste[:] #liste des pieces qui restent
     Listedesdetails=[]
@@ -227,5 +227,5 @@ LP3bis=[NormalP,GrandEclair,NormalC]
 LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
 LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]#4,5 fonctionne mais pas 5,4 
 
-print("Katamino bon :\n", bourrin(LP5))
+print("Katamino bon :\n", force_brute(LP5))
 
