@@ -90,12 +90,27 @@ def applique(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]):
         Plateau=ajout(Piece,Plateau,Liste[i][0].y,Liste[i][0].x)
     return Plateau
 
-#print(applique(Liste))
-
-
-#ESSAI PROGRAMME BOURRIN 2
+#fonction de majoration du nombre d'iterations, par dénombrement
+def majoration(Liste,Plateau):
+    if len(Liste)==0:
+        return 4*2
+    else:
+        return len(Plateau)*len(Plateau[0])*len(Liste)*majoration(Liste[1:],[[0]])
 
 LPieces=[GrandT,GrandL,PetitL,GrandV,Carre,IBarre2]
+
+#vérifie si le format des kataminos est compatible avec la taille du plateau
+
+def compatible(Liste, Plateau):
+    S=0
+    for katamino in Liste:
+        for i in range(len(katamino.s)):
+            for j in range(len(katamino.s[0])):
+                if katamino.s[i][j] != 0:
+                    S+=1
+    return S==len(Plateau)*len(Plateau[0])
+                    
+
 #pas oublier de def long et large
 
 
@@ -104,18 +119,25 @@ def force_brute(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)])
     
     Liste=[deepcopy(a) for a in Liste] #liste des pieces qui restent
     L=Liste[:]
-    Listedesdetails=[]
-    print(Plateau)
-    input()
-    if len(L)==0:
-        return Plateau,increment
+    Places=[]       #liste des kataminos placés sur la grille
+    if len(L)==0 or not compatible(Liste,Plateau):
+        return Plateau,increment #si aucun katamino n'est renseigné ou qu'ils ne peuvent pas rentrer, pas de calculs à faire
     s,t,i,j=0,0,0,0
+    maj=majoration(Liste, Plateau)
     increment = 0
-    while len(L)!=0 and increment<2000000:
+    while len(L)!=0 and increment<maj:
         increment += 1
         i,j=L[0].x,L[0].y
         rate=True
         print(increment)
+        print("Places:")
+        for k in Places:
+            print(k[0].s)
+        print("L:")
+        for k in L:
+            print(k.s)
+        if increment==14385:
+            input()
         while s<2 and rate:
 
             while t<L[0].max_r and rate:
@@ -129,7 +151,7 @@ def force_brute(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)])
                             Plateau=nP
                             rate=False
                             
-                            Listedesdetails.append([L[0],t,s])  #[piece,tourne,symetrie,ligne, colonne]
+                            Places.append([L[0],t,s])  #[piece,tourne]
                             L[0].x,L[0].y=i,j
                             break
                         i+=1
@@ -144,23 +166,17 @@ def force_brute(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)])
                 L[0].s = retourne(L[0])
             s+=1
         s=0
-        print("bip", L[0].s, L[0].x,L[0].y)
-        if rate: #si la piece n'est pas posée
-                        
-            # print('Affichage de la liste des details (avant et après) \n',Listedesdetails) 
-            #[piece,tourne,symetrie,ligne, colonne]
-            if len(Listedesdetails)==0:
-                print("l", [(a.x,a.y) for a in Liste])
-                return Plateau,increment
-            s,t,j,i=Listedesdetails[-1][2],Listedesdetails[-1][1],Listedesdetails[-1][0].x,Listedesdetails[-1][0].y
+        if rate:
+            if len(Places)==0:
+                 return Plateau,increment
             L=Liste[len(Liste)-len(L)-1:]
-            L[0]=Listedesdetails[-1][0]
-            i,j=L[0].x,L[0].y
-            if i>len(Plateau)-len(Listedesdetails[-1][0].s):#ptet un pb là
-    
-                i=0
-                if j>len(Plateau[0])-len(Listedesdetails[-1][0].s[0]): #ptet un pb ici
-                    j=0
+            L[0]=Places[-1][0]
+            s,t,j,i=Places[-1][2],Places[-1][1],Places[-1][0].x,Places[-1][0].y
+
+            if L[0].x>len(Plateau)-len(Places[-1][0].s):
+                L[0].x=0
+                if L[0].y>len(Plateau[0])-len(Places[-1][0].s[0]):
+                    L[0].y=0
                     if t>3:
                         t=0
                         if s==0:
@@ -168,26 +184,23 @@ def force_brute(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)])
                     else:
                         t+=1
                 else:
-                    j+=1
+                    L[0].y+=1
             else: 
-                i+=1
-            L[0].x,L[0].y = i,j         
-            print("oui", L[0].x, L[0].y)
-            Listedesdetails=Listedesdetails[:-1]
+                L[0].x=1       
+            Places=Places[:-1]
             print(Plateau)
-            nP=applique(Listedesdetails)
+            nP=applique(Places)
             if type(nP) != str:
                 Plateau=nP
             print(Plateau)
         else:
             L=L[1:]
         print('\nAffichage du plateau', increment, ' \n')
-        for l in Plateau:
-            print(l)
+        for ligne in Plateau:
+            print(ligne)
     return (Plateau,increment)
 
 
-LP2=[NormalP,retourne(GrandEclair),[[6, 0, 6], [6, 6, 6]]] #bon, là ça fonctionne mais jai triché
 LP3=[NormalC,GrandEclair,NormalP]
 LP3bis=[NormalP,GrandEclair,NormalC]
 LP32=[BizarrdZ,GrandV,GrandEclair]
@@ -195,4 +208,5 @@ LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
 LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]
 LP7=[BizarrdZ,PetitL,PetitV,Carre,Carre,PetitV,NormalP,PetitEclair,PetitV]
 LP9= [IBarre4,PetitL,NormalP,PetitV,NormalC,GrandL,IBarre2,PetitT,IBarre3]
-print("Katamino bon :\n", force_brute(LP32))
+LPprob=[IBarre2,IBarre2,IBarre3,Carre,PetitT]
+print("Katamino bon :\n", force_brute(LP5))
