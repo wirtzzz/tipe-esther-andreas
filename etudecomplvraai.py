@@ -1,52 +1,73 @@
-#-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
-#
-# Author:      esther
-#
-# Created:     24/02/2023
-# Copyright:   (c) esthe 2023
-# Licence:     <your licence>
-#-------------------------------------------------------------------------------
-
 
 import numpy as np
+import matplotlib.pyplot as plt
+from os import chdir
 
-LONG=6#int(input("Longueur du plateau : "))
-LARGE=5 #int(input("Largeur du plateau : "))
+chdir('C:/Users/esthe/Desktop/TIPE')
 
-PB=[[0 for _ in range (LARGE)] for _ in range (LONG)]
+
+#Plateau
+# LONG=3
+# LARGE=5
+
+# PB=[[0 for _ in range(LARGE)]for _ in range (LONG)]
+#
+compl=0
+
+def tri_insertion (L):
+    n=len(L)
+    for i in range (1,n):
+        j=i
+        x=L[i]
+        
+        while 0<j and x<L[j-1]:
+            L[j]=L[j-1]
+            j=j-1
+        L[j]=x
+        
+def lenvers(L):
+    n=len(L)
+    for i in range (n//2):
+        L[i],L[n-i-1]=L[n-i-1],L[i]
 
 #LISTE DES PIECES
-GrandL=[[1,1],[1,0],[1,0],[1,0]]
-GrandT=[[2,0],[2,2],[2,0],[2,0]]
+
+BizarrdZ=[[1,0,0],[1,1,1],[0,0,1]]
+GrandV=[[2,2,2],[2,0,0],[2,0,0]]
 GrandEclair=[[3,0],[3,0],[3,3],[0,3]]
-GrandV=[[4,4,4],[4,0,0],[4,0,0]]
+GrandL=[[4,4],[4,0],[4,0],[4,0]]
+GrandT=[[5,0],[5,5],[5,0],[5,0]]
 
-NormalP=[[5,5],[5,5],[5,0]]
 NormalC=[[6,6],[6,0],[6,6]]
-NormalZ=[[7,0,0],[7,7,7],[0,0,7]]
+NormalP=[[7,7],[7,7],[7,0]]
+IBarre4=[[8],[8],[8],[8]]
 
-PetitL=[[8,8],[8,0],[8,0]]
-PetitT=[[9,0],[9,9],[9,0]]
-PetitV=[[10,10],[10,0]]
+PetitL=[[9,9],[9,0],[9,0]]
+PetitT=[[10,0],[10,10],[10,0]]
 PetitEclair=[[11,0],[11,11],[0,11]]
+Carre=[[12,12],[12,12]]
 
-Barre4=[[12],[12],[12],[12]]
-Barre3=[[13],[13],[13]]
-Barre2=[[14],[14]]
+PetitV=[[13,13],[13,0]]
+IBarre3=[[14],[14],[14]]
+IBarre2=[[15],[15]]
 
-Carre=[[15,15],[15,15]]
 Point=[[16]]
+
+
+#%%
+LARGE,LONG=5,9
+PB=[[0 for _ in range(LARGE)]for _ in range (LONG)] 
 
 #ROTATION D'UNE PIECE DE 90°
 def tourne90(Piece): 
     "tourne une pièce de 90° dans le sens horaire"
     "Piece est une matrice"
+    global compl
     NPiece=[ [0 for _ in range (len(Piece))] for _ in range (len(Piece[0]))] #on crée une matrice vide
     for i in range (len(Piece)): #lignes
         for j in range (len(Piece[0])): #colonnes
             NPiece[j][i]=Piece[len(Piece)-1-i][j] #on fait la transposée et la symétrie par rapport à l'axe des ordonnées
+            compl+=2
     Piece=NPiece
     return Piece
 
@@ -54,16 +75,19 @@ def tourne90(Piece):
 def retourne(Piece):
     "effectue la symétrie une pièce par l'ordonnée en place"
     "Piece est une matrice"
+    global compl
     NPiece=[ [0 for i in range (len(Piece[0]))] for _ in range (len(Piece))]
     for i in range (len(Piece)):
         for j in range (len(Piece[0])):
             NPiece[i][j]=Piece[i][len(Piece[0])-j-1]
+            compl+=2
     return NPiece
 
 #AJOUT D'UNE PIECE AU PLATEAU
 def ajout(Piece, Plateau=PB, l=0, c=0): 
     "ajoute une pièce à un plateau"
     "Piece et Plateau sont des matrices, Plateau est par défaut une matrice nulle, l et c int par défaut 0"
+    global compl
     # (l,c) correspond aux coordonnées de la case (0,0) de la piece dans le plateau
     Nplateau=np.copy(Plateau) #on fait un nouveau plateau 
     for i in range (len(Piece)): #lignes
@@ -71,7 +95,9 @@ def ajout(Piece, Plateau=PB, l=0, c=0):
             if Piece[i][j]!=0: 
                 if Nplateau[i+l][j+c]==0: #si la case du plateau est vide
                     Nplateau[i+l][j+c]=Piece[i][j] #on pose la case de piece
+                    compl+=4
                 else:
+                    compl+=2
                     return False #sinon la pièce ne peut pas être posée
     return Nplateau #on retourne le nouveau plateau
 
@@ -79,27 +105,34 @@ def ajout(Piece, Plateau=PB, l=0, c=0):
 def applique(Liste, Plateau=PB):
     "applique la liste de pièces à un plateau par défaut une matrice nulle"
     "Liste contient une liste de [piece,tourne,symetrie,ligne,colonne]"
+    global compl
     for i in range (len(Liste)):
         Plateau = ajout(Liste[i][0], Plateau, Liste[i][3], Liste[i][4]) 
     return Plateau
     
     
+#print(applique(Liste=[[GrandL,0,0,0,3],[Barre4,0,0,1,4],[Barre3,0,0,0,0],[Carre,0,0,0,1],[tourne90(PetitEclair),0,1,2,0],[tourne90(retourne(GrandT)),1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
 def force_brute(Liste, Plateau=PB):
     "résoud un Katamino avec les pièces données dans la liste"
     "teste toutes les possibilitées avant d'en trouver une qui fonctionne"
+    global compl
     L=np.copy(Liste) #liste des pieces de départ
     Lparams=[] #contient [piece,tourne,symetrie,ligne,colonne]
     s,t,i,j=0,0,0,0 #compteurs de symetrie, tourne, ligne et colonne
     k = 0 #compteur de tours
-    while len(L)!=0:
+    while len(L)!=0 and k<100000:
         k += 1
         posee=False #au départ la piece n'est pas posée
         
         #on teste toutes les possibilités de positionnement de la piece
         while s<2 and not posee: #symetrie
+            compl+=1
             while t<4 and not posee: #tourne
+                compl+=1
                 while i<=len(Plateau)-len(L[0]) and not posee: #ligne
+                    compl+=2
                     while j<=len(Plateau[0])-len(L[0][0]) and not posee: #colonne
+                        compl+=2
                         nP = ajout(L[0],Plateau,i,j)
                         if type(nP)!=bool :
                             Plateau = nP
@@ -117,9 +150,10 @@ def force_brute(Liste, Plateau=PB):
         s=0
         if not posee: #si la piece n'est pas posée
             if len(Lparams)==0:
-                return Plateau, "échec"
+                return "impossible"
             
             L=Liste[len(Liste)-len(L)-1:] #on ajoute la pièce d'avant aux pieces non posées
+            compl+=2
             L[0], s, t, i, j =Lparams[-1][0], Lparams[-1][1], Lparams[-1][2], Lparams[-1][3], Lparams[-1][4] #pour reprendre la on on s'était arreté avec la pièce davant
             Lparams=Lparams[:-1] #on retire la pièce d'avant des pieces posées
             
@@ -135,29 +169,145 @@ def force_brute(Liste, Plateau=PB):
                         else:
                             s+=1
                             L[0]=retourne(L[0])
+                            compl+=3
                     else:
                         t+=1
                         L[0]=tourne90(L[0])
+                        compl+=3
                 else:
                     j+=1
+                    compl+=3
             else: 
                 i+=1
-
+                compl+=2
             Plateau=applique(Lparams) #on reprend le plateau sans la pièce d'avant
             
         else:
             L=L[1:] # liste des pieces restantes
 
         print('\nAffichage du plateau', k,' \n',Plateau)
+    if k>=100000:
+        return 'out_of_boucle'
     return Plateau
 
 #TESTS
-LP3=[NormalC,GrandEclair,NormalP]
-LP3bis=[NormalP,GrandEclair,NormalC]
-LP4=[GrandL,PetitT,GrandT,Carre,NormalZ,PetitEclair,Barre3]
-LP5=[NormalP,Barre3,PetitL,PetitT,Barre4]#4,5 fonctionne mais pas 5,4 
-LP6=[GrandT,GrandL,PetitL,GrandV,Carre,Barre2]
 
-#Liste=[[GrandL,0,0,0,3],[Barre4,0,0,1,4],[Barre3,0,0,0,0],[Carre,0,0,0,1],[PetitEclair,0,1,2,0],[GrandT,1,1,3,0]] #[piece,tourne,symetrie,ligne, colonne]
+LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]#4,5 fonctionne mais pas 5,4 
 
-print("Katamino en force brute :\n", force_brute([Point,Point,Barre2,Barre2,PetitV,Carre,PetitL,PetitEclair,Barre4,GrandL]))
+LP=[Point,Point,IBarre2,IBarre3,PetitV,Carre,PetitL,PetitT,PetitEclair,IBarre4,GrandL,GrandT,GrandEclair]
+tri_insertion(LP)
+
+print("Katamino en force brute :\n", force_brute(LP))
+
+#%%
+Liste15=open('combi - Copie/test.txt','r')
+
+Listes=Liste15.readlines()
+
+Liste15.close()
+
+for i in range (len(Listes)):
+    Listes[i]=eval(Listes[i].strip())
+
+#######LA LISTE 23 A OBSERVER PARCE QUE WTF (ds quel sens?)
+truc=["liste des listes qui font 5*k"]
+Cs2=[]
+Cs1=[]
+Cimp2=[]
+Cimp1=[]
+Coob1=[]
+Coob2=[]
+
+#Pour L15 :
+#plateau
+LONG=5
+LARGE=3
+PB=[[0 for _ in range(LARGE)]for _ in range (LONG)]
+
+for i in range (588):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','587')
+
+
+
+plt.plot(Cs1,Cs2,'g*')
+plt.plot(Cimp1,Cimp2,'r*')
+plt.plot(Coob1,Coob2,'b*')
+plt.xlabel('complexité des listes rangées dans l ordre croissant')
+plt.ylabel('complexité des listes rangées dans l ordre décroissant')
+plt.show()
+
+#%% Listes 20 :
+
+Liste20=open('combi - Copie/test20.txt','r')
+
+Listes=Liste20.readlines()
+ 
+Liste20.close()
+
+for i in range (len(Listes)):
+    Listes[i]=eval(Listes[i].strip())
+
+#plateau
+LONG=4
+LARGE=5
+PB=[[0 for _ in range(LARGE)]for _ in range (LONG)] 
+
+
+Cs2=[]
+Cs1=[]
+Cimp2=[]
+Cimp1=[]
+Coob1=[]
+Coob2=[]
+
+
+for i in range (1915):
+    compl=0
+    tri_insertion(Listes[i])
+    P1=force_brute(Listes[i])
+    compl1=compl
+
+    compl=0
+    lenvers(Listes[i])
+    P2=force_brute(Listes[i])
+    compl2=compl
+
+    if type(P1)==str or type(P2)==str:
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
+    else:
+        Cs2.append(compl2)
+        Cs1.append(compl1)
+    print ('coucou\n',compl,'\n',i,'/','1914')
+   
+
+plt.plot(Cs1,Cs2,'g*')
+plt.plot(Cimp1,Cimp2,'r*')
+plt.plot(Coob1,Coob2,'b*')
+plt.xlabel('complexité des listes rangées dans l ordre croissant')
+plt.ylabel('complexité des listes rangées dans l ordre décroissant')
+plt.show()

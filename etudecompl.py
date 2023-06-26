@@ -7,10 +7,10 @@ chdir('C:/Users/esthe/Desktop/TIPE')
 
 
 #Plateau
-LONG=5
-LARGE=3
+#LONG=3
+#LARGE=5
 
-PB=[[0 for _ in range(LARGE)]for _ in range (LONG)]
+#PB=[[0 for _ in range(LARGE)]for _ in range (LONG)]
 #
 compl=0
 
@@ -224,8 +224,8 @@ Coob2=[]
 
 #Pour L15 :
 #plateau
-LONG=5
-LARGE=3
+LONG=3
+LARGE=5
 PB=[[0 for _ in range(LARGE)]for _ in range (LONG)]
 #•622, 608,506,240,43,60qqchose
 #◘ajouter l'autre plateau
@@ -245,8 +245,8 @@ for i in range (42):
             Cimp1.append(compl1)
             Cimp2.append(compl2)
         else:
-            Cimp1.append(compl1)
-            Cimp2.append(compl2)
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -268,8 +268,8 @@ for i in range (45,60):
             Cimp1.append(compl1)
             Cimp2.append(compl2)
         else:
-            Cimp1.append(compl1)
-            Cimp2.append(compl2)
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -290,8 +290,8 @@ for i in range (70,240):
             Cimp1.append(compl1)
             Cimp2.append(compl2)
         else:
-            Cimp1.append(compl1)
-            Cimp2.append(compl2)
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -312,8 +312,8 @@ for i in range (242,505):
             Cimp1.append(compl1)
             Cimp2.append(compl2)
         else:
-            Cimp1.append(compl1)
-            Cimp2.append(compl2)
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -334,8 +334,8 @@ for i in range (507,607):
             Cimp1.append(compl1)
             Cimp2.append(compl2)
         else:
-            Cimp1.append(compl1)
-            Cimp2.append(compl2)
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -356,8 +356,8 @@ for i in range (609,622):
             Cimp1.append(compl1)
             Cimp2.append(compl2)
         else:
-            Cimp1.append(compl1)
-            Cimp2.append(compl2)
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -395,8 +395,11 @@ PB=[[0 for _ in range(LARGE)]for _ in range (LONG)]
 
 Cs2=[]
 Cs1=[]
-Cr1=[]
-Cr2=[]
+Cimp2=[]
+Cimp1=[]
+Coob1=[]
+Coob2=[]
+
 # #pb aux listes: 44,241,...
 for i in range (44):
     compl=0
@@ -410,8 +413,12 @@ for i in range (44):
     compl2=compl
 
     if type(P1)==str or type(P2)==str:
-        Cr1.append(compl1)
-        Cr2.append(compl2)
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -429,8 +436,12 @@ for i in range (45,240):
     compl2=compl
 
     if type(P1)==str or type(P2)==str:
-        Cr1.append(compl1)
-        Cr2.append(compl2)
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -447,8 +458,12 @@ for i in range (242,505):
     compl2=compl
 
     if type(P1)==str or type(P2)==str:
-        Cr1.append(compl1)
-        Cr2.append(compl2)
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -466,8 +481,12 @@ for i in range (507,608):
     compl2=compl
 
     if type(P1)==str or type(P2)==str:
-        Cr1.append(compl1)
-        Cr2.append(compl2)
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -484,8 +503,12 @@ for i in range (609,621):
     compl2=compl
 
     if type(P1)==str or type(P2)==str:
-        Cr1.append(compl1)
-        Cr2.append(compl2)
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -502,8 +525,12 @@ for i in range (624,747):
     compl2=compl
 
     if type(P1)==str or type(P2)==str:
-        Cr1.append(compl1)
-        Cr2.append(compl2)
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -520,8 +547,12 @@ for i in range (749,1064):
     compl2=compl
 
     if type(P1)==str or type(P2)==str:
-        Cr1.append(compl1)
-        Cr2.append(compl2)
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -538,8 +569,12 @@ for i in range (1066,1469):
     compl2=compl
 
     if type(P1)==str or type(P2)==str:
-        Cr1.append(compl1)
-        Cr2.append(compl2)
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -556,8 +591,12 @@ for i in range (1471,1931):
     compl2=compl
 
     if type(P1)==str or type(P2)==str:
-        Cr1.append(compl1)
-        Cr2.append(compl2)
+        if (type(P1)==str and P1=='impossible') or (type(P2)==str and P2=='impossible'):
+            Cimp1.append(compl1)
+            Cimp2.append(compl2)
+        else:
+            Coob1.append(compl1)
+            Coob2.append(compl2)
     else:
         Cs2.append(compl2)
         Cs1.append(compl1)
@@ -565,8 +604,9 @@ for i in range (1471,1931):
 
 # la place dans les listes CS1 etCS2 sont en gros la place dans LISTES
 
-plt.plot(Cs1,Cs2,'*')
-plt.plot(Cr1,Cr2,'*')
+plt.plot(Cs1,Cs2,'g*')
+plt.plot(Cimp1,Cimp2,'r*')
+plt.plot(Coob1,Coob2,'b*')
 plt.xlabel('complexité des listes rangées dans l ordre croissant')
 plt.ylabel('complexité des listes rangées dans l ordre décroissant')
 plt.show()
