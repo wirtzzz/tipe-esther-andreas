@@ -93,7 +93,7 @@ def applique(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)]):
 #fonction de majoration du nombre d'iterations, par dénombrement
 def majoration(Liste,Plateau):
     if len(Liste)==0:
-        return 4*2
+        return 4*2              #maximum 4 rotations et 2 retournements
     else:
         return len(Plateau)*len(Plateau[0])*len(Liste)*majoration(Liste[1:],[[0]])
 
@@ -119,39 +119,27 @@ def force_brute(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)])
     
     Liste=[deepcopy(a) for a in Liste] #liste des pieces qui restent
     L=Liste[:]
-    Places=[]       #liste des kataminos placés sur la grille
-    if len(L)==0 or not compatible(Liste,Plateau):
-        return Plateau,increment #si aucun katamino n'est renseigné ou qu'ils ne peuvent pas rentrer, pas de calculs à faire
+    Places=[]
+    if len(L)==0:
+        return Plateau
     s,t,i,j=0,0,0,0
-    maj=majoration(Liste, Plateau)
+    maj=majoration(Liste,Plateau)
     increment = 0
-    while len(L)!=0 and increment<maj:
+    while len(L)>0:
+#    while len(L)!=0 and increment<2000000:
         increment += 1
         i,j=L[0].x,L[0].y
         rate=True
         print(increment)
-        print("Places:")
-        for k in Places:
-            print(k[0].s)
-        print("L:")
-        for k in L:
-            print(k.s)
-        if increment==14385:
-            input()
         while s<2 and rate:
-
             while t<L[0].max_r and rate:
                 while j<=len(Plateau[0])-len(L[0].s[0]) and rate:
                     while i<=len(Plateau)-len(L[0].s) and rate: #colonne
                         nP=ajout(L[0],Plateau,i,j)
-                        
-                        print(i ,j )
-                        print(L[0].s,nP)
                         if type(nP)!=str:
                             Plateau=nP
                             rate=False
-                            
-                            Places.append([L[0],t,s])  #[piece,tourne]
+                            Places.append([L[0],t,s])  #[piece,tourne,symetrie]
                             L[0].x,L[0].y=i,j
                             break
                         i+=1
@@ -166,17 +154,18 @@ def force_brute(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)])
                 L[0].s = retourne(L[0])
             s+=1
         s=0
-        if rate:
+        if rate: #si la piece n'est pas posée
             if len(Places)==0:
-                 return Plateau,increment
+                return Plateau,increment,maj
+            s,t,j,i=Places[-1][2],Places[-1][1],Places[-1][0].x,Places[-1][0].y
             L=Liste[len(Liste)-len(L)-1:]
             L[0]=Places[-1][0]
-            s,t,j,i=Places[-1][2],Places[-1][1],Places[-1][0].x,Places[-1][0].y
-
-            if L[0].x>len(Plateau)-len(Places[-1][0].s):
-                L[0].x=0
-                if L[0].y>len(Plateau[0])-len(Places[-1][0].s[0]):
-                    L[0].y=0
+            i,j=L[0].x,L[0].y
+            if i>len(Plateau)-len(Places[-1][0].s):#ptet un pb là
+    
+                i=0
+                if j>len(Plateau[0])-len(Places[-1][0].s[0]): #ptet un pb ici
+                    j=0
                     if t>3:
                         t=0
                         if s==0:
@@ -184,22 +173,17 @@ def force_brute(Liste,Plateau=[[0 for _ in range(Large)] for _ in range (Long)])
                     else:
                         t+=1
                 else:
-                    L[0].y+=1
+                    j+=1
             else: 
-                L[0].x=1       
+                i+=1
+            L[0].x,L[0].y = i,j         
             Places=Places[:-1]
-            print(Plateau)
             nP=applique(Places)
             if type(nP) != str:
                 Plateau=nP
-            print(Plateau)
         else:
             L=L[1:]
-        print('\nAffichage du plateau', increment, ' \n')
-        for ligne in Plateau:
-            print(ligne)
-    return (Plateau,increment)
-
+    return (Plateau,increment,maj)
 
 LP3=[NormalC,GrandEclair,NormalP]
 LP3bis=[NormalP,GrandEclair,NormalC]
@@ -207,6 +191,7 @@ LP32=[BizarrdZ,GrandV,GrandEclair]
 LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
 LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]
 LP7=[BizarrdZ,PetitL,PetitV,Carre,Carre,PetitV,NormalP,PetitEclair,PetitV]
-LP9= [IBarre4,PetitL,NormalP,PetitV,NormalC,GrandL,IBarre2,PetitT,IBarre3]
+LP9= [IBarre4,PetitL,NormalP,PetitV,NormalC,GrandL,IBarre2,PetitT,IBarre3,IBarre4,Point]
 LPprob=[IBarre2,IBarre2,IBarre3,Carre,PetitT]
-print("Katamino bon :\n", force_brute(LP5))
+LPprob1=[Point,IBarre3,PetitV,Carre,PetitL]
+print("Katamino bon :\n", force_brute(LP7))
