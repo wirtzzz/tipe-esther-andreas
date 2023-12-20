@@ -2,6 +2,9 @@
 #%%definitions
 from copy import *
 from variables import *
+from multiprocessing.dummy import Pool as Pl
+from functools import partial
+
 Long=int(input("Long: "))
 Large=int(input("large: "))
 #Plateau=[[ False for i in range (Large)] for _ in range (Long)]
@@ -67,6 +70,8 @@ def Coups_Possibles(Kata,Plateau,n):
     while s<=smax:
         while r<K.max_r:
             while K.x <= (len(Plateau)-len(K.s)):
+                print(Plateau[0])
+                print(K.s[0])
                 while K.y <= (len(Plateau[0])-len(K.s[0])):
                     NP=ajout(K,Plateau,K.x,K.y)          #on ajout K au plateau dans NP, variable temporaire
                     i+=1
@@ -113,7 +118,39 @@ def Solution(Liste, Plateau=[[0 for _ in range(Large)] for _ in range (Long)],N=
                     if type(newSolution[i]) != str:
                         solutions.append(newSolution[i]) #on ajoute les solutions trouvées
             return solutions
-    
+
+def applique(n,L,solutions,Coups):
+    for coup in Coups:
+        newSolution=Solution(L,coup,n)  #en partant de chaque coup on cherche les solutions possibles
+        for i in range(len(newSolution)):
+            if type(newSolution[i]) != str:
+                solutions.append(newSolution[i]) #on ajoute les solutions trouvées
+
+def Solution1(Liste, Plateau=[[0 for _ in range(Large)] for _ in range (Long)],N=Long*Large):
+    """renvoie toutes les solutions possibles d'un problème
+    Liste est une liste de Kataminos, Plateau une matrice et N un entier"""
+    if len(Liste)==0 and N==0: #vérifie que plateau est rempli
+        return [[]]
+    elif len(Liste)==0: #s'il n'y a plus de kataminos à poser et que la grille n'est pas compléte
+        return 'pas une solution'
+    elif len(Liste)==1 and N==Liste[0].area:
+        CP=Coups_Possibles(Liste[0], Plateau, N)
+        if len(CP)==0:
+            return 'pas une solution'
+        else:
+            return [CP[0]]
+    else:
+        CP=Coups_Possibles(Liste[0], Plateau, N)
+        if type(CP)==str:
+            return 'pas une solution'
+        else:
+            solutions=[]
+            Coups,n=CP
+            pool=Pl(4)
+            app=partial(applique,n,Liste[1:],solutions)
+            pool.map(app,Coups)
+            return solutions
+
 LP3bis=[NormalP,GrandEclair,NormalC]
 LP5=[NormalP,IBarre3,PetitL,PetitT,IBarre4]
 LPprob=[IBarre2,IBarre2,IBarre3,Carre,PetitT]
@@ -122,11 +159,3 @@ LP4=[GrandL,PetitT,GrandT,Carre,BizarrdZ,PetitEclair,IBarre3]
 
 
 L6_0=[IBarre2,IBarre2,IBarre2,IBarre2,IBarre2,NormalP]  #5*3
-
-A=Solution(LP3bis)
-
-for s in A:
-    print(s[-1])    #le dernier élément de chaque solution affiche la grille complétée
-print(i)            #nombre d'essais
-
-print('nb de solutions ', len(A))

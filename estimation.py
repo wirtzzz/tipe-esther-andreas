@@ -11,7 +11,7 @@ Large=int(input('large:'))
 Long=int(input('long:'))
 
 #on représente une équation linéaire par une liste de couples contenant à l'indice 0 le scalaire par lequel la variable à l'indice 1 est multiplié
-#ex : [(x, GrandL), (y, GrandT), (z,NormalP)] qu'il faut égaler à 1,x=0 ou 1, y=0 ou 1, z=0 ou 1
+#ex : [(x, GrandL), (y, GrandT), (z,NormalP)] qu'il faut égaler à 1, avec x=0 ou 1, y=0 ou 1, z=0 ou 1
 #ROTATION D'UNE PIECE DE 90°
 def tourne90(Piece):
     NPiece=[ [False for i in range (len(Piece.s))] for _ in range (len(Piece.s[0]))]
@@ -48,7 +48,7 @@ def Aire_Liste(Liste):
     return A_tot
 
 
-
+#pb ici
 #si ça marche: avantage : meilleure complexité que nouveau pour obtenir les solutions
 def systeme_lin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range(Long)]):
     M=[[[0,{}] for _ in range(Large)] for _ in range(Long)] #stocke le nb de variables enregistrées et le dico des variables
@@ -70,12 +70,14 @@ def systeme_lin(Liste,Plateau=[[0 for _ in range(Large)] for _ in range(Long)]):
                     L[0].y=0
                     L[0].x+=1
                 L[0].x=0
+                L[0].s=tourne90(L[0])
                 r+=1
             r=0
+            L[0].s=retourne(L[0])
             s+=1
         L=L[1:]
         l+=1
-    return M,len(Liste)
+    return M
 
 #on cherche ensuite à résoudre le système linéaire en considérant chaque liste comme une somme d'éléments de {0,1} qui doit égaler 1
 def compatibilité(Liste,Plateau=[[0 for _ in range(Large)] for _ in range(Long)]):
@@ -114,8 +116,8 @@ def suppr(p,dico1,dico2):
         del dico2[1][elt]
         dico2[0]-=1
     dico2[0]+=nouveau
-#coeur du problème è_é
-def pseudo_trigonaliser(sys,n):
+#fonctionne
+def pseudo_trigonaliser(sys):
     """trigonalise le système linéaire obtenu tant que possible"""
     k,l=len(sys),len(sys[0])
     val=[[1 for _ in range(l)] for _ in range(k)]   #enregistre la valeur de la somme de chaque ligne qui doit égaler 1
@@ -139,10 +141,7 @@ def pseudo_trigonaliser(sys,n):
 
     return sys,val
 
-def diviser(dico,p):
-    for elt in dico[1]:
-        dico[1][elt]/=p
-
+#fonctionne
 def pseudo_diagonaliser(sys,val):
     """rendre le système diagonal tant que possible"""
     k,l=len(sys),len(sys[0])
@@ -151,13 +150,11 @@ def pseudo_diagonaliser(sys,val):
             if not sys[i][j][0]==0:
                 pivot=list(sys[i][j][1].keys())[0]
                 p1=sys[i][j][1][pivot]
-                diviser(sys[i][j],p1)
-                val[i][j]/=p1
                 for i1 in range(i):
                     for j1 in range(l):
                         if pivot in sys[i1][j1][1]:
                             p=sys[i1][j1][1][pivot]
-                            suppr(p,sys[i][j],sys[i1][j1])
+                            suppr(p,sys[i][j],sys[i1][j1])  #on soustrait une 'ligne' à une autre
                             val[i1][j1]-=p/p1
                 for j1 in range(j):
                     if pivot in sys[i][j1][1]:
@@ -166,8 +163,33 @@ def pseudo_diagonaliser(sys,val):
                         val[i][j1]-=p/p1
     return sys,val
 
-#vérifier que la somme des a_ij pour pour j = 1
+def liste_choix(M):
+    L=[]
+    dico={}
+    n,m=len(M),len(M[0])
+    for i in range(n):
+        for j in range(m):
+           for elt in M[i][j][1]:
+               a,b=elt
+               if a in dico:
+                   L[dico[a]].append(elt)
+               else:
+                   dico[a]=len(L)
+                   L.append([elt])
+    return L
 
+#on veut que la somme des a_ij pour pour j = 1
+def choix(L):   #choisir des listes de kataminos de taille diverses
+    l_inds=[]
+    if len(L)==1:
+        return [[k] for k in L[0]]
+    else:
+        choix_suivants=choix(L[1:])
+        for k in choix_suivants:
+            for elt in L[0]:
+                l_inds.append([elt]+k)
+        return l_inds
+    
 def count_sol(m):
     sol={}
     for i in range(len(m)):
