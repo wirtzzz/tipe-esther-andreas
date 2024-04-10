@@ -3,6 +3,15 @@
 #include <array>
 #include <iostream>
 
+//fonction sympa
+
+void afficher_ligne(int n){
+  for(int i = 0; i<n; i++){
+  	std::cout << "––";
+  	}
+  std::cout << std::endl;
+}
+
 //classes
 //=================================== KATAMINO =========================================
 class Katamino{
@@ -97,6 +106,7 @@ class Plateau{
       format[1]=f[1];
     }
     void affiche(){
+      afficher_ligne(format[1]);
       for (int i = 0; i < format[0]; i++)
         {
           for(int j=0; j< format[1]; j++)
@@ -108,6 +118,7 @@ class Plateau{
             }
           std::cout << std::endl;
         }
+       afficher_ligne(format[1]);
     }
     void ajouter(Katamino katamino){
       for (int i=katamino.x; i< katamino.x + katamino.format[0]; i++){

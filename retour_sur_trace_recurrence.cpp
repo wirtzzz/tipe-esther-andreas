@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include <exception>
+#include "lecture.hpp"
 #include "katamino.hpp"
 
 struct Place{ //utilisé pour premiereSolutionIteratif()
@@ -10,21 +11,40 @@ struct Place{ //utilisé pour premiereSolutionIteratif()
 };
 
 
-//mieux
 std::pair<std::list<Plateau>,int> coups_possibles(Katamino,Plateau,int);
 std::list<Plateau> solutions(std::list<Katamino>, Plateau, int);
-Plateau premiereSolution(std::list<Katamino>, Plateau, int);
+Plateau premiereSolution(std::list<Katamino>, Plateau, int, int);
 Plateau premiereSolutionIteratif(std::list<Katamino>, Plateau);
+void afficher_solutions(std::list<Plateau>);
 bool rempli(Plateau);
 
-std::list<Katamino> L7={Z5,L4,V3,C4,C4,V3,P5,E5,V3};
-std::list<Katamino> List5 = {P5,I3,L4,T4,I4};
 int f[2]={5,7};
-Plateau p=Plateau(f);
+int f4[2]={5,4};
+int f3[2]={5,3};
+Plateau p7=Plateau(f);
+Plateau p4=Plateau(f4);
+Plateau p3=Plateau(f3);
+
+std::string entree;
+bool keep_going = true;
+char choix;
 
 int main(){
-  Plateau sol = premiereSolutionIteratif(L7, p);
-  sol.affiche();
+  while (keep_going){
+    printf("Entrez la liste de kataminos que vous voulez tester :\n");
+    std::cin >> entree;
+    std::list<Katamino> L = str_to_list(entree);
+    int form[2]={5,calcul_format(L)};
+    Plateau plateau = Plateau(form);
+
+    Plateau sol = premiereSolution(L, plateau,form[0]*form[1],0);
+    sol.affiche();
+
+    printf("Continuer ? [o/n]\n");
+    std::cin >> choix;
+    if (choix!='o')
+        keep_going = false;
+  }
   return 0;
 }
 
@@ -106,7 +126,7 @@ bool rempli(Plateau p){
     return true;
 }
 
-Plateau premiereSolution(std::list<Katamino> LK, Plateau p, int N){
+Plateau premiereSolution(std::list<Katamino> LK, Plateau p, int N, int niveau){
     if (empty(LK))
         return p;
     Katamino k = LK.back();
@@ -119,8 +139,10 @@ Plateau premiereSolution(std::list<Katamino> LK, Plateau p, int N){
     else{
         std::pair<std::list<Plateau>, int> C = coups_possibles(k, p, N);
         std::list<Plateau> coups = std::get<0>(C);
+        printf("%li \n %d \n",size(coups),niveau);
+        afficher_solutions(coups);
         for (Plateau coup : coups){
-            Plateau solution = premiereSolution(LK, coup, N);
+            Plateau solution = premiereSolution(LK, coup, N,niveau+1);
             if (rempli(solution))
                 return solution;
         }
@@ -128,6 +150,7 @@ Plateau premiereSolution(std::list<Katamino> LK, Plateau p, int N){
     }
 }
 
+//mise en standby pour l'instant parce que trop chiant pour pas grand chose
 Plateau premiereSolutionIteratif(std::list<Katamino> LK, Plateau p){
     std::list<Katamino> List = {};
     std::list<struct Place> Places = {};
@@ -135,16 +158,19 @@ Plateau premiereSolutionIteratif(std::list<Katamino> LK, Plateau p){
     int m = n;
     if (empty(LK))
         return p;
-    List.splice(List.begin(),LK);
+    List.insert(List.end(),LK.begin(),LK.end());
     int s=0, r=0, i=0, j=0;
     bool rate=true;
-    while (!empty(List)){ //pb là dessous
+    Plateau np=Plateau(p.format);
+    while (!empty(List)){
+        rate=true;
         Katamino k = List.back();
         i=k.x, j=k.y;
         while (s<2 && rate){
             while (r<k.max_rot && rate){
                 while (k.y<=p.format[1] - k.format[1] && rate){
                     while (k.x<=p.format[0] - k.format[0] && rate){
+                        np=p;
                         try {
                             p.ajouter(k);
                         }
@@ -152,6 +178,7 @@ Plateau premiereSolutionIteratif(std::list<Katamino> LK, Plateau p){
                             if (e==1){
                                 rate=false;
                                 Places.push_front({k, r, s});
+                                p=np;
                                 break;
                             }
                         }
@@ -172,10 +199,16 @@ Plateau premiereSolutionIteratif(std::list<Katamino> LK, Plateau p){
         }
         s=0;
         if (rate){
+            printf("ah");
             if (empty(Places))
                 return p;
-            s=Places.front().s, r=Places.front().r, j=Places.front().piece.x, i=Places.front().piece.y;
-            // copy(List, LK, m-n-1, m); <- trouver un truc pour remplacer le slicing
+            s=Places.front().s, r=Places.front().r, j=Places.front().piece.y, i=Places.front().piece.x;
+            Places.pop_front();
+            auto it = LK.begin();
+            std::advance(it, m-n-1);
+            List={};
+            List.insert(List.end(),it,LK.end());
+            printf("%li",size(List));
             LK.back()=Places.front().piece;
             i=LK.back().x, j=LK.back().y;
             if (i>p.format[0]-Places.back().piece.format[0]){
@@ -198,7 +231,16 @@ Plateau premiereSolutionIteratif(std::list<Katamino> LK, Plateau p){
 
         }
         else
-            LK.pop_back();
+            {
+                List.pop_back();
+                m--;
+            }
     }
     return p;
+}
+
+void afficher_solutions(std::list<Plateau> Solu){
+    for (Plateau p : Solu){
+        p.affiche();
+    }
 }

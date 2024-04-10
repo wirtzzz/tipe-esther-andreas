@@ -2,7 +2,15 @@
 
 Un projet de TIPE sur un solveur de kataminos
 
+Sur cette branche :
+-> Code intégralement retapé en C++
+-> Tout marche sauf la fonction premiereSolutionIteratif() de retour_sur_trace_recurrence.cpp
+-> Avec les autres fonctions une solution de LP7 n'a toujours pas été trouvée
+
+Impératif:
+-> régler problème au niveau de "raté" dans retour_sur_trace_recurrence.cpp
+
+Facultatif:
 -> Ramener à un pb arithmétique pour trouver des conditions de résolution
 -> essayer de trouver le nb de kataminos nécessaires par algo
 
-Bug à fixer: incohérence entre val et sys pour trigonaliser
