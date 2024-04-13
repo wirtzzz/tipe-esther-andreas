@@ -1,3 +1,0 @@
-déterminer les grilles insolvables/solvable (conditions) !
-lien difficulté - nb de solutions
-pas représenter graphiquement
