@@ -46,7 +46,44 @@ Katamino str_to_kata(char str[2]){
 		default: return P1;
 	}
 }
-//stack overflow par ici :/
+
+std::string name(Katamino katamino){
+	switch (katamino.color){
+		case 40:
+			return "L5";
+		case 41:
+			return "L4";
+		case 42:
+			return "V3";
+		case 43:
+			return "V5";
+		case 44:
+			return "T5";
+		case 45:
+			return "T4";
+		case 46:
+			return "E5";
+		case 47:
+			return "E4";
+		case 100:
+			return "P5";
+		case 101:
+			return "C5";
+		case 102:
+			return "Z5";
+		case 103:
+			return "C4";
+		case 104:
+			return "P1";
+		case 105:
+			return "I2";
+		case 106:
+			return "I3";
+		default:
+			return "I4";
+	}
+}
+
 std::list<Katamino> str_to_list(std::string entree){
 	int i=0;
 	std::list<Katamino> l = {};

@@ -93,7 +93,7 @@ class Katamino{
 //================================== PLATEAU ==================================
 class Plateau{
   public:
-    int format[2]; // 1<=format[0]<<5 et 1<=format[1]<<13
+    int format[2]; // 1<=format[0]<=5 et 1<=format[1]<=13
     int shape[5][13];
     Plateau(int f[2]){
       for(int i=0; i<f[0]; i++){

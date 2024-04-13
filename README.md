@@ -9,6 +9,7 @@ Sur cette branche :
 
 Impératif:
 -> régler problème au niveau de "raté" dans retour_sur_trace_recurrence.cpp
+-> calculer à nouveau les résultats de Liste 15 et 20
 
 Facultatif:
 -> Ramener à un pb arithmétique pour trouver des conditions de résolution
