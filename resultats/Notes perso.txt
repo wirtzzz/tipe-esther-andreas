@@ -1,0 +1,2 @@
+Pour Listes20.txt :
+Calcul effectué avec tests_aleatoires en 1716 secondes

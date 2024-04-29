@@ -1,0 +1,348 @@
+[L5,T5,E5,V5]
+Nombre de solutions 2
+[L5,T5,E5,P5]
+Nombre de solutions 0
+[L5,T5,E5,C5]
+Nombre de solutions 0
+[L5,T5,E5,Z5]
+Nombre de solutions 0
+[L5,T5,E5,L4,U1]
+Nombre de solutions 4
+[L5,T5,E5,L4,U1bis]
+Nombre de solutions 4
+[L5,T5,E5,T4,U1]
+Nombre de solutions 0
+[L5,T5,E5,T4,U1bis]
+Nombre de solutions 0
+[L5,T5,E5,V3,I2]
+Nombre de solutions 2
+[L5,T5,E5,V3,I2bis]
+Nombre de solutions 2
+[L5,T5,E5,V3,U1,U1bis]
+Nombre de solutions 26
+[L5,T5,E5,E4,U1]
+Nombre de solutions 2
+[L5,T5,E5,E4,U1bis]
+Nombre de solutions 2
+[L5,T5,E5,I4,U1]
+Nombre de solutions 0
+[L5,T5,E5,I4,U1bis]
+Nombre de solutions 0
+[L5,T5,E5,I3,I2]
+Nombre de solutions 4
+[L5,T5,E5,I3,I2bis]
+Nombre de solutions 4
+[L5,T5,E5,I3,U1,U1bis]
+Nombre de solutions 8
+[L5,T5,E5,I2,I2bis,U1]
+Nombre de solutions 66
+[L5,T5,E5,I2,I2bis,U1bis]
+Nombre de solutions 66
+[L5,T5,E5,C4,U1]
+Nombre de solutions 0
+[L5,T5,E5,C4,U1bis]
+Nombre de solutions 0
+[L5,T5,V5,P5]
+Nombre de solutions 2
+[L5,T5,V5,C5]
+Nombre de solutions 0
+[L5,T5,V5,Z5]
+Nombre de solutions 0
+[L5,T5,V5,L4,U1]
+Nombre de solutions 5
+[L5,T5,V5,L4,U1bis]
+Nombre de solutions 5
+[L5,T5,V5,T4,U1]
+Nombre de solutions 2
+[L5,T5,V5,T4,U1bis]
+Nombre de solutions 2
+[L5,T5,V5,V3,I2]
+Nombre de solutions 10
+[L5,T5,V5,V3,I2bis]
+Nombre de solutions 10
+[L5,T5,V5,V3,U1,U1bis]
+Nombre de solutions 40
+[L5,T5,V5,E4,U1]
+Nombre de solutions 4
+[L5,T5,V5,E4,U1bis]
+Nombre de solutions 4
+[L5,T5,V5,I4,U1]
+Nombre de solutions 5
+[L5,T5,V5,I4,U1bis]
+Nombre de solutions 5
+[L5,T5,V5,I3,I2]
+Nombre de solutions 16
+[L5,T5,V5,I3,I2bis]
+Nombre de solutions 16
+[L5,T5,V5,I3,U1,U1bis]
+Nombre de solutions 56
+[L5,T5,V5,I2,I2bis,U1]
+Nombre de solutions 124
+[L5,T5,V5,I2,I2bis,U1bis]
+Nombre de solutions 124
+[L5,T5,V5,C4,U1]
+Nombre de solutions 2
+[L5,T5,V5,C4,U1bis]
+Nombre de solutions 2
+[L5,T5,P5,C5]
+Nombre de solutions 0
+[L5,T5,P5,Z5]
+Nombre de solutions 0
+[L5,T5,P5,L4,U1]
+Nombre de solutions 8
+[L5,T5,P5,L4,U1bis]
+Nombre de solutions 8
+[L5,T5,P5,T4,U1]
+Nombre de solutions 4
+[L5,T5,P5,T4,U1bis]
+Nombre de solutions 4
+[L5,T5,P5,V3,I2]
+Nombre de solutions 8
+[L5,T5,P5,V3,I2bis]
+Nombre de solutions 8
+[L5,T5,P5,V3,U1,U1bis]
+Nombre de solutions 84
+[L5,T5,P5,E4,U1]
+Nombre de solutions 3
+[L5,T5,P5,E4,U1bis]
+Nombre de solutions 3
+[L5,T5,P5,I4,U1]
+Nombre de solutions 6
+[L5,T5,P5,I4,U1bis]
+Nombre de solutions 6
+[L5,T5,P5,I3,I2]
+Nombre de solutions 22
+[L5,T5,P5,I3,I2bis]
+Nombre de solutions 22
+[L5,T5,P5,I3,U1,U1bis]
+Nombre de solutions 88
+[L5,T5,P5,I2,I2bis,U1]
+Nombre de solutions 210
+[L5,T5,P5,I2,I2bis,U1bis]
+Nombre de solutions 210
+[L5,T5,P5,C4,U1]
+Nombre de solutions 5
+[L5,T5,P5,C4,U1bis]
+Nombre de solutions 5
+[L5,T5,C5,Z5]
+Nombre de solutions 0
+[L5,T5,C5,L4,U1]
+Nombre de solutions 2
+[L5,T5,C5,L4,U1bis]
+Nombre de solutions 2
+[L5,T5,C5,T4,U1]
+Nombre de solutions 0
+[L5,T5,C5,T4,U1bis]
+Nombre de solutions 0
+[L5,T5,C5,V3,I2]
+Nombre de solutions 0
+[L5,T5,C5,V3,I2bis]
+Nombre de solutions 0
+[L5,T5,C5,V3,U1,U1bis]
+Nombre de solutions 12
+[L5,T5,C5,E4,U1]
+Nombre de solutions 1
+[L5,T5,C5,E4,U1bis]
+Nombre de solutions 1
+[L5,T5,C5,I4,U1]
+Nombre de solutions 0
+[L5,T5,C5,I4,U1bis]
+Nombre de solutions 0
+[L5,T5,C5,I3,I2]
+Nombre de solutions 1
+[L5,T5,C5,I3,I2bis]
+Nombre de solutions 1
+[L5,T5,C5,I3,U1,U1bis]
+Nombre de solutions 8
+[L5,T5,C5,I2,I2bis,U1]
+Nombre de solutions 34
+[L5,T5,C5,I2,I2bis,U1bis]
+Nombre de solutions 34
+[L5,T5,C5,C4,U1]
+Nombre de solutions 0
+[L5,T5,C5,C4,U1bis]
+Nombre de solutions 0
+[L5,T5,Z5,L4,U1]
+Nombre de solutions 0
+[L5,T5,Z5,L4,U1bis]
+Nombre de solutions 0
+[L5,T5,Z5,T4,U1]
+Nombre de solutions 0
+[L5,T5,Z5,T4,U1bis]
+Nombre de solutions 0
+[L5,T5,Z5,V3,I2]
+Nombre de solutions 0
+[L5,T5,Z5,V3,I2bis]
+Nombre de solutions 0
+[L5,T5,Z5,V3,U1,U1bis]
+Nombre de solutions 0
+[L5,T5,Z5,E4,U1]
+Nombre de solutions 0
+[L5,T5,Z5,E4,U1bis]
+Nombre de solutions 0
+[L5,T5,Z5,I4,U1]
+Nombre de solutions 0
+[L5,T5,Z5,I4,U1bis]
+Nombre de solutions 0
+[L5,T5,Z5,I3,I2]
+Nombre de solutions 0
+[L5,T5,Z5,I3,I2bis]
+Nombre de solutions 0
+[L5,T5,Z5,I3,U1,U1bis]
+Nombre de solutions 0
+[L5,T5,Z5,I2,I2bis,U1]
+Nombre de solutions 16
+[L5,T5,Z5,I2,I2bis,U1bis]
+Nombre de solutions 16
+[L5,T5,Z5,C4,U1]
+Nombre de solutions 0
+[L5,T5,Z5,C4,U1bis]
+Nombre de solutions 0
+[L5,T5,L4,T4,I2]
+Nombre de solutions 2
+[L5,T5,L4,T4,I2bis]
+Nombre de solutions 2
+[L5,T5,L4,T4,U1,U1bis]
+Nombre de solutions 30
+[L5,T5,L4,V3,I3]
+Nombre de solutions 4
+[L5,T5,L4,V3,I2,U1]
+Nombre de solutions 101
+[L5,T5,L4,V3,I2,U1bis]
+Nombre de solutions 101
+[L5,T5,L4,V3,I2bis,U1]
+Nombre de solutions 101
+[L5,T5,L4,V3,I2bis,U1bis]
+Nombre de solutions 101
+[L5,T5,L4,E4,I2]
+Nombre de solutions 6
+[L5,T5,L4,E4,I2bis]
+Nombre de solutions 6
+[L5,T5,L4,E4,U1,U1bis]
+Nombre de solutions 46
+[L5,T5,L4,I4,I2]
+Nombre de solutions 6
+[L5,T5,L4,I4,I2bis]
+Nombre de solutions 6
+[L5,T5,L4,I4,U1,U1bis]
+Nombre de solutions 44
+[L5,T5,L4,I3,I2,U1]
+Nombre de solutions 89
+[L5,T5,L4,I3,I2,U1bis]
+Nombre de solutions 89
+[L5,T5,L4,I3,I2bis,U1]
+Nombre de solutions 89
+[L5,T5,L4,I3,I2bis,U1bis]
+Nombre de solutions 89
+[L5,T5,L4,I2,I2bis,U1,U1bis]
+Nombre de solutions 1692
+[L5,T5,L4,I2,C4]
+Nombre de solutions 4
+[L5,T5,L4,I2bis,C4]
+Nombre de solutions 4
+[L5,T5,L4,C4,U1,U1bis]
+Nombre de solutions 30
+[L5,T5,T4,V3,I3]
+Nombre de solutions 0
+[L5,T5,T4,V3,I2,U1]
+Nombre de solutions 28
+[L5,T5,T4,V3,I2,U1bis]
+Nombre de solutions 28
+[L5,T5,T4,V3,I2bis,U1]
+Nombre de solutions 28
+[L5,T5,T4,V3,I2bis,U1bis]
+Nombre de solutions 28
+[L5,T5,T4,E4,I2]
+Nombre de solutions 0
+[L5,T5,T4,E4,I2bis]
+Nombre de solutions 0
+[L5,T5,T4,E4,U1,U1bis]
+Nombre de solutions 10
+[L5,T5,T4,I4,I2]
+Nombre de solutions 0
+[L5,T5,T4,I4,I2bis]
+Nombre de solutions 0
+[L5,T5,T4,I4,U1,U1bis]
+Nombre de solutions 12
+[L5,T5,T4,I3,I2,U1]
+Nombre de solutions 33
+[L5,T5,T4,I3,I2,U1bis]
+Nombre de solutions 33
+[L5,T5,T4,I3,I2bis,U1]
+Nombre de solutions 33
+[L5,T5,T4,I3,I2bis,U1bis]
+Nombre de solutions 33
+[L5,T5,T4,I2,I2bis,U1,U1bis]
+Nombre de solutions 532
+[L5,T5,T4,I2,C4]
+Nombre de solutions 0
+[L5,T5,T4,I2bis,C4]
+Nombre de solutions 0
+[L5,T5,T4,C4,U1,U1bis]
+Nombre de solutions 14
+[L5,T5,V3,E4,I3]
+Nombre de solutions 5
+[L5,T5,V3,E4,I2,U1]
+Nombre de solutions 44
+[L5,T5,V3,E4,I2,U1bis]
+Nombre de solutions 44
+[L5,T5,V3,E4,I2bis,U1]
+Nombre de solutions 44
+[L5,T5,V3,E4,I2bis,U1bis]
+Nombre de solutions 44
+[L5,T5,V3,I4,I3]
+Nombre de solutions 0
+[L5,T5,V3,I4,I2,U1]
+Nombre de solutions 68
+[L5,T5,V3,I4,I2,U1bis]
+Nombre de solutions 68
+[L5,T5,V3,I4,I2bis,U1]
+Nombre de solutions 68
+[L5,T5,V3,I4,I2bis,U1bis]
+Nombre de solutions 68
+[L5,T5,V3,I3,I2,I2bis]
+Nombre de solutions 128
+[L5,T5,V3,I3,I2,U1,U1bis]
+Nombre de solutions 790
+[L5,T5,V3,I3,I2bis,U1,U1bis]
+Nombre de solutions 790
+[L5,T5,V3,I3,C4]
+Nombre de solutions 1
+[L5,T5,V3,I2,C4,U1]
+Nombre de solutions 28
+[L5,T5,V3,I2,C4,U1bis]
+Nombre de solutions 28
+[L5,T5,V3,I2bis,C4,U1]
+Nombre de solutions 28
+[L5,T5,V3,I2bis,C4,U1bis]
+Nombre de solutions 28
+[L5,T5,E4,I4,I2]
+Nombre de solutions 6
+[L5,T5,E4,I4,I2bis]
+Nombre de solutions 6
+[L5,T5,E4,I4,U1,U1bis]
+Nombre de solutions 24
+[L5,T5,E4,I3,I2,U1]
+Nombre de solutions 53
+[L5,T5,E4,I3,I2,U1bis]
+Nombre de solutions 53
+[L5,T5,E4,I3,I2bis,U1]
+Nombre de solutions 53
+[L5,T5,E4,I3,I2bis,U1bis]
+Nombre de solutions 53
+[L5,T5,E4,I2,I2bis,U1,U1bis]
+Nombre de solutions 680
+[L5,T5,E4,I2,C4]
+Nombre de solutions 4
+[L5,T5,E4,I2bis,C4]
+Nombre de solutions 4
+[L5,T5,E4,C4,U1,U1bis]
+Nombre de solutions 12
+[L5,T5,I4,I3,I2,U1]
+Nombre de solutions 22
+[L5,T5,I4,I3,I2,U1bis]
+Nombre de solutions 22
+[L5,T5,I4,I3,I2bis,U1]
+Nombre de solutions 22
+[L5,T5,I4,I3,I2bis,U1bis]
+Nombre de solutions 22

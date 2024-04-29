@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <chrono>
 #include "headers/retour_sur_trace_recurrence.hpp"
 
 //déclaration des variables
@@ -29,7 +30,7 @@ int main(){
   entree.open(path_entree,std::ios::in);
   sortie.open(path_sortie,std::ios::out);
   int i = 0;
-
+  auto start = std::chrono::high_resolution_clock::now();
   while (!entree.eof ()){
     i++;
     std::getline (entree, ligne);
@@ -41,11 +42,13 @@ int main(){
     if(f[1] != last_f)
       p=Plateau(f);
     solutions = calcul_solutions (L, p, f[0]*f[1]);
+
     sortie << ligne << std::endl;
     sortie << "Nombre de solutions " << size(solutions)/4 << std::endl; // pour éviter de compter les diverses rotations
     last_f=f[1];
   }
-
+  auto duree = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::high_resolution_clock::now() - start);
+  std::cout << "L'exécution du programme a duré " << duree.count() << " secondes";
   sortie.close ();
   entree.close ();
   return 0;
