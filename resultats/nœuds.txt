@@ -1,0 +1,2759 @@
+========== 5×2 ==========
+2
+Nombre de nœuds 1
+2
+Nombre de nœuds 9
+2
+Nombre de nœuds 1
+2
+Nombre de nœuds 13
+2
+Nombre de nœuds 7
+2
+Nombre de nœuds 1
+3
+Nombre de nœuds 87
+3
+Nombre de nœuds 87
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 126
+3
+Nombre de nœuds 126
+4
+Nombre de nœuds 781
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 39
+3
+Nombre de nœuds 39
+3
+Nombre de nœuds 62
+3
+Nombre de nœuds 62
+4
+Nombre de nœuds 377
+4
+Nombre de nœuds 827
+4
+Nombre de nœuds 827
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+2
+Nombre de nœuds 9
+2
+Nombre de nœuds 1
+2
+Nombre de nœuds 13
+2
+Nombre de nœuds 7
+2
+Nombre de nœuds 1
+3
+Nombre de nœuds 83
+3
+Nombre de nœuds 83
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 122
+3
+Nombre de nœuds 122
+4
+Nombre de nœuds 773
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 54
+3
+Nombre de nœuds 54
+4
+Nombre de nœuds 353
+4
+Nombre de nœuds 787
+4
+Nombre de nœuds 787
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+2
+Nombre de nœuds 1
+2
+Nombre de nœuds 13
+2
+Nombre de nœuds 7
+2
+Nombre de nœuds 1
+3
+Nombre de nœuds 87
+3
+Nombre de nœuds 87
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 126
+3
+Nombre de nœuds 126
+4
+Nombre de nœuds 789
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 54
+3
+Nombre de nœuds 54
+4
+Nombre de nœuds 361
+4
+Nombre de nœuds 811
+4
+Nombre de nœuds 811
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+2
+Nombre de nœuds 13
+2
+Nombre de nœuds 7
+2
+Nombre de nœuds 1
+3
+Nombre de nœuds 83
+3
+Nombre de nœuds 83
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 122
+3
+Nombre de nœuds 122
+4
+Nombre de nœuds 773
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 54
+3
+Nombre de nœuds 54
+4
+Nombre de nœuds 353
+4
+Nombre de nœuds 787
+4
+Nombre de nœuds 787
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+2
+Nombre de nœuds 7
+2
+Nombre de nœuds 1
+3
+Nombre de nœuds 87
+3
+Nombre de nœuds 87
+3
+Nombre de nœuds 51
+3
+Nombre de nœuds 51
+3
+Nombre de nœuds 134
+3
+Nombre de nœuds 134
+4
+Nombre de nœuds 853
+3
+Nombre de nœuds 51
+3
+Nombre de nœuds 51
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 58
+3
+Nombre de nœuds 58
+4
+Nombre de nœuds 361
+4
+Nombre de nœuds 851
+4
+Nombre de nœuds 851
+3
+Nombre de nœuds 43
+3
+Nombre de nœuds 43
+2
+Nombre de nœuds 1
+3
+Nombre de nœuds 83
+3
+Nombre de nœuds 83
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 122
+3
+Nombre de nœuds 122
+4
+Nombre de nœuds 805
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 54
+3
+Nombre de nœuds 54
+4
+Nombre de nœuds 353
+4
+Nombre de nœuds 807
+4
+Nombre de nœuds 807
+3
+Nombre de nœuds 39
+3
+Nombre de nœuds 39
+3
+Nombre de nœuds 83
+3
+Nombre de nœuds 83
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 122
+3
+Nombre de nœuds 122
+4
+Nombre de nœuds 773
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 47
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 54
+3
+Nombre de nœuds 54
+4
+Nombre de nœuds 353
+4
+Nombre de nœuds 787
+4
+Nombre de nœuds 787
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 35
+3
+Nombre de nœuds 42
+3
+Nombre de nœuds 42
+4
+Nombre de nœuds 289
+3
+Nombre de nœuds 35
+4
+Nombre de nœuds 699
+4
+Nombre de nœuds 699
+4
+Nombre de nœuds 699
+4
+Nombre de nœuds 699
+3
+Nombre de nœuds 42
+3
+Nombre de nœuds 42
+4
+Nombre de nœuds 289
+3
+Nombre de nœuds 38
+3
+Nombre de nœuds 38
+4
+Nombre de nœuds 229
+4
+Nombre de nœuds 331
+4
+Nombre de nœuds 331
+4
+Nombre de nœuds 331
+4
+Nombre de nœuds 331
+5
+Nombre de nœuds 4477
+3
+Nombre de nœuds 37
+3
+Nombre de nœuds 37
+4
+Nombre de nœuds 237
+3
+Nombre de nœuds 31
+4
+Nombre de nœuds 671
+4
+Nombre de nœuds 671
+4
+Nombre de nœuds 671
+4
+Nombre de nœuds 671
+3
+Nombre de nœuds 42
+3
+Nombre de nœuds 42
+4
+Nombre de nœuds 289
+3
+Nombre de nœuds 34
+3
+Nombre de nœuds 34
+4
+Nombre de nœuds 221
+4
+Nombre de nœuds 319
+4
+Nombre de nœuds 319
+4
+Nombre de nœuds 319
+4
+Nombre de nœuds 319
+5
+Nombre de nœuds 4285
+3
+Nombre de nœuds 29
+3
+Nombre de nœuds 29
+4
+Nombre de nœuds 229
+3
+Nombre de nœuds 11
+4
+Nombre de nœuds 243
+4
+Nombre de nœuds 243
+4
+Nombre de nœuds 243
+4
+Nombre de nœuds 243
+3
+Nombre de nœuds 23
+4
+Nombre de nœuds 203
+4
+Nombre de nœuds 203
+4
+Nombre de nœuds 203
+4
+Nombre de nœuds 203
+4
+Nombre de nœuds 294
+5
+Nombre de nœuds 1741
+5
+Nombre de nœuds 1741
+3
+Nombre de nœuds 9
+4
+Nombre de nœuds 163
+4
+Nombre de nœuds 163
+4
+Nombre de nœuds 163
+4
+Nombre de nœuds 163
+3
+Nombre de nœuds 34
+3
+Nombre de nœuds 34
+4
+Nombre de nœuds 221
+4
+Nombre de nœuds 319
+4
+Nombre de nœuds 319
+4
+Nombre de nœuds 319
+4
+Nombre de nœuds 319
+5
+Nombre de nœuds 4285
+3
+Nombre de nœuds 29
+3
+Nombre de nœuds 29
+4
+Nombre de nœuds 229
+4
+Nombre de nœuds 331
+4
+Nombre de nœuds 331
+4
+Nombre de nœuds 331
+4
+Nombre de nœuds 331
+5
+Nombre de nœuds 4285
+3
+Nombre de nœuds 29
+3
+Nombre de nœuds 29
+4
+Nombre de nœuds 221
+4
+Nombre de nœuds 139
+4
+Nombre de nœuds 139
+4
+Nombre de nœuds 139
+4
+Nombre de nœuds 139
+5
+Nombre de nœuds 645
+0
+Nombre de nœuds 1
+
+
+=========== 5×3 ===========
+3
+Nombre de nœuds 21
+3
+Nombre de nœuds 29
+3
+Nombre de nœuds 105
+3
+Nombre de nœuds 45
+3
+Nombre de nœuds 25
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 991
+4
+Nombre de nœuds 991
+5
+Nombre de nœuds 9162
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 455
+4
+Nombre de nœuds 455
+5
+Nombre de nœuds 3922
+5
+Nombre de nœuds 9068
+5
+Nombre de nœuds 9068
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 248
+3
+Nombre de nœuds 37
+3
+Nombre de nœuds 77
+3
+Nombre de nœuds 37
+3
+Nombre de nœuds 17
+4
+Nombre de nœuds 972
+4
+Nombre de nœuds 972
+4
+Nombre de nœuds 404
+4
+Nombre de nœuds 404
+4
+Nombre de nœuds 959
+4
+Nombre de nœuds 959
+5
+Nombre de nœuds 8850
+4
+Nombre de nœuds 404
+4
+Nombre de nœuds 404
+4
+Nombre de nœuds 274
+4
+Nombre de nœuds 274
+4
+Nombre de nœuds 611
+4
+Nombre de nœuds 611
+5
+Nombre de nœuds 5146
+5
+Nombre de nœuds 10132
+5
+Nombre de nœuds 10132
+4
+Nombre de nœuds 200
+4
+Nombre de nœuds 200
+3
+Nombre de nœuds 137
+3
+Nombre de nœuds 61
+3
+Nombre de nœuds 29
+4
+Nombre de nœuds 1064
+4
+Nombre de nœuds 1064
+4
+Nombre de nœuds 552
+4
+Nombre de nœuds 552
+4
+Nombre de nœuds 1363
+4
+Nombre de nœuds 1363
+5
+Nombre de nœuds 10890
+4
+Nombre de nœuds 556
+4
+Nombre de nœuds 556
+4
+Nombre de nœuds 134
+4
+Nombre de nœuds 134
+4
+Nombre de nœuds 543
+4
+Nombre de nœuds 543
+5
+Nombre de nœuds 4138
+5
+Nombre de nœuds 10612
+5
+Nombre de nœuds 10612
+4
+Nombre de nœuds 324
+4
+Nombre de nœuds 324
+3
+Nombre de nœuds 149
+3
+Nombre de nœuds 77
+4
+Nombre de nœuds 2672
+4
+Nombre de nœuds 2672
+4
+Nombre de nœuds 1236
+4
+Nombre de nœuds 1236
+4
+Nombre de nœuds 2615
+4
+Nombre de nœuds 2615
+5
+Nombre de nœuds 22106
+4
+Nombre de nœuds 1232
+4
+Nombre de nœuds 1232
+4
+Nombre de nœuds 394
+4
+Nombre de nœuds 394
+4
+Nombre de nœuds 1491
+4
+Nombre de nœuds 1491
+5
+Nombre de nœuds 10914
+5
+Nombre de nœuds 22788
+5
+Nombre de nœuds 22788
+4
+Nombre de nœuds 640
+4
+Nombre de nœuds 640
+3
+Nombre de nœuds 37
+4
+Nombre de nœuds 1472
+4
+Nombre de nœuds 1472
+4
+Nombre de nœuds 740
+4
+Nombre de nœuds 740
+4
+Nombre de nœuds 1479
+4
+Nombre de nœuds 1479
+5
+Nombre de nœuds 12914
+4
+Nombre de nœuds 668
+4
+Nombre de nœuds 668
+4
+Nombre de nœuds 238
+4
+Nombre de nœuds 238
+4
+Nombre de nœuds 787
+4
+Nombre de nœuds 787
+5
+Nombre de nœuds 6314
+5
+Nombre de nœuds 12772
+5
+Nombre de nœuds 12772
+4
+Nombre de nœuds 348
+4
+Nombre de nœuds 348
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 991
+4
+Nombre de nœuds 991
+5
+Nombre de nœuds 9162
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 455
+4
+Nombre de nœuds 455
+5
+Nombre de nœuds 3922
+5
+Nombre de nœuds 9068
+5
+Nombre de nœuds 9068
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 1299
+4
+Nombre de nœuds 1299
+5
+Nombre de nœuds 11402
+4
+Nombre de nœuds 1447
+5
+Nombre de nœuds 25350
+5
+Nombre de nœuds 25350
+5
+Nombre de nœuds 25350
+5
+Nombre de nœuds 25350
+4
+Nombre de nœuds 1287
+4
+Nombre de nœuds 1287
+5
+Nombre de nœuds 11386
+4
+Nombre de nœuds 487
+4
+Nombre de nœuds 487
+5
+Nombre de nœuds 3638
+5
+Nombre de nœuds 12550
+5
+Nombre de nœuds 12550
+5
+Nombre de nœuds 12550
+5
+Nombre de nœuds 12550
+6
+Nombre de nœuds 224038
+4
+Nombre de nœuds 769
+4
+Nombre de nœuds 769
+5
+Nombre de nœuds 5858
+4
+Nombre de nœuds 831
+5
+Nombre de nœuds 13566
+5
+Nombre de nœuds 13566
+5
+Nombre de nœuds 13566
+5
+Nombre de nœuds 13566
+4
+Nombre de nœuds 691
+4
+Nombre de nœuds 691
+5
+Nombre de nœuds 6666
+4
+Nombre de nœuds 267
+4
+Nombre de nœuds 267
+5
+Nombre de nœuds 2070
+5
+Nombre de nœuds 6910
+5
+Nombre de nœuds 6910
+5
+Nombre de nœuds 6910
+5
+Nombre de nœuds 6910
+6
+Nombre de nœuds 123462
+4
+Nombre de nœuds 345
+4
+Nombre de nœuds 345
+5
+Nombre de nœuds 3138
+4
+Nombre de nœuds 703
+5
+Nombre de nœuds 10882
+5
+Nombre de nœuds 10882
+5
+Nombre de nœuds 10882
+5
+Nombre de nœuds 10882
+4
+Nombre de nœuds 237
+5
+Nombre de nœuds 4282
+5
+Nombre de nœuds 4282
+5
+Nombre de nœuds 4282
+5
+Nombre de nœuds 4282
+5
+Nombre de nœuds 13767
+6
+Nombre de nœuds 110170
+6
+Nombre de nœuds 110170
+4
+Nombre de nœuds 421
+5
+Nombre de nœuds 5400
+5
+Nombre de nœuds 5400
+5
+Nombre de nœuds 5400
+5
+Nombre de nœuds 5400
+4
+Nombre de nœuds 259
+4
+Nombre de nœuds 259
+5
+Nombre de nœuds 2062
+5
+Nombre de nœuds 6890
+5
+Nombre de nœuds 6890
+5
+Nombre de nœuds 6890
+5
+Nombre de nœuds 6890
+6
+Nombre de nœuds 122742
+4
+Nombre de nœuds 337
+4
+Nombre de nœuds 337
+5
+Nombre de nœuds 3138
+5
+Nombre de nœuds 4338
+5
+Nombre de nœuds 4338
+5
+Nombre de nœuds 4338
+5
+Nombre de nœuds 4338
+6
+Nombre de nœuds 73558
+4
+Nombre de nœuds 221
+4
+Nombre de nœuds 221
+5
+Nombre de nœuds 1778
+5
+Nombre de nœuds 3664
+5
+Nombre de nœuds 3664
+5
+Nombre de nœuds 3664
+5
+Nombre de nœuds 3664
+6
+Nombre de nœuds 47922
+3
+Nombre de nœuds 33
+3
+Nombre de nœuds 77
+3
+Nombre de nœuds 37
+3
+Nombre de nœuds 17
+4
+Nombre de nœuds 960
+4
+Nombre de nœuds 960
+4
+Nombre de nœuds 404
+4
+Nombre de nœuds 404
+4
+Nombre de nœuds 951
+4
+Nombre de nœuds 951
+5
+Nombre de nœuds 8818
+4
+Nombre de nœuds 404
+4
+Nombre de nœuds 404
+4
+Nombre de nœuds 274
+4
+Nombre de nœuds 274
+4
+Nombre de nœuds 595
+4
+Nombre de nœuds 595
+5
+Nombre de nœuds 5098
+5
+Nombre de nœuds 10044
+5
+Nombre de nœuds 10044
+4
+Nombre de nœuds 200
+4
+Nombre de nœuds 200
+3
+Nombre de nœuds 133
+3
+Nombre de nœuds 61
+3
+Nombre de nœuds 29
+4
+Nombre de nœuds 1064
+4
+Nombre de nœuds 1064
+4
+Nombre de nœuds 548
+4
+Nombre de nœuds 548
+4
+Nombre de nœuds 1355
+4
+Nombre de nœuds 1355
+5
+Nombre de nœuds 10850
+4
+Nombre de nœuds 548
+4
+Nombre de nœuds 548
+4
+Nombre de nœuds 130
+4
+Nombre de nœuds 130
+4
+Nombre de nœuds 539
+4
+Nombre de nœuds 539
+5
+Nombre de nœuds 4114
+5
+Nombre de nœuds 10580
+5
+Nombre de nœuds 10580
+4
+Nombre de nœuds 320
+4
+Nombre de nœuds 320
+3
+Nombre de nœuds 149
+3
+Nombre de nœuds 77
+4
+Nombre de nœuds 2644
+4
+Nombre de nœuds 2644
+4
+Nombre de nœuds 1224
+4
+Nombre de nœuds 1224
+4
+Nombre de nœuds 2611
+4
+Nombre de nœuds 2611
+5
+Nombre de nœuds 21978
+4
+Nombre de nœuds 1224
+4
+Nombre de nœuds 1224
+4
+Nombre de nœuds 394
+4
+Nombre de nœuds 394
+4
+Nombre de nœuds 1483
+4
+Nombre de nœuds 1483
+5
+Nombre de nœuds 10842
+5
+Nombre de nœuds 22804
+5
+Nombre de nœuds 22804
+4
+Nombre de nœuds 636
+4
+Nombre de nœuds 636
+3
+Nombre de nœuds 37
+4
+Nombre de nœuds 1464
+4
+Nombre de nœuds 1464
+4
+Nombre de nœuds 740
+4
+Nombre de nœuds 740
+4
+Nombre de nœuds 1487
+4
+Nombre de nœuds 1487
+5
+Nombre de nœuds 12866
+4
+Nombre de nœuds 668
+4
+Nombre de nœuds 668
+4
+Nombre de nœuds 238
+4
+Nombre de nœuds 238
+4
+Nombre de nœuds 783
+4
+Nombre de nœuds 783
+5
+Nombre de nœuds 6274
+5
+Nombre de nœuds 12788
+5
+Nombre de nœuds 12788
+4
+Nombre de nœuds 344
+4
+Nombre de nœuds 344
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 987
+4
+Nombre de nœuds 987
+5
+Nombre de nœuds 9154
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 455
+4
+Nombre de nœuds 455
+5
+Nombre de nœuds 3922
+5
+Nombre de nœuds 9076
+5
+Nombre de nœuds 9076
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 1287
+4
+Nombre de nœuds 1287
+5
+Nombre de nœuds 11338
+4
+Nombre de nœuds 1443
+5
+Nombre de nœuds 25258
+5
+Nombre de nœuds 25258
+5
+Nombre de nœuds 25258
+5
+Nombre de nœuds 25258
+4
+Nombre de nœuds 1295
+4
+Nombre de nœuds 1295
+5
+Nombre de nœuds 11354
+4
+Nombre de nœuds 475
+4
+Nombre de nœuds 475
+5
+Nombre de nœuds 3574
+5
+Nombre de nœuds 12406
+5
+Nombre de nœuds 12406
+5
+Nombre de nœuds 12406
+5
+Nombre de nœuds 12406
+6
+Nombre de nœuds 223510
+4
+Nombre de nœuds 765
+4
+Nombre de nœuds 765
+5
+Nombre de nœuds 5834
+4
+Nombre de nœuds 823
+5
+Nombre de nœuds 13522
+5
+Nombre de nœuds 13522
+5
+Nombre de nœuds 13522
+5
+Nombre de nœuds 13522
+4
+Nombre de nœuds 675
+4
+Nombre de nœuds 675
+5
+Nombre de nœuds 6634
+4
+Nombre de nœuds 263
+4
+Nombre de nœuds 263
+5
+Nombre de nœuds 2062
+5
+Nombre de nœuds 6886
+5
+Nombre de nœuds 6886
+5
+Nombre de nœuds 6886
+5
+Nombre de nœuds 6886
+6
+Nombre de nœuds 123286
+4
+Nombre de nœuds 345
+4
+Nombre de nœuds 345
+5
+Nombre de nœuds 3130
+4
+Nombre de nœuds 691
+5
+Nombre de nœuds 10850
+5
+Nombre de nœuds 10850
+5
+Nombre de nœuds 10850
+5
+Nombre de nœuds 10850
+4
+Nombre de nœuds 233
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 13695
+6
+Nombre de nœuds 109682
+6
+Nombre de nœuds 109682
+4
+Nombre de nœuds 413
+5
+Nombre de nœuds 5376
+5
+Nombre de nœuds 5376
+5
+Nombre de nœuds 5376
+5
+Nombre de nœuds 5376
+4
+Nombre de nœuds 259
+4
+Nombre de nœuds 259
+5
+Nombre de nœuds 2062
+5
+Nombre de nœuds 6862
+5
+Nombre de nœuds 6862
+5
+Nombre de nœuds 6862
+5
+Nombre de nœuds 6862
+6
+Nombre de nœuds 122662
+4
+Nombre de nœuds 337
+4
+Nombre de nœuds 337
+5
+Nombre de nœuds 3130
+5
+Nombre de nœuds 4230
+5
+Nombre de nœuds 4230
+5
+Nombre de nœuds 4230
+5
+Nombre de nœuds 4230
+6
+Nombre de nœuds 73014
+4
+Nombre de nœuds 225
+4
+Nombre de nœuds 225
+5
+Nombre de nœuds 1786
+5
+Nombre de nœuds 3652
+5
+Nombre de nœuds 3652
+5
+Nombre de nœuds 3652
+5
+Nombre de nœuds 3652
+6
+Nombre de nœuds 47922
+3
+Nombre de nœuds 133
+3
+Nombre de nœuds 61
+3
+Nombre de nœuds 29
+4
+Nombre de nœuds 1060
+4
+Nombre de nœuds 1060
+4
+Nombre de nœuds 548
+4
+Nombre de nœuds 548
+4
+Nombre de nœuds 1359
+4
+Nombre de nœuds 1359
+5
+Nombre de nœuds 10882
+4
+Nombre de nœuds 548
+4
+Nombre de nœuds 548
+4
+Nombre de nœuds 134
+4
+Nombre de nœuds 134
+4
+Nombre de nœuds 531
+4
+Nombre de nœuds 531
+5
+Nombre de nœuds 4106
+5
+Nombre de nœuds 10588
+5
+Nombre de nœuds 10588
+4
+Nombre de nœuds 324
+4
+Nombre de nœuds 324
+3
+Nombre de nœuds 153
+3
+Nombre de nœuds 77
+4
+Nombre de nœuds 2652
+4
+Nombre de nœuds 2652
+4
+Nombre de nœuds 1220
+4
+Nombre de nœuds 1220
+4
+Nombre de nœuds 2603
+4
+Nombre de nœuds 2603
+5
+Nombre de nœuds 21946
+4
+Nombre de nœuds 1220
+4
+Nombre de nœuds 1220
+4
+Nombre de nœuds 394
+4
+Nombre de nœuds 394
+4
+Nombre de nœuds 1471
+4
+Nombre de nœuds 1471
+5
+Nombre de nœuds 10850
+5
+Nombre de nœuds 22676
+5
+Nombre de nœuds 22676
+4
+Nombre de nœuds 632
+4
+Nombre de nœuds 632
+3
+Nombre de nœuds 37
+4
+Nombre de nœuds 1472
+4
+Nombre de nœuds 1472
+4
+Nombre de nœuds 744
+4
+Nombre de nœuds 744
+4
+Nombre de nœuds 1487
+4
+Nombre de nœuds 1487
+5
+Nombre de nœuds 12898
+4
+Nombre de nœuds 672
+4
+Nombre de nœuds 672
+4
+Nombre de nœuds 238
+4
+Nombre de nœuds 238
+4
+Nombre de nœuds 787
+4
+Nombre de nœuds 787
+5
+Nombre de nœuds 6290
+5
+Nombre de nœuds 12764
+5
+Nombre de nœuds 12764
+4
+Nombre de nœuds 348
+4
+Nombre de nœuds 348
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 987
+4
+Nombre de nœuds 987
+5
+Nombre de nœuds 9154
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 455
+4
+Nombre de nœuds 455
+5
+Nombre de nœuds 3922
+5
+Nombre de nœuds 9060
+5
+Nombre de nœuds 9060
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 1287
+4
+Nombre de nœuds 1287
+5
+Nombre de nœuds 11354
+4
+Nombre de nœuds 1459
+5
+Nombre de nœuds 25302
+5
+Nombre de nœuds 25302
+5
+Nombre de nœuds 25302
+5
+Nombre de nœuds 25302
+4
+Nombre de nœuds 1287
+4
+Nombre de nœuds 1287
+5
+Nombre de nœuds 11362
+4
+Nombre de nœuds 483
+4
+Nombre de nœuds 483
+5
+Nombre de nœuds 3630
+5
+Nombre de nœuds 12454
+5
+Nombre de nœuds 12454
+5
+Nombre de nœuds 12454
+5
+Nombre de nœuds 12454
+6
+Nombre de nœuds 223526
+4
+Nombre de nœuds 765
+4
+Nombre de nœuds 765
+5
+Nombre de nœuds 5842
+4
+Nombre de nœuds 823
+5
+Nombre de nœuds 13514
+5
+Nombre de nœuds 13514
+5
+Nombre de nœuds 13514
+5
+Nombre de nœuds 13514
+4
+Nombre de nœuds 675
+4
+Nombre de nœuds 675
+5
+Nombre de nœuds 6626
+4
+Nombre de nœuds 267
+4
+Nombre de nœuds 267
+5
+Nombre de nœuds 2078
+5
+Nombre de nœuds 6878
+5
+Nombre de nœuds 6878
+5
+Nombre de nœuds 6878
+5
+Nombre de nœuds 6878
+6
+Nombre de nœuds 123190
+4
+Nombre de nœuds 345
+4
+Nombre de nœuds 345
+5
+Nombre de nœuds 3122
+4
+Nombre de nœuds 691
+5
+Nombre de nœuds 10834
+5
+Nombre de nœuds 10834
+5
+Nombre de nœuds 10834
+5
+Nombre de nœuds 10834
+4
+Nombre de nœuds 233
+5
+Nombre de nœuds 4286
+5
+Nombre de nœuds 4286
+5
+Nombre de nœuds 4286
+5
+Nombre de nœuds 4286
+5
+Nombre de nœuds 13735
+6
+Nombre de nœuds 109954
+6
+Nombre de nœuds 109954
+4
+Nombre de nœuds 417
+5
+Nombre de nœuds 5372
+5
+Nombre de nœuds 5372
+5
+Nombre de nœuds 5372
+5
+Nombre de nœuds 5372
+4
+Nombre de nœuds 259
+4
+Nombre de nœuds 259
+5
+Nombre de nœuds 2062
+5
+Nombre de nœuds 6854
+5
+Nombre de nœuds 6854
+5
+Nombre de nœuds 6854
+5
+Nombre de nœuds 6854
+6
+Nombre de nœuds 122470
+4
+Nombre de nœuds 337
+4
+Nombre de nœuds 337
+5
+Nombre de nœuds 3122
+5
+Nombre de nœuds 4254
+5
+Nombre de nœuds 4254
+5
+Nombre de nœuds 4254
+5
+Nombre de nœuds 4254
+6
+Nombre de nœuds 73286
+4
+Nombre de nœuds 221
+4
+Nombre de nœuds 221
+5
+Nombre de nœuds 1778
+5
+Nombre de nœuds 3652
+5
+Nombre de nœuds 3652
+5
+Nombre de nœuds 3652
+5
+Nombre de nœuds 3652
+6
+Nombre de nœuds 47746
+3
+Nombre de nœuds 153
+3
+Nombre de nœuds 77
+4
+Nombre de nœuds 2668
+4
+Nombre de nœuds 2668
+4
+Nombre de nœuds 1228
+4
+Nombre de nœuds 1228
+4
+Nombre de nœuds 2635
+4
+Nombre de nœuds 2635
+5
+Nombre de nœuds 22290
+4
+Nombre de nœuds 1228
+4
+Nombre de nœuds 1228
+4
+Nombre de nœuds 398
+4
+Nombre de nœuds 398
+4
+Nombre de nœuds 1491
+4
+Nombre de nœuds 1491
+5
+Nombre de nœuds 10914
+5
+Nombre de nœuds 22956
+5
+Nombre de nœuds 22956
+4
+Nombre de nœuds 668
+4
+Nombre de nœuds 668
+3
+Nombre de nœuds 37
+4
+Nombre de nœuds 1476
+4
+Nombre de nœuds 1476
+4
+Nombre de nœuds 744
+4
+Nombre de nœuds 744
+4
+Nombre de nœuds 1491
+4
+Nombre de nœuds 1491
+5
+Nombre de nœuds 13010
+4
+Nombre de nœuds 672
+4
+Nombre de nœuds 672
+4
+Nombre de nœuds 238
+4
+Nombre de nœuds 238
+4
+Nombre de nœuds 787
+4
+Nombre de nœuds 787
+5
+Nombre de nœuds 6314
+5
+Nombre de nœuds 12844
+5
+Nombre de nœuds 12844
+4
+Nombre de nœuds 360
+4
+Nombre de nœuds 360
+4
+Nombre de nœuds 944
+4
+Nombre de nœuds 944
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 991
+4
+Nombre de nœuds 991
+5
+Nombre de nœuds 9170
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 467
+4
+Nombre de nœuds 467
+5
+Nombre de nœuds 3946
+5
+Nombre de nœuds 9116
+5
+Nombre de nœuds 9116
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 1287
+4
+Nombre de nœuds 1287
+5
+Nombre de nœuds 11370
+4
+Nombre de nœuds 1463
+5
+Nombre de nœuds 25478
+5
+Nombre de nœuds 25478
+5
+Nombre de nœuds 25478
+5
+Nombre de nœuds 25478
+4
+Nombre de nœuds 1299
+4
+Nombre de nœuds 1299
+5
+Nombre de nœuds 11386
+4
+Nombre de nœuds 479
+4
+Nombre de nœuds 479
+5
+Nombre de nœuds 3590
+5
+Nombre de nœuds 12502
+5
+Nombre de nœuds 12502
+5
+Nombre de nœuds 12502
+5
+Nombre de nœuds 12502
+6
+Nombre de nœuds 224454
+4
+Nombre de nœuds 797
+4
+Nombre de nœuds 797
+5
+Nombre de nœuds 5898
+4
+Nombre de nœuds 831
+5
+Nombre de nœuds 13566
+5
+Nombre de nœuds 13566
+5
+Nombre de nœuds 13566
+5
+Nombre de nœuds 13566
+4
+Nombre de nœuds 675
+4
+Nombre de nœuds 675
+5
+Nombre de nœuds 6642
+4
+Nombre de nœuds 263
+4
+Nombre de nœuds 263
+5
+Nombre de nœuds 2070
+5
+Nombre de nœuds 6902
+5
+Nombre de nœuds 6902
+5
+Nombre de nœuds 6902
+5
+Nombre de nœuds 6902
+6
+Nombre de nœuds 123558
+4
+Nombre de nœuds 345
+4
+Nombre de nœuds 345
+5
+Nombre de nœuds 3162
+4
+Nombre de nœuds 691
+5
+Nombre de nœuds 10890
+5
+Nombre de nœuds 10890
+5
+Nombre de nœuds 10890
+5
+Nombre de nœuds 10890
+4
+Nombre de nœuds 237
+5
+Nombre de nœuds 4274
+5
+Nombre de nœuds 4274
+5
+Nombre de nœuds 4274
+5
+Nombre de nœuds 4274
+5
+Nombre de nœuds 13751
+6
+Nombre de nœuds 110250
+6
+Nombre de nœuds 110250
+4
+Nombre de nœuds 417
+5
+Nombre de nœuds 5532
+5
+Nombre de nœuds 5532
+5
+Nombre de nœuds 5532
+5
+Nombre de nœuds 5532
+4
+Nombre de nœuds 259
+4
+Nombre de nœuds 259
+5
+Nombre de nœuds 2070
+5
+Nombre de nœuds 6874
+5
+Nombre de nœuds 6874
+5
+Nombre de nœuds 6874
+5
+Nombre de nœuds 6874
+6
+Nombre de nœuds 122902
+4
+Nombre de nœuds 337
+4
+Nombre de nœuds 337
+5
+Nombre de nœuds 3162
+5
+Nombre de nœuds 4250
+5
+Nombre de nœuds 4250
+5
+Nombre de nœuds 4250
+5
+Nombre de nœuds 4250
+6
+Nombre de nœuds 73110
+4
+Nombre de nœuds 225
+4
+Nombre de nœuds 225
+5
+Nombre de nœuds 1786
+5
+Nombre de nœuds 3700
+5
+Nombre de nœuds 3700
+5
+Nombre de nœuds 3700
+5
+Nombre de nœuds 3700
+6
+Nombre de nœuds 48498
+3
+Nombre de nœuds 37
+4
+Nombre de nœuds 1508
+4
+Nombre de nœuds 1508
+4
+Nombre de nœuds 772
+4
+Nombre de nœuds 772
+4
+Nombre de nœuds 1495
+4
+Nombre de nœuds 1495
+5
+Nombre de nœuds 13066
+4
+Nombre de nœuds 676
+4
+Nombre de nœuds 676
+4
+Nombre de nœuds 246
+4
+Nombre de nœuds 246
+4
+Nombre de nœuds 799
+4
+Nombre de nœuds 799
+5
+Nombre de nœuds 6538
+5
+Nombre de nœuds 12900
+5
+Nombre de nœuds 12900
+4
+Nombre de nœuds 344
+4
+Nombre de nœuds 344
+4
+Nombre de nœuds 940
+4
+Nombre de nœuds 940
+4
+Nombre de nœuds 480
+4
+Nombre de nœuds 480
+4
+Nombre de nœuds 1003
+4
+Nombre de nœuds 1003
+5
+Nombre de nœuds 9210
+4
+Nombre de nœuds 480
+4
+Nombre de nœuds 480
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 471
+4
+Nombre de nœuds 471
+5
+Nombre de nœuds 3954
+5
+Nombre de nœuds 9244
+5
+Nombre de nœuds 9244
+4
+Nombre de nœuds 252
+4
+Nombre de nœuds 252
+4
+Nombre de nœuds 1303
+4
+Nombre de nœuds 1303
+5
+Nombre de nœuds 11586
+4
+Nombre de nœuds 1499
+5
+Nombre de nœuds 25866
+5
+Nombre de nœuds 25866
+5
+Nombre de nœuds 25866
+5
+Nombre de nœuds 25866
+4
+Nombre de nœuds 1311
+4
+Nombre de nœuds 1311
+5
+Nombre de nœuds 11602
+4
+Nombre de nœuds 503
+4
+Nombre de nœuds 503
+5
+Nombre de nœuds 3686
+5
+Nombre de nœuds 12926
+5
+Nombre de nœuds 12926
+5
+Nombre de nœuds 12926
+5
+Nombre de nœuds 12926
+6
+Nombre de nœuds 228262
+4
+Nombre de nœuds 805
+4
+Nombre de nœuds 805
+5
+Nombre de nœuds 6034
+4
+Nombre de nœuds 843
+5
+Nombre de nœuds 13678
+5
+Nombre de nœuds 13678
+5
+Nombre de nœuds 13678
+5
+Nombre de nœuds 13678
+4
+Nombre de nœuds 675
+4
+Nombre de nœuds 675
+5
+Nombre de nœuds 6650
+4
+Nombre de nœuds 275
+4
+Nombre de nœuds 275
+5
+Nombre de nœuds 2150
+5
+Nombre de nœuds 7006
+5
+Nombre de nœuds 7006
+5
+Nombre de nœuds 7006
+5
+Nombre de nœuds 7006
+6
+Nombre de nœuds 124614
+4
+Nombre de nœuds 345
+4
+Nombre de nœuds 345
+5
+Nombre de nœuds 3138
+4
+Nombre de nœuds 703
+5
+Nombre de nœuds 10902
+5
+Nombre de nœuds 10902
+5
+Nombre de nœuds 10902
+5
+Nombre de nœuds 10902
+4
+Nombre de nœuds 253
+5
+Nombre de nœuds 4418
+5
+Nombre de nœuds 4418
+5
+Nombre de nœuds 4418
+5
+Nombre de nœuds 4418
+5
+Nombre de nœuds 13999
+6
+Nombre de nœuds 112450
+6
+Nombre de nœuds 112450
+4
+Nombre de nœuds 421
+5
+Nombre de nœuds 5416
+5
+Nombre de nœuds 5416
+5
+Nombre de nœuds 5416
+5
+Nombre de nœuds 5416
+4
+Nombre de nœuds 263
+4
+Nombre de nœuds 263
+5
+Nombre de nœuds 2142
+5
+Nombre de nœuds 6938
+5
+Nombre de nœuds 6938
+5
+Nombre de nœuds 6938
+5
+Nombre de nœuds 6938
+6
+Nombre de nœuds 123606
+4
+Nombre de nœuds 337
+4
+Nombre de nœuds 337
+5
+Nombre de nœuds 3122
+5
+Nombre de nœuds 4314
+5
+Nombre de nœuds 4314
+5
+Nombre de nœuds 4314
+5
+Nombre de nœuds 4314
+6
+Nombre de nœuds 73942
+4
+Nombre de nœuds 233
+4
+Nombre de nœuds 233
+5
+Nombre de nœuds 1858
+5
+Nombre de nœuds 3824
+5
+Nombre de nœuds 3824
+5
+Nombre de nœuds 3824
+5
+Nombre de nœuds 3824
+6
+Nombre de nœuds 48914
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 936
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 995
+4
+Nombre de nœuds 995
+5
+Nombre de nœuds 9170
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 476
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 106
+4
+Nombre de nœuds 455
+4
+Nombre de nœuds 455
+5
+Nombre de nœuds 3922
+5
+Nombre de nœuds 9116
+5
+Nombre de nœuds 9116
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 248
+4
+Nombre de nœuds 1331
+4
+Nombre de nœuds 1331
+5
+Nombre de nœuds 11490
+4
+Nombre de nœuds 1459
+5
+Nombre de nœuds 25426
+5
+Nombre de nœuds 25426
+5
+Nombre de nœuds 25426
+5
+Nombre de nœuds 25426
+4
+Nombre de nœuds 1287
+4
+Nombre de nœuds 1287
+5
+Nombre de nœuds 11418
+4
+Nombre de nœuds 475
+4
+Nombre de nœuds 475
+5
+Nombre de nœuds 3590
+5
+Nombre de nœuds 12554
+5
+Nombre de nœuds 12554
+5
+Nombre de nœuds 12554
+5
+Nombre de nœuds 12554
+6
+Nombre de nœuds 224502
+4
+Nombre de nœuds 757
+4
+Nombre de nœuds 757
+5
+Nombre de nœuds 5882
+4
+Nombre de nœuds 827
+5
+Nombre de nœuds 13682
+5
+Nombre de nœuds 13682
+5
+Nombre de nœuds 13682
+5
+Nombre de nœuds 13682
+4
+Nombre de nœuds 683
+4
+Nombre de nœuds 683
+5
+Nombre de nœuds 6674
+4
+Nombre de nœuds 263
+4
+Nombre de nœuds 263
+5
+Nombre de nœuds 2078
+5
+Nombre de nœuds 6938
+5
+Nombre de nœuds 6938
+5
+Nombre de nœuds 6938
+5
+Nombre de nœuds 6938
+6
+Nombre de nœuds 123926
+4
+Nombre de nœuds 361
+4
+Nombre de nœuds 361
+5
+Nombre de nœuds 3154
+4
+Nombre de nœuds 703
+5
+Nombre de nœuds 10874
+5
+Nombre de nœuds 10874
+5
+Nombre de nœuds 10874
+5
+Nombre de nœuds 10874
+4
+Nombre de nœuds 233
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 13727
+6
+Nombre de nœuds 110626
+6
+Nombre de nœuds 110626
+4
+Nombre de nœuds 421
+5
+Nombre de nœuds 5400
+5
+Nombre de nœuds 5400
+5
+Nombre de nœuds 5400
+5
+Nombre de nœuds 5400
+4
+Nombre de nœuds 259
+4
+Nombre de nœuds 259
+5
+Nombre de nœuds 2078
+5
+Nombre de nœuds 6874
+5
+Nombre de nœuds 6874
+5
+Nombre de nœuds 6874
+5
+Nombre de nœuds 6874
+6
+Nombre de nœuds 122758
+4
+Nombre de nœuds 337
+4
+Nombre de nœuds 337
+5
+Nombre de nœuds 3130
+5
+Nombre de nœuds 4254
+5
+Nombre de nœuds 4254
+5
+Nombre de nœuds 4254
+5
+Nombre de nœuds 4254
+6
+Nombre de nœuds 73206
+4
+Nombre de nœuds 221
+4
+Nombre de nœuds 221
+5
+Nombre de nœuds 1810
+5
+Nombre de nœuds 3704
+5
+Nombre de nœuds 3704
+5
+Nombre de nœuds 3704
+5
+Nombre de nœuds 3704
+6
+Nombre de nœuds 48082
+4
+Nombre de nœuds 1287
+4
+Nombre de nœuds 1287
+5
+Nombre de nœuds 11338
+4
+Nombre de nœuds 1443
+5
+Nombre de nœuds 25258
+5
+Nombre de nœuds 25258
+5
+Nombre de nœuds 25258
+5
+Nombre de nœuds 25258
+4
+Nombre de nœuds 1295
+4
+Nombre de nœuds 1295
+5
+Nombre de nœuds 11354
+4
+Nombre de nœuds 475
+4
+Nombre de nœuds 475
+5
+Nombre de nœuds 3574
+5
+Nombre de nœuds 12406
+5
+Nombre de nœuds 12406
+5
+Nombre de nœuds 12406
+5
+Nombre de nœuds 12406
+6
+Nombre de nœuds 223510
+4
+Nombre de nœuds 765
+4
+Nombre de nœuds 765
+5
+Nombre de nœuds 5834
+4
+Nombre de nœuds 823
+5
+Nombre de nœuds 13522
+5
+Nombre de nœuds 13522
+5
+Nombre de nœuds 13522
+5
+Nombre de nœuds 13522
+4
+Nombre de nœuds 675
+4
+Nombre de nœuds 675
+5
+Nombre de nœuds 6634
+4
+Nombre de nœuds 263
+4
+Nombre de nœuds 263
+5
+Nombre de nœuds 2062
+5
+Nombre de nœuds 6886
+5
+Nombre de nœuds 6886
+5
+Nombre de nœuds 6886
+5
+Nombre de nœuds 6886
+6
+Nombre de nœuds 123286
+4
+Nombre de nœuds 345
+4
+Nombre de nœuds 345
+5
+Nombre de nœuds 3130
+4
+Nombre de nœuds 691
+5
+Nombre de nœuds 10850
+5
+Nombre de nœuds 10850
+5
+Nombre de nœuds 10850
+5
+Nombre de nœuds 10850
+4
+Nombre de nœuds 233
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 4266
+5
+Nombre de nœuds 13695
+6
+Nombre de nœuds 109682
+6
+Nombre de nœuds 109682
+4
+Nombre de nœuds 413
+5
+Nombre de nœuds 5376
+5
+Nombre de nœuds 5376
+5
+Nombre de nœuds 5376
+5
+Nombre de nœuds 5376
+4
+Nombre de nœuds 259
+4
+Nombre de nœuds 259
+5
+Nombre de nœuds 2062
+5
+Nombre de nœuds 6862
+5
+Nombre de nœuds 6862
+5
+Nombre de nœuds 6862
+5
+Nombre de nœuds 6862
+6
+Nombre de nœuds 122662
+4
+Nombre de nœuds 337
+4
+Nombre de nœuds 337
+5
+Nombre de nœuds 3130
+5
+Nombre de nœuds 4230
+5
+Nombre de nœuds 4230
+5
+Nombre de nœuds 4230
+5
+Nombre de nœuds 4230
+6
+Nombre de nœuds 73014
+4
+Nombre de nœuds 225
+4
+Nombre de nœuds 225
+5
+Nombre de nœuds 1786
+5
+Nombre de nœuds 3652
+5
+Nombre de nœuds 3652
+5
+Nombre de nœuds 3652
+5
+Nombre de nœuds 3652
+6
+Nombre de nœuds 47922
+4
+Nombre de nœuds 437
+4
+Nombre de nœuds 227
+5
+Nombre de nœuds 5280
+5
+Nombre de nœuds 5280
+5
+Nombre de nœuds 10105
+6
+Nombre de nœuds 89586
+6
+Nombre de nœuds 89586
+4
+Nombre de nœuds 209
+4
+Nombre de nœuds 279
+5
+Nombre de nœuds 4570
+5
+Nombre de nœuds 4570
+5
+Nombre de nœuds 4570
+5
+Nombre de nœuds 4570
+4
+Nombre de nœuds 105
+5
+Nombre de nœuds 1850
+5
+Nombre de nœuds 1850
+5
+Nombre de nœuds 1850
+5
+Nombre de nœuds 1850
+5
+Nombre de nœuds 5411
+6
+Nombre de nœuds 45810
+6
+Nombre de nœuds 45810
+4
+Nombre de nœuds 165
+5
+Nombre de nœuds 2256
+5
+Nombre de nœuds 2256
+5
+Nombre de nœuds 2256
+5
+Nombre de nœuds 2256
+4
+Nombre de nœuds 179
+5
+Nombre de nœuds 4032
+5
+Nombre de nœuds 4032
+5
+Nombre de nœuds 6817
+6
+Nombre de nœuds 64242
+6
+Nombre de nœuds 64242
+4
+Nombre de nœuds 121
+5
+Nombre de nœuds 1464
+5
+Nombre de nœuds 1464
+5
+Nombre de nœuds 3457
+6
+Nombre de nœuds 26266
+6
+Nombre de nœuds 26266
+4
+Nombre de nœuds 137
+6
+Nombre de nœuds 80588
+6
+Nombre de nœuds 80588
+5
+Nombre de nœuds 2412
+5
+Nombre de nœuds 2412
+5
+Nombre de nœuds 4001
+6
+Nombre de nœuds 31482
+6
+Nombre de nœuds 31482
+4
+Nombre de nœuds 97
+5
+Nombre de nœuds 1822
+5
+Nombre de nœuds 1822
+5
+Nombre de nœuds 1822
+5
+Nombre de nœuds 1822
+5
+Nombre de nœuds 5399
+6
+Nombre de nœuds 45706
+6
+Nombre de nœuds 45706
+4
+Nombre de nœuds 173
+5
+Nombre de nœuds 2224
+5
+Nombre de nœuds 2224
+5
+Nombre de nœuds 2224
+5
+Nombre de nœuds 2224
+5
+Nombre de nœuds 4091
+6
+Nombre de nœuds 32178
+6
+Nombre de nœuds 32178
+4
+Nombre de nœuds 97
+5
+Nombre de nœuds 1636
+5
+Nombre de nœuds 1636
+5
+Nombre de nœuds 1636
+5
+Nombre de nœuds 1636
+5
+Nombre de nœuds 3329
+6
+Nombre de nœuds 22586
+6
+Nombre de nœuds 22586
+4
+Nombre de nœuds 179
+5
+Nombre de nœuds 3936
+5
+Nombre de nœuds 3936
+5
+Nombre de nœuds 6777
+6
+Nombre de nœuds 63058
+6
+Nombre de nœuds 63058
+4
+Nombre de nœuds 121
+5
+Nombre de nœuds 1424
+5
+Nombre de nœuds 1424
+5
+Nombre de nœuds 3385
+6
+Nombre de nœuds 25874
+6
+Nombre de nœuds 25874
+4
+Nombre de nœuds 133
+6
+Nombre de nœuds 78116
+6
+Nombre de nœuds 78116
+5
+Nombre de nœuds 2316
+5
+Nombre de nœuds 2316
+5
+Nombre de nœuds 3881
+6
+Nombre de nœuds 30458
+6
+Nombre de nœuds 30458
+4
+Nombre de nœuds 97
+5
+Nombre de nœuds 1806
+5
+Nombre de nœuds 1806
+5
+Nombre de nœuds 1806
+5
+Nombre de nœuds 1806
+5
+Nombre de nœuds 5319
+6
+Nombre de nœuds 45010
+6
+Nombre de nœuds 45010
+4
+Nombre de nœuds 165
+5
+Nombre de nœuds 2160
+5
+Nombre de nœuds 2160
+5
+Nombre de nœuds 2160
+5
+Nombre de nœuds 2160
+5
+Nombre de nœuds 3971
+6
+Nombre de nœuds 31794
+6
+Nombre de nœuds 31794
+4
+Nombre de nœuds 93
+5
+Nombre de nœuds 1596
+5
+Nombre de nœuds 1596
+5
+Nombre de nœuds 1596
+5
+Nombre de nœuds 1596
+5
+Nombre de nœuds 2993
+6
+Nombre de nœuds 21842
+6
+Nombre de nœuds 21842
+5
+Nombre de nœuds 700
+5
+Nombre de nœuds 700
+5
+Nombre de nœuds 1505
+6
+Nombre de nœuds 12682
+6
+Nombre de nœuds 12682
+4
+Nombre de nœuds 49
+6
+Nombre de nœuds 33580
+6
+Nombre de nœuds 33580
+5
+Nombre de nœuds 972
+5
+Nombre de nœuds 972
+5
+Nombre de nœuds 1545
+6
+Nombre de nœuds 13226
+6
+Nombre de nœuds 13226
+6
+Nombre de nœuds 28052
+6
+Nombre de nœuds 28052
+5
+Nombre de nœuds 700
+5
+Nombre de nœuds 700
+5
+Nombre de nœuds 1449
+6
+Nombre de nœuds 11130
+6
+Nombre de nœuds 11130
+6
+Nombre de nœuds 16352
+6
+Nombre de nœuds 16352
+5
+Nombre de nœuds 3955
+6
+Nombre de nœuds 31762
+6
+Nombre de nœuds 31762
+4
+Nombre de nœuds 93
+5
+Nombre de nœuds 1592
+5
+Nombre de nœuds 1592
+5
+Nombre de nœuds 1592
+5
+Nombre de nœuds 1592
+5
+Nombre de nœuds 3009
+6
+Nombre de nœuds 21834
+6
+Nombre de nœuds 21834
+5
+Nombre de nœuds 3041
+6
+Nombre de nœuds 21706
+6
+Nombre de nœuds 21706
+0
+Nombre de nœuds 1
+
+
+=========== 5×4 ==========

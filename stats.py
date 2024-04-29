@@ -43,12 +43,45 @@ def liste_n(l):
 l_n=[]
 
 stats=[[],[],[]]
-for c in dico_taille:
-    l_n.append(c)
-    liste_nsol=liste_n(dico_taille[c])
+for taille in dico_taille:
+    l_n.append(taille)
+    liste_nsol=liste_n(dico_taille[taille])
     m=np.mean(liste_nsol)
     e=np.std(liste_nsol)
     stats[0].append(m)
     stats[1].append(e)
     stats[2].append(len(liste_nsol))
-plt.plot(l_n,np.log(stats[0]))
+
+#%% affichage
+plt.figure(dpi=200)
+plt.plot(l_n,stats[0])
+plt.xlabel("Taille de la liste")
+plt.ylabel("Nombre moyen de solutions")
+plt.yscale('log')
+
+#%% retirer les 0
+def remove_zeros(L):
+    l=[]
+    for elt in L:
+        if not elt==0:
+            l.append(elt)
+    return l
+
+dico_taille2={}
+for c in dico_taille:
+    dico_taille2[c]=remove_zeros(dico_taille[c])
+l_n=[]
+stats2=[]
+for taille in dico_taille2:
+    l_n.append(taille)
+    liste_nsol=liste_n(dico_taille2[taille])
+    m=np.mean(liste_nsol)
+    e=np.std(liste_nsol)
+    stats2.append(m)
+
+plt.figure(dpi=200)
+plt.plot(l_n, stats2,'+')
+plt.plot(l_n,stats2)
+plt.xlabel("Taille de la liste")
+plt.ylabel("Nombre moyen de solutions")
+plt.yscale('log')

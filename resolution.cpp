@@ -1,12 +1,13 @@
 #include <iostream>
 #include <list>
-#include "retour_sur_trace_recurrence.hpp"
+#include "headers/retour_sur_trace_recurrence.hpp"
+#include "headers/lecture.hpp"
 
 std::string entree;
 bool keep_going=true;
 char choix;
 
-int count_lines(std::fstream);
+
 
 int main()
 {
@@ -27,8 +28,3 @@ int main()
   }
     return 0;
 }
-
-int count_lines(std::fstream file){
-    file.open()
-}
-

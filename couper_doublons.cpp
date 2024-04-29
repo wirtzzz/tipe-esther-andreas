@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <map>
-#include "lecture.hpp"
+#include "headers/lecture.hpp"
 
 std::string list_to_str (std::list<Katamino>);
 
