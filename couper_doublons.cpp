@@ -26,7 +26,6 @@ int main(){
   file.open (path, std::ios::out);
 
   for (auto elt : dico){
-std::cout << "bite";
     ligne = elt.first;
     file << ligne;
   }

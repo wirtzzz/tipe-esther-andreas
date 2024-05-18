@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-file = open("/home/apauper/Documents/MPSI1/Informatique/TIPE Esther Andreas/tipe-esther-andreas/resultats.txt", 'r')
+file = open("/home/apauper/Documents/MPSI1/Informatique/TIPE Esther Andreas/tipe-esther-andreas/resultats/nœuds.txt", 'r')
 n_solu=[]
 
 def str_to_list(s):
@@ -16,9 +16,10 @@ def f_to_list(f):
     L=file.readlines()
     l=[]  
     for i in range(len(L)):
-        if L[i][0]=='[':
-            n=L[i+1][20:-1]
-            l.append((int(n),str_to_list(L[i])))
+        if L[i][0]=='N':
+            n=int(L[i-1])
+            nœuds=int(L[i][16:])
+            l.append((n,nœuds))
     return l
 
 n_solu=f_to_list(file)
@@ -28,37 +29,36 @@ file.close()
 #%% traitement
 dico_taille={}
 for elt in n_solu:
-    n=len(elt[1])
+    n=elt[0]
     if n not in dico_taille:
-        dico_taille[n]=[elt]
+        dico_taille[n]=[elt[1]]
     else:
-        dico_taille[n].append(elt)
+        dico_taille[n].append(elt[1])
 def liste_n(l):
     s=[]
     n=len(l)
     for i in range(n):
         s.append(l[i][0])
     return s
-
+del dico_taille[0]
 l_n=[]
+m_n=[]
 
-stats=[[],[],[]]
 for taille in dico_taille:
     l_n.append(taille)
-    liste_nsol=liste_n(dico_taille[taille])
-    m=np.mean(liste_nsol)
-    e=np.std(liste_nsol)
-    stats[0].append(m)
-    stats[1].append(e)
-    stats[2].append(len(liste_nsol))
+    m_n.append(np.mean(dico_taille[taille]))
+
 
 #%% affichage
 plt.figure(dpi=200)
-plt.plot(l_n,stats[0])
+plt.plot(l_n,m_n, '+')
 plt.xlabel("Taille de la liste")
-plt.ylabel("Nombre moyen de solutions")
+plt.ylabel("Nombre moyen de nœuds")
 plt.yscale('log')
 
+
+#%%
+a,b=np.polyfit(l_n, np.log(m_n), 1)
 #%% retirer les 0
 def remove_zeros(L):
     l=[]

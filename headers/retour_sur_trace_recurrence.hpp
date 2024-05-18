@@ -15,11 +15,42 @@ struct Place{ //utilisé pour premiereSolutionIteratif()
 
 //FONCTIONS
 
-
 void afficher_solutions(std::list<Plateau> Solu){
     for (Plateau p : Solu){
         p.affiche();
     }
+}
+
+// fonction déterminant la plus grande longueur vide dans le plateau
+// complexité en O(format[0]*format[1]), là où la recherche de tous les coups dans coups possible est en O(format[1]*format[2]*k.aire)
+int l_max(Plateau plateau){
+    int max=0;
+    int ch;
+    for (int i=0; i<plateau.format[0]; i++){
+    	ch=0;
+    	for (int j=0; j<plateau.format[1]; j++){
+	    if (plateau.shape[i][j] == 0){
+	    	ch++;
+	    	if (ch>max)
+	    	   max=ch;
+	    }
+	    else
+		ch=0;
+    	}
+    }
+    for (int i=0; i<plateau.format[1]; i++){
+    	ch=0;
+    	for (int j=0; j<plateau.format[0]; j++){
+	    if (plateau.shape[j][i] == 0){
+		ch++;
+		if (ch>max)
+		   max=ch;
+	    }
+	    else
+	        ch=0;
+    	}
+    }
+    return max;
 }
 
 //fonction calculant les différents coups possibles à partir d'un plateau et katamino donnés
@@ -29,7 +60,7 @@ std::pair<std::list<Plateau>, int> coups_possibles(Katamino k, Plateau p, int n)
     int r=0, s=0, s_max=0;  //fonction
     Plateau np=Plateau(p.format);
     std::list<Plateau> coups={};
-    if (n-katamino.aire<0)
+    if (n-katamino.aire<0 || l_max(p)<katamino.max_length) //critère permettant d'éliminer rapidement certains calculs
         {
         return std::make_pair(coups,0);
         }

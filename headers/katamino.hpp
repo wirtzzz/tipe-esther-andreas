@@ -23,7 +23,8 @@ class Katamino{
     int aire;
     int format[2]; //format correspond au format du katamino, par exemple 2×4 pour L5
     int color;
-    Katamino(int s[4][4],bool symmetric, int max, int f[2], int a, int c, int x_coord=0, int y_coord=0){
+    int max_length;
+    Katamino(int s[4][4],bool symmetric, int max, int f[2], int a, int c, int max_l, int x_coord=0, int y_coord=0){
       for (int i = 0; i<4; i++){
         for (int j=0; j<4; j++){
           shape[i][j]=s[i][j];
@@ -35,6 +36,7 @@ class Katamino{
       max_rot=max;
       aire=a;
       color=c;
+      max_length=max_l;
       x=x_coord;
       y=y_coord;
     }
@@ -140,66 +142,66 @@ class Plateau{
 
 int L5s[4][4]={{1,1,0,0}, {1,0,0,0},{1,0,0,0},{1,0,0,0}};
 int L5f[2]={4,2};
-Katamino L5=Katamino(L5s, false, 4, L5f,5, 40);
+Katamino L5=Katamino(L5s, false, 4, L5f,5, 40, 4);
 
 int L4s[4][4]={{2,2,0,0}, {2,0,0,0},{2,0,0,0},{0,0,0,0}};
 int L4f[2]={3,2};
-Katamino L4=Katamino(L4s, false, 4, L4f,4, 41);
+Katamino L4=Katamino(L4s, false, 4, L4f,4, 41, 3);
 
 int V3s[4][4]={{3,3,0,0},{3,0,0,0},{0,0,0,0},{0,0,0,0}};
 int V3f[2]={2,2};
-Katamino V3=Katamino(V3s, true, 4, V3f,3, 42);
+Katamino V3=Katamino(V3s, true, 4, V3f,3, 42, 2);
 
 int V5s[4][4]={{4,4,4,0},{4,0,0,0},{4,0,0,0},{0,0,0,0}};
 int V5f[2]={3,3};
-Katamino V5=Katamino(V5s, true, 4, V5f,5,43);
+Katamino V5=Katamino(V5s, true, 4, V5f,5, 43, 3);
 
 int T5s[4][4]={{5,0,0,0},{5,5,0,0},{5,0,0,0},{5,0,0,0}};
 int T5f[2]={4,2};
-Katamino T5=Katamino(T5s, false, 4, T5f,5,44);
+Katamino T5=Katamino(T5s, false, 4, T5f, 5, 44, 4);
 
 int T4s[4][4]={{6,0,0,0},{6,6,0,0},{6,0,0,0},{0,0,0,0}};
 int T4f[2]={3,2};
-Katamino T4=Katamino(T4s, true, 4, T4f,4,45);
+Katamino T4=Katamino(T4s, true, 4, T4f,4,45,3);
 
 int E5s[4][4]={{7,0,0,0},{7,7,0,0},{0,7,0,0},{0,7,0,0}};
 int E5f[2]={4,2};
-Katamino E5=Katamino(E5s, false, 4, E5f,5,46);
+Katamino E5=Katamino(E5s, false, 4, E5f,5,46,3);
 
 int E4s[4][4]={{8,0,0,0},{8,8,0,0},{0,8,0,0},{0,0,0,0}};
 int E4f[2]={3,2};
-Katamino E4=Katamino(E4s, false, 2, E4f,4,47);
+Katamino E4=Katamino(E4s, false, 2, E4f,4,47,2);
 
 int P5s[4][4]={{9,9,0,0},{9,9,0,0},{9,0,0,0},{0,0,0,0}};
 int P5f[2]={3,2};
-Katamino P5=Katamino(P5s,  false, 4, P5f,5,100);
+Katamino P5=Katamino(P5s,  false, 4, P5f,5,100,3);
 
 int C5s[4][4]={{15,15,0,0},{15,0,0,0},{15,15,0,0},{0,0,0,0}};
 int C5f[2]={3,2};
-Katamino C5=Katamino(C5s, true, 4, C5f,5,101);
+Katamino C5=Katamino(C5s, true, 4, C5f,5,101,3);
 
 int Z5s[4][4]={{16,0,0,0},{16,16,16,0},{0,0,16,0},{0,0,0,0}};
 int Z5f[2]={3,3};
-Katamino Z5=Katamino(Z5s, false, 2, Z5f,5,102);
+Katamino Z5=Katamino(Z5s, false, 2, Z5f,5,102,3);
 
 int C4s[4][4]={{10,10,0,0},{10,10,0,0},{0,0,0,0},{0,0,0,0}};
 int C4f[2]={2,2};
-Katamino C4=Katamino(C4s, true, 1, C4f,4,103);
+Katamino C4=Katamino(C4s, true, 1, C4f,4,103,2);
 
 int P1s[4][4]={{11,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
 int P1f[2]={1,1};
-Katamino P1=Katamino(P1s, true, 1, P1f,1,104);
+Katamino P1=Katamino(P1s, true, 1, P1f,1,104,1);
 
 int I2s[4][4]={{12,12,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
 int I2f[2]={1,2};
-Katamino I2= Katamino(I2s, true, 2, I2f,2,105);
+Katamino I2= Katamino(I2s, true, 2, I2f,2,105,2);
 
 int I3s[4][4]={{13,13,13,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
 int I3f[2]={1,3};
-Katamino I3=Katamino(I3s, true, 2, I3f,3,106);
+Katamino I3=Katamino(I3s, true, 2, I3f,3,106,3);
 
 int I4s[4][4]={{14,14,14,14},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
 int I4f[2]={1,4};
-Katamino I4=Katamino(I4s, true, 2, I4f,4,107);
+Katamino I4=Katamino(I4s, true, 2, I4f,4,107,4);
 
 #endif /* KATAMINO_HPP */

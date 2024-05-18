@@ -38,6 +38,7 @@ std::list<Plateau> calcul_solutions_stoppable(std::list<Katamino> LK, Plateau p,
 }
 
 std::list<Katamino> melange(std::list<Katamino> LK){ // problème avec mélange
+  srand(time(NULL));
   std::list<Katamino> unpile={}, l={};
   int n=size(LK), i=0, ind;
   while(n>0) {
@@ -60,11 +61,9 @@ std::list<Katamino> melange(std::list<Katamino> LK){ // problème avec mélange
 }
 
 void calcul(std::list<Plateau> *solutions,std::list<Katamino> LK, Plateau p, int N, bool *quit_flag){
-  srand(time(NULL));
   std::list<Plateau> temp=calcul_solutions_stoppable(LK, p, N, quit_flag);
   if (!*quit_flag)
     {
-    	std::cout << "résolu" << std::endl;
     	*quit_flag = true;
     	*solutions = temp;
     }
@@ -85,5 +84,6 @@ std::list<Plateau> resolution_aleatoire (std::list<Katamino> LK, Plateau p, int 
 
   return plateaux;
 }
+
 
 #endif /* RESOLUTION_ALEATOIRE_H */

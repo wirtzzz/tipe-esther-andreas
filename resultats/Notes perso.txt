@@ -1,2 +1,8 @@
 Pour Listes20.txt :
-Calcul effectué avec tests_aleatoires en 1716 secondes
+Calcul effectué avec tests_aleatoires en 1716 secondes ~30min
+tests_auto pas arrivé au milieu des calculs pendant la même durée (524/1880 listes de kataminos)
+tests_auto a pris 21813 secondes ~ 6 HEURES
+
+Plus rapide ou pas avec critère ?
+
+Dans les tests auto, implémenter une fonction "reprise où l'on s'est arrêté"
